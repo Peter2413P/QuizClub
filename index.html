@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIT Quiz Club - Coimbatore Institute of Technology</title>
+    <title>Quiz Club CIT - Coimbatore Institute of Technology</title>
+ <link rel="icon" type="image/png" href="image/logoic.png">
     <style>
         * {
             margin: 0;
@@ -12,158 +13,150 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
         }
 
-        .container {
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(139, 69, 119, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(139, 69, 119, 0.3);
-        }
-
-        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 0 2rem;
         }
 
         .logo {
-            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
             font-weight: bold;
-            color: #fff;
-            text-decoration: none;
-            cursor: pointer;
+            color: #a855a0;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #a855a0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
         .nav-links {
             display: flex;
-            list-style: none;
             gap: 2rem;
+            list-style: none;
         }
 
         .nav-links a {
-            color: #fff;
             text-decoration: none;
+            color: #333;
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            transition: color 0.3s ease;
             cursor: pointer;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
+            color: #a855a0;
         }
 
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: #fff;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Page Container */
+        /* Pages */
         .page {
             display: none;
-            padding-top: 80px;
-            min-height: calc(100vh - 80px);
+            padding-top: 100px;
+            min-height: 100vh;
         }
 
         .page.active {
             display: block;
         }
 
-        /* Common Styles */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         .section {
-            padding: 80px 0;
-            color: #fff;
+            padding: 3rem 0;
         }
 
-        .section h1,
-        .section h2 {
+        h1 {
             text-align: center;
-            margin-bottom: 3rem;
-            color: #a855a0;
-            position: relative;
-        }
-
-        .section h1 {
+            color: white;
             font-size: 3rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .section h2 {
-            font-size: 2.5rem;
-        }
-
-        .section h1::after,
-        .section h2::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #8b4577, #a855a0);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        /* HOME PAGE STYLES */
-        .hero {
-            background: linear-gradient(135deg, #8b4577 0%, #a855a0 100%);
-            padding: 150px 0 80px;
+        h2 {
+            color: white;
+            font-size: 2rem;
+            margin: 3rem 0 2rem;
             text-align: center;
-            color: #fff;
-            position: relative;
-            overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        /* Home Page Styles */
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            color: white;
         }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+#lg{width:50px;
+height:50px;
+border-radius: 50px;
+}
+        .cit-logo {
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex; 
+            top: 30px;
+            
+            font-size: 3rem;
+          
+         
         }
-
+     #insta{width:45px;
+    height: 45px;}
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
+#linked{width:35px;
+    height: 35px;}
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
         .hero p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
@@ -171,46 +164,43 @@
         }
 
         .cta-button {
-            background: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            padding: 15px 40px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: linear-gradient(45deg, #a855a0, #d946ef);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
             border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-            backdrop-filter: blur(10px);
+            font-weight: bold;
             cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .cta-button:hover {
-            background: rgba(255, 255, 255, 0.3);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(168, 85, 160, 0.4);
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
+            margin-top: 4rem;
         }
 
         .feature-card {
-            background: rgba(139, 69, 119, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(139, 69, 119, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
             text-align: center;
-            transition: all 0.3s ease;
+            color: white;
+            transition: transform 0.3s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(139, 69, 119, 0.3);
+            transform: translateY(-10px);
         }
 
         .feature-icon {
@@ -218,7 +208,16 @@
             margin-bottom: 1rem;
         }
 
-        /* EVENTS PAGE STYLES */
+        /* Events Page Styles */
+        .events-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: white;
+        }
+
         .events-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -227,886 +226,912 @@
         }
 
         .event-card {
-            background: rgba(139, 69, 119, 0.1);
-            padding: 2rem;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 15px;
-            border: 1px solid rgba(139, 69, 119, 0.2);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
         }
 
         .event-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(139, 69, 119, 0.3);
         }
 
-        .event-date {
-            background: #8b4577;
-            color: #fff;
-            padding: 0.5rem 1rem;
+        .event-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        /* Gallery Carousel Styles */
+        .carousel-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 1rem;
+            padding: 2rem;
+            margin: 3rem 0;
+            position: relative;
         }
 
-        .event-card h3 {
-            color: #a855a0;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+        .carousel-title {
+            color: white;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
         }
 
-        .event-status {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
+        .carousel {
+            position: relative;
+            overflow: hidden;
             border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-top: 1rem;
         }
 
-        .status-upcoming {
-            background: rgba(34, 197, 94, 0.2);
-            color: #22c55e;
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
         }
 
-        .status-ongoing {
-            background: rgba(249, 115, 22, 0.2);
-            color: #f97316;
-        }
-
-        .status-completed {
-            background: rgba(107, 114, 128, 0.2);
-            color: #6b7280;
-        }
-
-        /* GALLERY STYLES */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .gallery-item {
-            background: rgba(139, 69, 119, 0.1);
+        .carousel-slide {
+            min-width: 100%;
+            display: flex;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             overflow: hidden;
-            border: 1px solid rgba(139, 69, 119, 0.2);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            cursor: pointer;
         }
 
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(139, 69, 119, 0.3);
-        }
-
-        .gallery-image {
-            width: 100%;
+        .carousel-image {
+            width: 200px;
             height: 200px;
-            background: linear-gradient(135deg, #8b4577, #a855a0);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: #fff;
+            font-size: 4rem;
+            background: linear-gradient(45deg, #a855a0, #d946ef);
         }
 
-        .gallery-caption {
-            padding: 1.5rem;
-        }
-
-        .gallery-caption h3 {
-            color: #a855a0;
-            margin-bottom: 0.5rem;
-        }
-
-        .gallery-caption p {
-            color: #ccc;
-            font-size: 0.9rem;
-        }
-
-        /* ABOUT US STYLES */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-bottom: 4rem;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .stat-card {
-            background: rgba(139, 69, 119, 0.1);
+        .carousel-content {
+            flex: 1;
             padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            border: 1px solid rgba(139, 69, 119, 0.2);
-            backdrop-filter: blur(10px);
+            color: #333;
         }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
+        .carousel-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
             color: #a855a0;
-            display: block;
         }
 
-        .stat-label {
-            font-size: 0.9rem;
-            color: #ccc;
-            margin-top: 0.5rem;
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(168, 85, 160, 0.8);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
-        .team-grid {
+        .carousel-nav:hover {
+            background: rgba(168, 85, 160, 1);
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-indicator.active {
+            background: white;
+        }
+
+        /* Members Page Styles */
+        .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .team-member {
-            text-align: center;
-            background: rgba(139, 69, 119, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(139, 69, 119, 0.2);
+        .member-card {
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .team-member:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(139, 69, 119, 0.3);
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
         .member-photo {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #8b4577, #a855a0);
             margin: 0 auto 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            color: #fff;
             font-weight: bold;
+            color: white;
         }
+        .member-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--highlight);
+    margin: 0 auto 1rem;
+    transition: transform 0.3s ease;
+}
+
+.member-image:hover {
+    transform: scale(1.1);
+}
 
         .member-name {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            color: #a855a0;
             margin-bottom: 0.5rem;
         }
 
-        .member-role {
-            color: #ccc;
-            font-size: 0.9rem;
+        .member-position {
+            font-size: 1rem;
+            color: #ffd700;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
-        /* SOCIAL PAGE STYLES */
-        .social-grid {
+        .member-department {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Contact Page Styles */
+        .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .social-card {
-            background: rgba(139, 69, 119, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(139, 69, 119, 0.2);
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            padding: 2rem;
+            color: white;
             text-align: center;
         }
 
-        .social-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(139, 69, 119, 0.3);
-        }
-
-        .social-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .social-card h3 {
-            color: #a855a0;
+        .contact-icon {
+            font-size: 3rem;
             margin-bottom: 1rem;
         }
 
-        .social-link {
-            background: linear-gradient(135deg, #8b4577, #a855a0);
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: inline-block;
-            margin-top: 1rem;
-        }
-
-        .social-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 69, 119, 0.4);
-        }
-
-        /* CALENDAR STYLES */
-        .calendar-container {
-            background: rgba(139, 69, 119, 0.1);
-            border-radius: 15px;
-            padding: 2rem;
-            border: 1px solid rgba(139, 69, 119, 0.2);
+        /* About Page Styles */
+        .about-content {
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            margin-top: 2rem;
+            border-radius: 20px;
+            padding: 3rem;
+            color: white;
+            margin: 2rem 0;
         }
 
-        .calendar-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .calendar-nav {
-            background: #8b4577;
-            color: #fff;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s ease;
-        }
-
-        .calendar-nav:hover {
-            background: #a855a0;
-        }
-
-        .calendar-month {
+        .about-content h3 {
+            color: #ffd700;
+            margin-bottom: 1rem;
             font-size: 1.5rem;
-            font-weight: bold;
-            color: #a855a0;
-            flex-grow: 1;
-            text-align: center;
         }
 
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 1px;
-            background: rgba(139, 69, 119, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
 
-        .calendar-day {
-            background: rgba(139, 69, 119, 0.05);
-            padding: 1rem;
-            text-align: center;
-            color: #fff;
-            min-height: 80px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-        }
-
-        .calendar-day.header {
-            background: #8b4577;
-            font-weight: bold;
-            min-height: 40px;
-            justify-content: center;
-        }
-
-        .calendar-day.event {
-            background: rgba(168, 85, 160, 0.3);
-        }
-
-        .event-dot {
-            width: 8px;
-            height: 8px;
-            background: #a855a0;
+        /* Go to Top Button */
+        .goto-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #a855a0, #d946ef);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            margin-top: 5px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
         }
 
-        .upcoming-events {
-            margin-top: 3rem;
+        .goto-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .upcoming-events h3 {
-            color: #a855a0;
-            margin-bottom: 1rem;
-        }
-
-        .upcoming-event {
-            background: rgba(139, 69, 119, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            border-left: 4px solid #a855a0;
+        .goto-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(168, 85, 160, 0.4);
         }
 
         /* Footer */
-        footer {
-            background: rgba(139, 69, 119, 0.95);
-            color: #fff;
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
             text-align: center;
             padding: 2rem 0;
-            backdrop-filter: blur(10px);
-            margin-top: auto;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
+            margin-top: 3rem;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
         }
 
-        .social-links a {
-            color: #fff;
-            font-size: 1.5rem;
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: white;
             text-decoration: none;
-            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
         }
 
-        .social-links a:hover {
+        .social-link:hover {
             color: #a855a0;
-            transform: scale(1.2);
         }
 
-        /* Mobile Responsive */
+        .social-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: rgba(139, 69, 119, 0.95);
+                gap: 1rem;
+            }
+
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-slide {
                 flex-direction: column;
-                padding: 1rem 0;
-                backdrop-filter: blur(10px);
             }
 
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu {
-                display: flex;
+            .carousel-image {
+                width: 100%;
+                height: 150px;
             }
 
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-stats {
-                grid-template-columns: 1fr;
-            }
-
-            .section h1 {
-                font-size: 2.5rem;
-            }
-
-            .section h2 {
-                font-size: 2rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            .calendar-day {
-                min-height: 60px;
-                padding: 0.5rem;
-                font-size: 0.9rem;
-            }
-
-            .calendar-header {
+            .nav-container {
                 flex-direction: column;
                 gap: 1rem;
             }
         }
 
         @media (max-width: 480px) {
-            .hero {
-                padding: 120px 0 60px;
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
             }
 
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .events-grid,
-            .gallery-grid,
-            .social-grid,
-            .team-grid {
-                grid-template-columns: 1fr;
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <a class="logo" onclick="showPage('home')">CIT Quiz Club</a>
-            <ul class="nav-links" id="navLinks">
-                <li><a onclick="showPage('home')" class="nav-item active">Home</a></li>
-                <li><a onclick="showPage('events')" class="nav-item">Events</a></li>
-                <li><a onclick="showPage('gallery')" class="nav-item">Gallery</a></li>
-                <li><a onclick="showPage('about')" class="nav-item">About Us</a></li>
-                <li><a onclick="showPage('social')" class="nav-item">Social</a></li>
-                <li><a onclick="showPage('calendar')" class="nav-item">Calendar</a></li>
-            </ul>
-            <div class="mobile-menu" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img id="lg" src="image/whitef.png" alt="Quiz Club Logo" class="logo">
+                <span>Quiz Club CIT</span>
             </div>
-        </nav>
-    </header>
-
-    <main>
-        <!-- HOME PAGE -->
-        <div id="home" class="page active">
-            <section class="hero">
-                <div class="container">
-                    <div class="hero-content">
-                        <h1>CIT Quiz Club</h1>
-                        <p>Coimbatore Institute of Technology's Premier Quiz Community</p>
-                        <a class="cta-button" onclick="showPage('events')">Discover Events</a>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section">
-                <div class="container">
-                    <h2>Why Join Us?</h2>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-icon">🧠</div>
-                            <h3>Intellectual Growth</h3>
-                            <p>Expand your knowledge across diverse topics and challenge your mind with engaging quizzes and trivia.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">🏆</div>
-                            <h3>Competitive Spirit</h3>
-                            <p>Participate in thrilling competitions and represent CIT in inter-college quiz battles.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">👥</div>
-                            <h3>Community</h3>
-                            <p>Connect with like-minded students who share your passion for learning and knowledge.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">📚</div>
-                            <h3>Skill Development</h3>
-                            <p>Improve your critical thinking, quick recall, and public speaking abilities through regular practice.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showPage('home')" class="nav-link active">Home</a></li>
+                <li><a href="#" onclick="showPage('about')" class="nav-link">About</a></li>
+                <li><a href="#" onclick="showPage('events')" class="nav-link">Events</a></li>
+                <li><a href="#" onclick="showPage('gallery')" class="nav-link">Gallery</a></li>
+                <li><a href="#" onclick="showPage('members')" class="nav-link">Members</a></li>
+                <li><a href="#" onclick="showPage('contact')" class="nav-link">Contact</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <!-- EVENTS PAGE -->
-        <div id="events" class="page">
-            <section class="section">
-                <div class="container">
-                    <h1>Our Events</h1>
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="container">
+                <div class="cit-logo"><img class="cit-logo" src="image/citlogo.png" alt="Quiz Club Logo" class="logo"></div>
+                <h1>Quiz Club CIT</h1>
+                <p>Coimbatore Institute of Technology's Premier Quiz Club</p>
+                <p>Igniting minds through knowledge, fostering curiosity, and building champions</p>
+                <a href="#" onclick="showPage('about')" class="cta-button">Join Our Journey</a>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3>Championship Winners</h3>
+                        <p>Multiple inter-college competition victories and state-level recognitions</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎓</div>
+                        <h3>Knowledge Excellence</h3>
+                        <p>Comprehensive training programs covering diverse academic and general knowledge domains</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Team Spirit</h3>
+                        <p>Building lifelong friendships and collaborative learning experiences</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section class="section">
+            <div class="container">
+                <h1>About Quiz Club CIT</h1>
+                
+                <div class="about-content">
+                    <h3>Our Mission</h3>
+                    <p>The Quiz Club at Coimbatore Institute of Technology stands as a beacon of intellectual curiosity and academic excellence. We are dedicated to fostering a culture of learning that transcends traditional classroom boundaries, encouraging students to explore diverse fields of knowledge and develop critical thinking skills that will serve them throughout their careers.</p>
+                    
+                    <h3>What We Do</h3>
+                    <p>Our club organizes a comprehensive range of activities designed to challenge and inspire our members. From weekly practice sessions that cover everything from current affairs to classical literature, to intensive workshops on quiz mastering techniques, we provide a platform for continuous learning and growth. We regularly participate in inter-college competitions, host our own quiz events, and maintain strong connections with the broader quizzing community.</p>
+                    
+                    <h3>Our Values</h3>
+                    <p>We believe in the power of collaborative learning, where every member contributes to the collective knowledge pool. Our approach emphasizes not just winning competitions, but building well-rounded individuals who appreciate the joy of learning. We celebrate diversity of thought, encourage healthy competition, and maintain the highest standards of sportsmanship in all our endeavors.</p>
+                    
+                    <h3>Join Us</h3>
+                    <p>Whether you're a seasoned quizzer or someone just beginning to explore the world of knowledge competitions, our club welcomes all enthusiastic learners. We provide mentorship, training, and numerous opportunities to showcase your skills while building lasting friendships with like-minded individuals.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- EVENTS PAGE -->
+    <div id="events" class="page">
+        <section class="section">
+            <div class="container">
+                <h1>Our Events</h1>
+                
+                <!-- Collaborative Events Section -->
+                <div class="events-section">
+                    <h2 style="text-align: left; margin-top: 0;">Collaborative Events</h2>
                     <div class="events-grid">
                         <div class="event-card">
-                            <span class="event-date">September 15, 2025</span>
-                            <h3>Tech Trivia Championship</h3>
-                            <p>Test your knowledge in technology, programming, and digital innovations. Open to all students with exciting prizes for winners! Topics include AI, Machine Learning, Web Development, and emerging technologies.</p>
-                            <span class="event-status status-upcoming">Upcoming</span>
+                            <div class="event-icon">🤝</div>
+                            <h3>Inter-College Quiz Festival</h3>
+                            <p>Annual mega event bringing together quiz enthusiasts from colleges across Tamil Nadu. Features multiple rounds, diverse categories, and exciting prizes. A platform for networking and knowledge exchange.</p>
                         </div>
                         <div class="event-card">
-                            <span class="event-date">October 2, 2025</span>
-                            <h3>General Knowledge Bonanza</h3>
-                            <p>A comprehensive quiz covering current affairs, history, geography, and general awareness. Perfect for quiz beginners and seasoned participants alike!</p>
-                            <span class="event-status status-upcoming">Upcoming</span>
+                            <div class="event-icon">🌐</div>
+                            <h3>Regional Quiz Championship</h3>
+                            <p>Collaborative event with other engineering colleges in the region. Teams compete in technical, general knowledge, and specialized rounds. Promotes healthy inter-institutional competition.</p>
                         </div>
                         <div class="event-card">
-                            <span class="event-date">October 20, 2025</span>
-                            <h3>Inter-College Quiz Battle</h3>
-                            <p>CIT's annual flagship quiz competition bringing together the best minds from colleges across Tamil Nadu. A prestigious event with attractive prizes and certificates.</p>
-                            <span class="event-status status-upcoming">Upcoming</span>
+                            <div class="event-icon">🎪</div>
+                            <h3>Cultural Quiz Carnival</h3>
+                            <p>Joint event with cultural clubs focusing on arts, literature, cinema, and music. Celebrates diverse cultural knowledge and artistic appreciation among students.</p>
                         </div>
                         <div class="event-card">
-                            <span class="event-date">November 8, 2025</span>
-                            <h3>Science & Innovation Quiz</h3>
-                            <p>Dive deep into scientific discoveries, innovations, and breakthrough research. Ideal for science enthusiasts and those interested in cutting-edge developments.</p>
-                            <span class="event-status status-upcoming">Upcoming</span>
+                            <div class="event-icon">🔬</div>
+                            <h3>Science & Technology Symposium</h3>
+                            <p>Collaborative technical quiz event with engineering societies. Covers cutting-edge technology, scientific innovations, and engineering marvels. Encourages technical excellence.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Club-Only Events Section -->
+                <div class="events-section">
+                    <h2 style="text-align: left; margin-top: 0;">Our Exclusive Events</h2>
+                    <div class="events-grid">
+                        <div class="event-card">
+                            <div class="event-icon">🎯</div>
+                            <h3>CIT Quiz Championship</h3>
+                            <p>Our flagship annual event exclusively for CIT students. Multiple categories including technical, general knowledge, sports, and entertainment. Showcases the best quizzing talent within our institute.</p>
                         </div>
                         <div class="event-card">
-                            <span class="event-date">August 25, 2025</span>
-                            <h3>Freshers' Welcome Quiz</h3>
-                            <p>A special introductory quiz event for new students to get familiar with our club culture and activities. Light-hearted questions with fun prizes.</p>
-                            <span class="event-status status-completed">Completed</span>
+                            <div class="event-icon">🌟</div>
+                            <h3>Freshers' Quiz Battle</h3>
+                            <p>Special orientation event for new students. Fun, engaging quiz activities designed to welcome freshers and introduce them to the exciting world of competitive quizzing.</p>
                         </div>
                         <div class="event-card">
-                            <span class="event-date">July 30, 2025</span>
-                            <h3>Literature & Arts Quiz</h3>
-                            <p>Celebrating the world of literature, arts, music, and culture. A perfect blend of classic and contemporary questions for cultural enthusiasts.</p>
-                            <span class="event-status status-completed">Completed</span>
+                            <div class="event-icon">🧠</div>
+                            <h3>Brain Teaser Sessions</h3>
+                            <p>Weekly internal quiz sessions for club members. Rotating themes cover everything from history and geography to science and current affairs. Perfect for skill development and practice.</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">🏅</div>
+                            <h3>Annual Awards Night</h3>
+                            <p>Celebration of our club's achievements and outstanding members. Recognition ceremony honoring top performers, dedicated volunteers, and significant contributions to the club's growth.</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">📚</div>
+                            <h3>Theme-Based Quiz Series</h3>
+                            <p>Monthly themed quiz events focusing on specific subjects like literature, movies, sports, or science. Allows members to showcase expertise in their favorite knowledge domains.</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">🎊</div>
+                            <h3>Quiz Master Training Program</h3>
+                            <p>Intensive workshops for members interested in conducting quizzes. Covers question preparation, event management, audience engagement, and presentation skills development.</p>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- GALLERY PAGE -->
-        <div id="gallery" class="page">
-            <section class="section">
-                <div class="container">
-                    <h1>Gallery</h1>
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <div class="gallery-image">🏆</div>
-                            <div class="gallery-caption">
-                                <h3>Inter-College Championship 2025</h3>
-                                <p>Our team celebrating victory at the regional inter-college quiz competition. A proud moment for CIT!</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="gallery-image">👥</div>
-                            <div class="gallery-caption">
-                                <h3>Team Meeting Session</h3>
-                                <p>Weekly quiz practice session with all club members discussing strategies and sharing knowledge.</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="gallery-image">📚</div>
-                            <div class="gallery-caption">
-                                <h3>Tech Quiz Finals</h3>
-                                <p>Intense final round of our annual technology quiz with participants showcasing their technical prowess.</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="gallery-image">🎤</div>
-                            <div class="gallery-caption">
-                                <h3>Quiz Master in Action</h3>
-                                <p>Our experienced quiz master conducting an engaging quiz session with challenging questions and interactive rounds.</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="gallery-image">🎊</div>
-                            <div class="gallery-caption">
-                                <h3>Freshers' Welcome Event</h3>
-                                <p>New students joining our quiz family during the orientation program. Building connections and sharing our passion.</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="gallery-image">🌟</div>
-                            <div class="gallery-caption">
-                                <h3>Awards Ceremony</h3>
-                                <p>Recognition ceremony for outstanding performers and dedicated club members throughout the academic year.</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="gallery-image">💡</div>
-                            <div class="gallery-caption">
-                                <h3>Science Quiz Workshop</h3>
-                                <p>Special workshop focusing on scientific knowledge and research methodologies. Learning beyond textbooks.</p>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="gallery-image">🎯</div>
-                            <div class="gallery-caption">
-                                <h3>Practice Session</h3>
-                                <p>Intensive preparation session before major competitions. Team members supporting each other to excel.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- ABOUT US PAGE -->
-        <div id="about" class="page">
-            <section class="section">
-                <div class="container">
-                    <h1>About Us</h1>
-                    <div class="about-content">
-                        <div class="about-text">
-                            <p>Welcome to the CIT Quiz Club, where knowledge meets excitement! We are a vibrant community of quiz enthusiasts at Coimbatore Institute of Technology, dedicated to fostering intellectual curiosity and competitive spirit.</p>
-                            
-                            <p>Our club brings together students from all departments who share a passion for learning and challenging themselves across various domains of knowledge. From science and technology to history, literature, sports, and current affairs - we explore it all!</p>
-                            
-                            <p>Join us for thrilling quiz competitions, engaging trivia nights, and knowledge-sharing sessions that will expand your horizons and connect you with like-minded individuals.</p>
-                        </div>
-                        <div class="about-stats">
-                            <div class="stat-card">
-                                <span class="stat-number">150+</span>
-                                <span class="stat-label">Active Members</span>
-                            </div>
-                            <div class="stat-card">
-                                <span class="stat-number">25+</span>
-                                <span class="stat-label">Events Conducted</span>
-                            </div>
-                            <div class="stat-card">
-                                <span class="stat-number">5</span>
-                                <span class="stat-label">Years Active</span>
-                            </div>
-                            <div class="stat-card">
-                                <span class="stat-number">12</span>
-                                <span class="stat-label">Awards Won</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <h2>Meet Our Team</h2>
-                    <div class="team-grid">
-                        <div class="team-member">
-                            <div class="member-photo">AR</div>
-                            <div class="member-name">Arjun Rajesh</div>
-                            <div class="member-role">Club President</div>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-photo">PS</div>
-                            <div class="member-name">Priya Sharma</div>
-                            <div class="member-role">Vice President</div>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-photo">VK</div>
-                            <div class="member-name">Vikram Kumar</div>
-                            <div class="member-role">Quiz Master</div>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-photo">AD</div>
-                            <div class="member-name">Aisha Devi</div>
-                            <div class="member-role">Event Coordinator</div>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-photo">RN</div>
-                            <div class="member-name">Rahul Nair</div>
-                            <div class="member-role">Tech Lead</div>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-photo">SM</div>
-                            <div class="member-name">Sneha Menon</div>
-                            <div class="member-role">Social Media Manager</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- SOCIAL PAGE -->
-        <div id="social" class="page">
-            <section class="section">
-                <div class="container">
-                    <h1>Connect With Us</h1>
-                    <div class="social-grid">
-                        <div class="social-card">
-                            <span class="social-icon">📘</span>
-                            <h3>Facebook</h3>
-                            <p>Stay updated with our latest events, announcements, and quiz highlights. Join our community discussions and share your quiz experiences!</p>
-                            <a href="#" class="social-link">Follow Us</a>
-                        </div>
-                        <div class="social-card">
-                            <span class="social-icon">📷</span>
-                            <h3>Instagram</h3>
-                            <p>Behind-the-scenes moments, event photos, and fun quiz facts. Tag us in your quiz-related posts and get featured on our story!</p>
-                            <a href="#" class="social-link">Follow Us</a>
-                        </div>
-                        <div class="social-card">
-                            <span class="social-icon">🐦</span>
-                            <h3>Twitter</h3>
-                            <p>Quick updates, live tweets during events, and daily quiz questions. Participate in our Twitter quiz challenges and win prizes!</p>
-                            <a href="#" class="social-link">Follow Us</a>
-                        </div>
-                        <div class="social-card">
-                            <span class="social-icon">💼</span>
-                            <h3>LinkedIn</h3>
-                            <p>Professional networking, career opportunities, and academic achievements. Connect with alumni and industry professionals in our network.</p>
-                            <a href="#" class="social-link">Connect</a>
-                        </div>
-                        <div class="social-card">
-                            <span class="social-icon">📺</span>
-                            <h3>YouTube</h3>
-                            <p>Watch recorded quiz sessions, tutorials, and event highlights. Subscribe for educational content and quiz preparation tips!</p>
-                            <a href="#" class="social-link">Subscribe</a>
-                        </div>
-                        <div class="social-card">
-                            <span class="social-icon">💬</span>
-                            <h3>WhatsApp Group</h3>
-                            <p>Join our exclusive WhatsApp group for instant updates, quick discussions, and direct communication with club members and coordinators.</p>
-                            <a href="#" class="social-link">Join Group</a>
-                        </div>
-                    </div>
-                    
-                    <div class="section">
-                        <h2>Community Guidelines</h2>
-                        <div class="about-content">
-                            <div class="about-text">
-                                <p><strong>Respect:</strong> Treat all members with kindness and respect. We celebrate diversity and welcome students from all backgrounds.</p>
-                                <p><strong>Learning:</strong> Share knowledge freely and help fellow members grow. Everyone starts somewhere, and we support each other's journey.</p>
-                                <p><strong>Participation:</strong> Actively engage in discussions, events, and activities. Your involvement makes our community stronger.</p>
-                                <p><strong>Fun:</strong> While we take quizzing seriously, we believe learning should be enjoyable. Bring your enthusiasm and positive energy!</p>
-                            </div>
-                            <div class="about-stats">
-                                <div class="stat-card">
-                                    <span class="stat-number">500+</span>
-                                    <span class="stat-label">Social Media Followers</span>
-                                </div>
-                                <div class="stat-card">
-                                    <span class="stat-number">50+</span>
-                                    <span class="stat-label">Posts Per Month</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- CALENDAR PAGE -->
-        <div id="calendar" class="page">
-            <section class="section">
-                <div class="container">
-                    <h1>Event Calendar</h1>
-                    <div class="calendar-container">
-                        <div class="calendar-header">
-                            <button class="calendar-nav" onclick="previousMonth()">❮ Previous</button>
-                            <div class="calendar-month" id="currentMonth">September 2025</div>
-                            <button class="calendar-nav" onclick="nextMonth()">Next ❯</button>
-                        </div>
-                        <div class="calendar-grid">
-                            <div class="calendar-day header">Sun</div>
-                            <div class="calendar-day header">Mon</div>
-                            <div class="calendar-day header">Tue</div>
-                            <div class="calendar-day header">Wed</div>
-                            <div class="calendar-day header">Thu</div>
-                            <div class="calendar-day header">Fri</div>
-                            <div class="calendar-day header">Sat</div>
-                            
-                            <div class="calendar-day">1</div>
-                            <div class="calendar-day">2</div>
-                            <div class="calendar-day">3</div>
-                            <div class="calendar-day">4</div>
-                            <div class="calendar-day">5</div>
-                            <div class="calendar-day">6</div>
-                            <div class="calendar-day">7</div>
-                            
-                            <div class="calendar-day">8</div>
-                            <div class="calendar-day">9</div>
-                            <div class="calendar-day">10</div>
-                            <div class="calendar-day">11</div>
-                            <div class="calendar-day">12</div>
-                            <div class="calendar-day">13</div>
-                            <div class="calendar-day">14</div>
-                            
-                            <div class="calendar-day event">15<div class="event-dot"></div></div>
-                            <div class="calendar-day">16</div>
-                            <div class="calendar-day">17</div>
-                            <div class="calendar-day">18</div>
-                            <div class="calendar-day">19</div>
-                            <div class="calendar-day">20</div>
-                            <div class="calendar-day">21</div>
-                            
-                            <div class="calendar-day">22</div>
-                            <div class="calendar-day">23</div>
-                            <div class="calendar-day">24</div>
-                            <div class="calendar-day">25</div>
-                            <div class="calendar-day">26</div>
-                            <div class="calendar-day">27</div>
-                            <div class="calendar-day">28</div>
-                            
-                            <div class="calendar-day">29</div>
-                            <div class="calendar-day">30</div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="upcoming-events">
-                        <h3>Upcoming Events</h3>
-                        <div class="upcoming-event">
-                            <strong>September 15, 2025</strong> - Tech Trivia Championship<br>
-                            <small>Venue: Main Auditorium | Time: 2:00 PM</small>
-                        </div>
-                        <div class="upcoming-event">
-                            <strong>October 2, 2025</strong> - General Knowledge Bonanza<br>
-                            <small>Venue: Seminar Hall B | Time: 3:00 PM</small>
-                        </div>
-                        <div class="upcoming-event">
-                            <strong>October 20, 2025</strong> - Inter-College Quiz Battle<br>
-                            <small>Venue: Convention Center | Time: 10:00 AM</small>
-                        </div>
-                        <div class="upcoming-event">
-                            <strong>November 8, 2025</strong> - Science & Innovation Quiz<br>
-                            <small>Venue: Science Block Auditorium | Time: 2:30 PM</small>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <h4>CIT Quiz Club</h4>
-                    <p>Coimbatore Institute of Technology</p>
-                </div>
-                <div class="social-links">
-                    <a href="#">📘</a>
-                    <a href="#">📷</a>
-                    <a href="#">🐦</a>
-                    <a href="#">💼</a>
-                    <a href="#">📺</a>
                 </div>
             </div>
-            <p>&copy; 2025 CIT Quiz Club. All rights reserved.</p>
+        </section>
+    </div>
+
+    <!-- GALLERY PAGE -->
+    <div id="gallery" class="page">
+        <section class="section">
+            <div class="container">
+                <h1>Gallery</h1>
+                
+                <!-- Past Events Carousel -->
+                <div class="carousel-container">
+                    <h3 class="carousel-title">Past Year Events Highlights</h3>
+                    <div class="carousel" id="pastEventsCarousel">
+                        <div class="carousel-track" id="pastEventsTrack">
+                            <div class="carousel-slide">
+                                <div class="carousel-image">🏆</div>
+                                <div class="carousel-content">
+                                    <h3>Inter-College Championship 2025</h3>
+                                    <p>Our team celebrating victory at the regional inter-college quiz competition. A proud moment for CIT! The event featured teams from 15 colleges across Tamil Nadu, and our team emerged victorious after intense rounds of technical, general knowledge, and rapid-fire questions.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-image">📚</div>
+                                <div class="carousel-content">
+                                    <h3>Literature & Arts Quiz Finals</h3>
+                                    <p>The grand finale of our literature and arts quiz competition held in July 2025. Participants showcased their knowledge of world literature, classical arts, and contemporary cultural movements. The event was graced by renowned authors and artists from the region.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-image">🎊</div>
+                                <div class="carousel-content">
+                                    <h3>Freshers' Welcome Event</h3>
+                                    <p>A memorable orientation program for new students joining our quiz family. Over 80 enthusiastic freshers participated in fun quiz activities, ice-breaker sessions, and got introduced to the rich culture of quizzing at CIT. Many of them are now active members!</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-image">🌟</div>
+                                <div class="carousel-content">
+                                    <h3>Annual Awards Ceremony</h3>
+                                    <p>Recognition ceremony for outstanding performers and dedicated club members throughout the academic year. Awards were presented for Best Quizzer, Most Improved Member, Outstanding Contributor, and Team Spirit. The event celebrated our collective achievements.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" onclick="previousSlide('pastEvents')">❮</button>
+                        <button class="carousel-nav carousel-next" onclick="nextSlide('pastEvents')">❯</button>
+                    </div>
+                    <div class="carousel-indicators" id="pastEventsIndicators">
+                        <span class="carousel-indicator active" onclick="currentSlide('pastEvents', 1)"></span>
+                        <span class="carousel-indicator" onclick="currentSlide('pastEvents', 2)"></span>
+                        <span class="carousel-indicator" onclick="currentSlide('pastEvents', 3)"></span>
+                        <span class="carousel-indicator" onclick="currentSlide('pastEvents', 4)"></span>
+                    </div>
+                </div>
+
+                <!-- Club Recent Activities  -->
+                <div class="carousel-container">
+                    <h3 class="carousel-title">Club Recent Activities</h3>
+                    <div class="carousel" id="activitiesCarousel">
+                        <div class="carousel-track" id="activitiesTrack">
+                            <div class="carousel-slide">
+                                <div class="carousel-image">👥</div>
+                                <div class="carousel-content">
+                                    <h3>Enlighten- 2K25 (Inauguration)</h3>
+                                    <p>The Quiz Club Inauguration launched a vibrant platform for curiosity and competition.
+Mr. Praveen Jayaraj’s keynote highlighted the value of quizzing in today’s world.
+Students from diverse departments participated with great enthusiasm.
+The event sparked campus-wide interest in exploring the world of quizzing.
+</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-image">💡</div>
+                                <div class="carousel-content">
+                                    <h3>Quiz Master Training Workshop</h3>
+                                    <p>Specialized workshops conducted to train members in the art of quiz mastering. Participants learn question framing, event management, audience engagement techniques, and effective communication skills essential for conducting successful quiz programs.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-image">🎤</div>
+                                <div class="carousel-content">
+                                    <h3>Guest Speaker Sessions</h3>
+                                    <p>Distinguished personalities from academia, industry, and quiz communities share their experiences and insights. These sessions provide valuable exposure to different quizzing styles and broaden our understanding of knowledge domains.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-slide">
+                                <div class="carousel-image">🎯</div>
+                                <div class="carousel-content">
+                                    <h3>Intensive Preparation Sessions</h3>
+                                    <p>Focused preparation sessions before major competitions. Team members collaborate intensively, share knowledge, practice mock quizzes, and develop strategies. These sessions have been instrumental in our competitive success.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-nav carousel-prev" onclick="previousSlide('activities')">❮</button>
+                        <button class="carousel-nav carousel-next" onclick="nextSlide('activities')">❯</button>
+                    </div>
+                    <div class="carousel-indicators" id="activitiesIndicators">
+                        <span class="carousel-indicator active" onclick="currentSlide('activities', 1)"></span>
+                        <span class="carousel-indicator" onclick="currentSlide('activities', 2)"></span>
+                        <span class="carousel-indicator" onclick="currentSlide('activities', 3)"></span>
+                        <span class="carousel-indicator" onclick="currentSlide('activities', 4)"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- MEMBERS PAGE -->
+    <div id="members" class="page">
+        <section class="section">
+            <div class="container">
+                <h1>Quiz Club Board (2025-26)</h1>
+                
+                <div class="members-grid">
+                    <!-- Secretaries -->
+                    <div class="member-card">
+                        <div class="member-photo"><img  class="member-image" src="image/Suriya Prasanna.webp" alt="Joint Secretary" class="member-image"></div>
+                        <div class="member-name">Suriya Prasanna KS</div>
+                        <div class="member-position">Secretary</div>
+                        <div class="member-department">Department</div>
+                    </div>
+                    
+                    <div class="member-card">
+                        <div class="member-photo"><img  class="member-image" src="image/priyadharshini.jpg" alt="Joint Secretary" class="member-image"></div>
+                        <div class="member-name">Priyadharshini R</div>
+                        <div class="member-position">Secretary</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <!-- Joint Secretaries -->
+                    <div class="member-card">
+                        <div class="member-photo">AC</div>
+                        <div class="member-name">Alagusundaram C</div>
+                        <div class="member-position">Joint Secretary</div>
+                            <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">KK</div>
+                        <div class="member-name">Kritheeka K</div>
+                        <div class="member-position">Joint Secretary</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <!-- Treasurers -->
+                    <div class="member-card">
+                        <div class="member-photo">SR</div>
+                        <div class="member-name">Sanjay R</div>
+                        <div class="member-position">Treasurer</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">SN</div>
+                        <div class="member-name">Surendar N</div>
+                        <div class="member-position">Treasurer</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">VK</div>
+                        <div class="member-name">Vedhavarna KM</div>
+                        <div class="member-position">Treasurer</div>
+                          <div class="member-department">Department</div>
+                    </div>
+
+                    <!-- Designers -->
+                    <div class="member-card">
+                        <div class="member-photo">SJ</div>
+                        <div class="member-name">Sujeethra R</div>
+                        <div class="member-position">Designer</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">AN</div>
+                        <div class="member-name">Aruthra Nivasine S</div>
+                        <div class="member-position">Designer</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">YV</div>
+                        <div class="member-name">Yeshwanth V</div>
+                        <div class="member-position">Designer</div>
+                          <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">MS</div>
+                        <div class="member-name">Meghaa Sree S</div>
+                        <div class="member-position">Designer</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <!-- Social Media Managers -->
+                    <div class="member-card">
+                        <div class="member-photo">HR</div>
+                        <div class="member-name">Harish Raja R</div>
+                        <div class="member-position">Social Media Manager</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">SS</div>
+                        <div class="member-name">Sruthi Sakthi M</div>
+                        <div class="member-position">Social Media Manager</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <!-- Executive Directors -->
+                    <div class="member-card">
+                        <div class="member-photo"> <img  class="member-image" src="image/Harish.jpg" alt="Executive Director" class="member-image"></div>
+                        <div class="member-name">Harish V</div>
+                        <div class="member-position">Executive Director</div>
+                            <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo"> <img  class="member-image" src="image/Kiran saai ram.jpg" alt="Executive Director" class="member-image"></div>
+                        <div class="member-name">Khiran Saai Ram MS</div>
+                        <div class="member-position">Executive Director</div>
+                            <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">NT</div>
+                        <div class="member-name">Navina T</div>
+                        <div class="member-position">Executive Director</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">DS</div>
+                        <div class="member-name">Dhanyasakthi S</div>
+                        <div class="member-position">Executive Director</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">SJ2</div>
+                        <div class="member-name">Sanjai R</div>
+                        <div class="member-position">Executive Director</div>
+                            <div class="member-department">Department</div>
+                    </div>
+
+                    <!-- Creative Directors -->
+                    <div class="member-card">
+                        <div class="member-photo">DB</div>
+                        <div class="member-name">Dhinakaran B</div>
+                        <div class="member-position">Creative Director</div>
+                         <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">  <img class="member-image" src="image/akshaya.jpg"></div>
+                        <div class="member-name">Akshaya NV</div>
+                        <div class="member-position">Creative Director</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo"> <img  class="member-image" src="image/Sheresh Raja.jpg" alt="Creative Director" class="member-image"></div>
+                        <div class="member-name">Sheresh Raja R</div>
+                        <div class="member-position">Creative Director</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">DH</div>
+                        <div class="member-name">Dhruvathara K</div>
+                        <div class="member-position">Creative Director</div>
+                            <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo"> <img  class="member-image" src="image/Devaki.jpg" alt="Creative Director" class="member-image"></div>
+                        <div class="member-name">Devaki P</div>
+                        <div class="member-position">Creative Director</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                     <!-- Internal Affairs Team -->
+                    <div class="member-card">
+                        <div class="member-photo">SU</div>
+                        <div class="member-name">Suvetha SP</div>
+                        <div class="member-position">Internal Affairs Team</div>
+                          <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo"><img  class="member-image" src="image/IMG-20250523-WA0008.jpg" alt="Internal Affairs" class="member-image"></div>
+                        <div class="member-name">Balamurugan G</div>
+                        <div class="member-position">Internal Affairs Team</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo"><img  class="member-image" src="image/karthiga.jpg" alt="Internal Affairs" class="member-image"></div>
+                        <div class="member-name">Karthikha TS</div>
+                        <div class="member-position">Internal Affairs Team</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo"><img  class="member-image" src="image/Gowtham K.jpg" alt="Internal Affairs" class="member-image"></div>
+                        <div class="member-name">Gowtham K</div>
+                        <div class="member-position">Internal Affairs Team</div>
+                          <div class="member-department">Department</div>
+                    </div>
+
+                    <!-- Outreach Ambassadors -->
+                    <div class="member-card">
+                        <div class="member-photo"> <img  class="member-image" src="image/Kavin karthik.jpg" alt="Outreach Ambassador" class="member-image"></div>
+                        <div class="member-name">Kavin Karthik N</div>
+                        <div class="member-position">Outreach Ambassador</div>
+                            <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo"> <img  class="member-image" src="image/Dhinesh.jpg" alt="Outreach Ambassador" class="member-image"></div>
+                        <div class="member-name">Dhinesh T</div>
+                        <div class="member-position">Outreach Ambassador</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo"> <img  class="member-image" src="image/Deepthi SK.jpg" alt="Outreach Ambassador" class="member-image"></div>
+                        <div class="member-name">Deepthi SK</div>
+                        <div class="member-position">Outreach Ambassador</div>
+                            <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">NR</div>
+                        <div class="member-name">Nandana R</div>
+                        <div class="member-position">Outreach Ambassador</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <!-- External Affairs Team -->
+                    <div class="member-card">
+                        <div class="member-photo"> <img  class="member-image" src="image/Prabakaran.PNG" alt="External Affairs" class="member-image"></div>
+                        <div class="member-name">Prabakaran VR</div>
+                        <div class="member-position">External Affairs Team</div>
+                            <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">KA</div>
+                        <div class="member-name">Kavin KR</div>
+                        <div class="member-position">External Affairs Team</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo"> <img  class="member-image" src="image/shagul.jpg" alt="External Affairs" class="member-image"></div>
+                        <div class="member-name">Shagul Hameeth J</div>
+                        <div class="member-position">External Affairs Team</div>
+                        <div class="member-department">AI & DS</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <section class="section">
+            <div class="container">
+                <h1>Contact Us</h1>
+                
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <div class="contact-icon"><a href="https://www.instagram.com/citquizclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="  target="_blank">
+                    <span><img id="insta" src="image/instagram.png"></span>
+                    <span id="con">Instagram</span>
+                    </a>
+                    </div>    
+                </div>
+                   
+                
+                    <div class="contact-card">
+                        <div class="contact-icon">📱</div>
+                        <h3>Phone</h3>
+                        <p>+91 98765 43210</p>
+                        <p>Direct contact for urgent matters</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <h3>Location</h3>
+                        <p>Student Activity Center</p>
+                        <p>Coimbatore Institute of Technology</p>
+                        <p>Coimbatore, Tamil Nadu</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">🕒</div>
+                        <h3>Meeting Hours</h3>
+                        <p>Every Friday: 4:00 PM - 6:00 PM</p>
+                        <p>Room: Activity Hall B</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Go to Top Button -->
+    <button class="goto-top" id="gotoTop" onclick="scrollToTop()">↑</button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/citquizclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="social-link" target="_blank">
+                    <span class="social-icon"><img id="insta" src="image/instagram.png"></span>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/company/quiz-club-qc/" class="social-link" target="_blank">
+                    <span class="social-icon"><img id="linked" src="image/linkedin.png"></span>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+            <p>&copy; 2025 Quiz Club CIT. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1120,67 +1145,89 @@
             // Show selected page
             document.getElementById(pageId).classList.add('active');
             
-            // Update navigation active state
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => item.classList.remove('active'));
+            // Update navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => link.classList.remove('active'));
             event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
         }
 
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+        // Carousel functionality
+        let currentSlideIndex = {
+            pastEvents: 0,
+            activities: 0
+        };
+
+        function nextSlide(carouselType) {
+            const track = document.getElementById(`${carouselType}Track`);
+            const slides = track.children;
+            const totalSlides = slides.length;
+            
+            currentSlideIndex[carouselType] = (currentSlideIndex[carouselType] + 1) % totalSlides;
+            updateCarousel(carouselType);
         }
 
-        // Calendar functionality
-        let currentDate = new Date();
-        const months = [
-            'January', 'February', 'March', 'April', 'May', 'June',
-            'July', 'August', 'September', 'October', 'November', 'December'
-        ];
+        function previousSlide(carouselType) {
+            const track = document.getElementById(`${carouselType}Track`);
+            const slides = track.children;
+            const totalSlides = slides.length;
+            
+            currentSlideIndex[carouselType] = (currentSlideIndex[carouselType] - 1 + totalSlides) % totalSlides;
+            updateCarousel(carouselType);
+        }
 
-        function updateCalendarDisplay() {
-            const monthElement = document.getElementById('currentMonth');
-            if (monthElement) {
-                monthElement.textContent = `${months[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+        function currentSlide(carouselType, slideNumber) {
+            currentSlideIndex[carouselType] = slideNumber - 1;
+            updateCarousel(carouselType);
+        }
+
+        function updateCarousel(carouselType) {
+            const track = document.getElementById(`${carouselType}Track`);
+            const indicators = document.getElementById(`${carouselType}Indicators`).children;
+            
+            // Update track position
+            const translateX = -currentSlideIndex[carouselType] * 100;
+            track.style.transform = `translateX(${translateX}%)`;
+            
+            // Update indicators
+            Array.from(indicators).forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlideIndex[carouselType]);
+            });
+        }
+
+        // Auto-advance carousels
+        setInterval(() => {
+            nextSlide('pastEvents');
+        }, 5000);
+
+        setInterval(() => {
+            nextSlide('activities');
+        }, 6000);
+
+        // Go to top button functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide go to top button
+        window.addEventListener('scroll', () => {
+            const gotoTop = document.getElementById('gotoTop');
+            if (window.pageYOffset > 300) {
+                gotoTop.classList.add('visible');
+            } else {
+                gotoTop.classList.remove('visible');
             }
-        }
-
-        function nextMonth() {
-            currentDate.setMonth(currentDate.getMonth() + 1);
-            updateCalendarDisplay();
-        }
-
-        function previousMonth() {
-            currentDate.setMonth(currentDate.getMonth() - 1);
-            updateCalendarDisplay();
-        }
-
-        // Initialize calendar on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            updateCalendarDisplay();
         });
 
-        // Close mobile menu when clicking on nav items
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const navLinks = document.getElementById('navLinks');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Add smooth scrolling for better UX
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add click animations to cards
-            const cards = document.querySelectorAll('.feature-card, .event-card, .gallery-item, .social-card, .team-member');
-            cards.forEach(card => {
-                card.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
-                });
-            });
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set home as active page
+            showPage('home');
         });
     </script>
 </body>
