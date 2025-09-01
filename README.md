@@ -19,3 +19,4 @@
 ![Deepthi SK](https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Deepthi%20SK.jpg?raw=true)
 ![Devaki](https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Devaki.jpg?raw=true)
 ![20250809_153113](https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/20250809_153113.jpg?raw=true)
+![linkedin](https://github.com/Peter2413P/QuizClub/blob/e400144ad07602068e0ae6ac905174d1ce79e289/linkedin.png?raw=true)
