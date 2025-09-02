@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Club CIT - Coimbatore Institute of Technology</title>
-<img src="https://github.com/Peter2413P/QuizClub/blob/e400144ad07602068e0ae6ac905174d1ce79e289/logoic.png?raw=true" alt="Favicon">
+ <link rel="icon" type="image/png" href="image/logoic.png">
     <style>
         * {
             margin: 0;
@@ -242,7 +242,7 @@ border-radius: 50px;
             text-align: center;
         }
 
-     /* Gallery Grid Styles */
+         /* Gallery Grid Styles */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -311,6 +311,128 @@ border-radius: 50px;
             font-weight: 500;
         }
 
+        /* Event Detail Modal */
+        .event-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .event-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(168, 85, 160, 0.8);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(168, 85, 160, 1);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            color: #d946ef;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-date {
+            color: #a855a0;
+            font-size: 1.1rem;
+        }
+
+        .modal-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .modal-photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .modal-photo {
+            aspect-ratio: 1;
+            background: linear-gradient(45deg, #a855a0, #d946ef);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-photo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            .modal-title {
+                font-size: 2rem;
+            }
+
+            .modal-photos {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
         /* Members Page Styles */
         .members-grid {
             display: grid;
@@ -534,7 +656,7 @@ border-radius: 50px;
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-           <img src="https://github.com/Peter2413P/QuizClub/blob/e400144ad07602068e0ae6ac905174d1ce79e289/whitef.png?raw=true" alt="Logo">
+                <img id="lg" src="image/whitef.png" alt="Quiz Club Logo" class="logo">
                 <span>Quiz Club CIT</span>
             </div>
             <ul class="nav-links">
@@ -552,9 +674,7 @@ border-radius: 50px;
     <div id="home" class="page active">
         <section class="hero">
             <div class="container">
-               <div class="cit-logo">
-  <img class="cit-logo" src="https://github.com/Peter2413P/QuizClub/blob/7360a91443843977e6ae5717b969c177312ee300/citlogo.png?raw=true" alt="Quiz Club Logo" class="logo">
-</div>
+                <div class="cit-logo"><img class="cit-logo" src="image/citlogo.png" alt="Quiz Club Logo" class="logo"></div>
                 <h1>Quiz Club CIT</h1>
                 <p>Coimbatore Institute of Technology's Premier Quiz Club</p>
                 <p>Igniting minds through knowledge, fostering curiosity, and building champions</p>
@@ -677,7 +797,7 @@ border-radius: 50px;
         </section>
     </div>
 
-    <!-- GALLERY PAGE -->
+       <!-- GALLERY PAGE -->
     <div id="gallery" class="page">
         <section class="section">
             <div class="container">
@@ -920,6 +1040,8 @@ border-radius: 50px;
             </div>
         </div>
     </div>
+
+
     <!-- MEMBERS PAGE -->
     <div id="members" class="page">
         <section class="section">
@@ -929,14 +1051,14 @@ border-radius: 50px;
                 <div class="members-grid">
                     <!-- Secretaries -->
                     <div class="member-card">
-                        <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Suriya%20Prasanna.webp?raw=true" class="member-image" alt="Secretary">
+                        <div class="member-photo"><img  class="member-image" src="image/Suriya Prasanna.webp" alt="Joint Secretary" class="member-image"></div>
                         <div class="member-name">Suriya Prasanna KS</div>
                         <div class="member-position">Secretary</div>
                         <div class="member-department">Department</div>
                     </div>
                     
                     <div class="member-card">
-                   <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/priyadharshini1.jpg?raw=true" class="member-image" alt="Priyadharshini">
+                        <div class="member-photo"><img  class="member-image" src="image/priyadharshini.jpg" alt="Joint Secretary" class="member-image"></div>
                         <div class="member-name">Priyadharshini R</div>
                         <div class="member-position">Secretary</div>
                            <div class="member-department">Department</div>
@@ -1008,25 +1130,9 @@ border-radius: 50px;
                            <div class="member-department">Department</div>
                     </div>
 
-                    <div class="member-card">
-                        <div class="member-photo">SW</div>
-                        <div class="member-name">Sashwath V</div>
-                        <div class="member-position">Designer</div>
-                           <div class="member-department">Department</div>
-                    </div>
-
-                    <div class="member-card">
-                        <div class="member-photo">SS</div>
-                        <div class="member-name">Subha Shree D</div>
-                        <div class="member-position">Designer</div>
-                           <div class="member-department">Department</div>
-                    </div>
-
                     <!-- Social Media Managers -->
                     <div class="member-card">
-                        <div class="member-photo">
-                            <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/Harish%20raja1.png?raw=true" class="member-image" alt="Harish Raja">
-                        </div>
+                        <div class="member-photo">HR</div>
                         <div class="member-name">Harish Raja R</div>
                         <div class="member-position">Social Media Manager</div>
                            <div class="member-department">Department</div>
@@ -1041,14 +1147,14 @@ border-radius: 50px;
 
                     <!-- Executive Directors -->
                     <div class="member-card">
-                      <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Harish.jpg?raw=true" class="member-image"  alt="Executive Director">
+                        <div class="member-photo"> <img  class="member-image" src="image/Harish.jpg" alt="Executive Director" class="member-image"></div>
                         <div class="member-name">Harish V</div>
                         <div class="member-position">Executive Director</div>
                             <div class="member-department">Department</div>
                     </div>
 
                     <div class="member-card">
-                        <img src="https://github.com/Peter2413P/QuizClub/blob/e400144ad07602068e0ae6ac905174d1ce79e289/Kiran%20saai%20ram.jpg?raw=true" class="member-image" alt="Executive Director">
+                        <div class="member-photo"> <img  class="member-image" src="image/Kiran saai ram.jpg" alt="Executive Director" class="member-image"></div>
                         <div class="member-name">Khiran Saai Ram MS</div>
                         <div class="member-position">Executive Director</div>
                             <div class="member-department">Department</div>
@@ -1069,30 +1175,11 @@ border-radius: 50px;
                     </div>
 
                     <div class="member-card">
-                        <div class="member-photo">
-                            <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/Sanjai%20R.jpg?raw=true" class="member-image" alt="Sanjai R">
-                        </div>
+                        <div class="member-photo">SJ2</div>
                         <div class="member-name">Sanjai R</div>
                         <div class="member-position">Executive Director</div>
                             <div class="member-department">Department</div>
                     </div>
-
-                     <div class="member-card">
-                        <div class="member-photo">JJ</div>
-                        <div class="member-name">Jessica Jones M</div>
-                        <div class="member-position">Executive Director</div>
-                           <div class="member-department">Department</div>
-                    </div>
-
-                    <div class="member-card">
-                        <div class="member-photo">
-                            
-                        </div>
-                        <div class="member-name">Jayavani P</div>
-                        <div class="member-position">Executive Director</div>
-                            <div class="member-department">Department</div>
-                    </div>
-
 
                     <!-- Creative Directors -->
                     <div class="member-card">
@@ -1103,14 +1190,14 @@ border-radius: 50px;
                     </div>
 
                     <div class="member-card">
-                       <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/akshaya.jpg?raw=true" class="member-image" alt="Akshaya">
+                        <div class="member-photo">  <img class="member-image" src="image/akshaya.jpg"></div>
                         <div class="member-name">Akshaya NV</div>
                         <div class="member-position">Creative Director</div>
                            <div class="member-department">Department</div>
                     </div>
 
                     <div class="member-card">
-                      <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/Sheresh%20Raja1.jpg?raw=true" class="member-image" alt="Sheresh Raja">
+                        <div class="member-photo"> <img  class="member-image" src="image/Sheresh Raja.jpg" alt="Creative Director" class="member-image"></div>
                         <div class="member-name">Sheresh Raja R</div>
                         <div class="member-position">Creative Director</div>
                            <div class="member-department">Department</div>
@@ -1124,7 +1211,7 @@ border-radius: 50px;
                     </div>
 
                     <div class="member-card">
-                       <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/Devaki1.jpg?raw=true" class="member-image" alt="Devaki">
+                        <div class="member-photo"> <img  class="member-image" src="image/Devaki.jpg" alt="Creative Director" class="member-image"></div>
                         <div class="member-name">Devaki P</div>
                         <div class="member-position">Creative Director</div>
                            <div class="member-department">Department</div>
@@ -1139,28 +1226,21 @@ border-radius: 50px;
                     </div>
 
                     <div class="member-card">
-                  <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/bala1.jpg?raw=true" class="member-image" alt="Bala">
+                        <div class="member-photo"><img  class="member-image" src="image/IMG-20250523-WA0008.jpg" alt="Internal Affairs" class="member-image"></div>
                         <div class="member-name">Balamurugan G</div>
                         <div class="member-position">Internal Affairs Team</div>
                            <div class="member-department">Department</div>
                     </div>
 
                     <div class="member-card">
-                  <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/karthiga.jpg?raw=true" class="member-image" alt="Internal Affairs">
+                        <div class="member-photo"><img  class="member-image" src="image/karthiga.jpg" alt="Internal Affairs" class="member-image"></div>
                         <div class="member-name">Karthikha TS</div>
                         <div class="member-position">Internal Affairs Team</div>
                            <div class="member-department">Department</div>
                     </div>
 
-                      <div class="member-card">
-                 
-                        <div class="member-name">Visvesh Rayan K</div>
-                        <div class="member-position">Internal Affairs Team</div>
-                          <div class="member-department">Department</div>
-                    </div>
-
                     <div class="member-card">
-                      <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Gowtham%20K.jpg?raw=true" class="member-image" alt="Internal Affairs">
+                        <div class="member-photo"><img  class="member-image" src="image/Gowtham K.jpg" alt="Internal Affairs" class="member-image"></div>
                         <div class="member-name">Gowtham K</div>
                         <div class="member-position">Internal Affairs Team</div>
                           <div class="member-department">Department</div>
@@ -1168,21 +1248,21 @@ border-radius: 50px;
 
                     <!-- Outreach Ambassadors -->
                     <div class="member-card">
-                        <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Kavin%20karthik.jpg?raw=true" class="member-image" alt="Outreach Ambassador">
+                        <div class="member-photo"> <img  class="member-image" src="image/Kavin karthik.jpg" alt="Outreach Ambassador" class="member-image"></div>
                         <div class="member-name">Kavin Karthik N</div>
                         <div class="member-position">Outreach Ambassador</div>
                             <div class="member-department">Department</div>
                     </div>
 
                     <div class="member-card">
-                   <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/Dhinesh1.jpg?raw=true" class="member-image" alt="Dhinesh">
+                        <div class="member-photo"> <img  class="member-image" src="image/Dhinesh.jpg" alt="Outreach Ambassador" class="member-image"></div>
                         <div class="member-name">Dhinesh T</div>
                         <div class="member-position">Outreach Ambassador</div>
                            <div class="member-department">Department</div>
                     </div>
 
                     <div class="member-card">
-                  <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Deepthi%20SK.jpg?raw=true" class="member-image" alt="Outreach Ambassador">
+                        <div class="member-photo"> <img  class="member-image" src="image/Deepthi SK.jpg" alt="Outreach Ambassador" class="member-image"></div>
                         <div class="member-name">Deepthi SK</div>
                         <div class="member-position">Outreach Ambassador</div>
                             <div class="member-department">Department</div>
@@ -1195,16 +1275,9 @@ border-radius: 50px;
                            <div class="member-department">Department</div>
                     </div>
 
-                    <div class="member-card">
-                        <div class="member-photo">RD</div>
-                        <div class="member-name">Rathina Dharshini E</div>
-                        <div class="member-position">Outreach Ambassador</div>
-                           <div class="member-department">Department</div>
-                    </div>
-
                     <!-- External Affairs Team -->
                     <div class="member-card">
-                        <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Prabakaran.PNG?raw=true" class="member-image" alt="External Affairs">
+                        <div class="member-photo"> <img  class="member-image" src="image/Prabakaran.PNG" alt="External Affairs" class="member-image"></div>
                         <div class="member-name">Prabakaran VR</div>
                         <div class="member-position">External Affairs Team</div>
                             <div class="member-department">Department</div>
@@ -1218,21 +1291,7 @@ border-radius: 50px;
                     </div>
 
                     <div class="member-card">
-                        <div class="member-photo">HP</div>
-                        <div class="member-name">Hariprasath K</div>
-                        <div class="member-position">External Affairs Team</div>
-                           <div class="member-department">Department</div>
-                    </div>
-
-                    <div class="member-card">
-                        <div class="member-photo">GK</div>
-                        <div class="member-name">Gowtham K</div>
-                        <div class="member-position">External Affairs Team</div>
-                           <div class="member-department">Department</div>
-                    </div>
-
-                    <div class="member-card">
-                        <img src="https://github.com/Peter2413P/QuizClub/blob/e400144ad07602068e0ae6ac905174d1ce79e289/shagul.jpg?raw=true" class="member-image"  alt="External Affairs">
+                        <div class="member-photo"> <img  class="member-image" src="image/shagul.jpg" alt="External Affairs" class="member-image"></div>
                         <div class="member-name">Shagul Hameeth J</div>
                         <div class="member-position">External Affairs Team</div>
                         <div class="member-department">AI & DS</div>
@@ -1251,7 +1310,7 @@ border-radius: 50px;
                 <div class="contact-grid">
                     <div class="contact-card">
                         <div class="contact-icon"><a href="https://www.instagram.com/citquizclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="  target="_blank">
-                    <span><img id="insta" src="https://github.com/Peter2413P/QuizClub/blob/7360a91443843977e6ae5717b969c177312ee300/citlogo.png"></span>
+                    <span><img id="insta" src="image/instagram.png"></span>
                     <span id="con">Instagram</span>
                     </a>
                     </div>    
@@ -1323,7 +1382,7 @@ border-radius: 50px;
             window.scrollTo(0, 0);
         }
 
-       function openEventModal(eventType) {
+        function openEventModal(eventType) {
             // Close any open modals first
             closeEventModal();
             
@@ -1357,15 +1416,6 @@ border-radius: 50px;
                 closeEventModal();
             }
         });
-        // Auto-advance carousels
-        setInterval(() => {
-            nextSlide('pastEvents');
-        }, 5000);
-
-        setInterval(() => {
-            nextSlide('activities');
-        }, 6000);
-
         // Go to top button functionality
         function scrollToTop() {
             window.scrollTo({
@@ -1392,14 +1442,3 @@ border-radius: 50px;
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
