@@ -242,109 +242,73 @@ border-radius: 50px;
             text-align: center;
         }
 
-        /* Gallery Carousel Styles */
-        .carousel-container {
+     /* Gallery Grid Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
             background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            margin: 3rem 0;
-            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
         }
 
-        .carousel-title {
-            color: white;
-            font-size: 1.8rem;
-            text-align: center;
-            margin-bottom: 2rem;
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(168, 85, 160, 0.4);
+            border-color: rgba(168, 85, 160, 0.5);
         }
 
-        .carousel {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-        }
-
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            display: flex;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .carousel-image {
-            width: 200px;
-            height: 200px;
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #a855a0, #d946ef);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
-            background: linear-gradient(45deg, #a855a0, #d946ef);
+            color: #fff;
+            position: relative;
         }
 
-        .carousel-content {
-            flex: 1;
-            padding: 2rem;
-            color: #333;
-        }
-
-        .carousel-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #a855a0;
-        }
-
-        .carousel-nav {
+        .gallery-image::after {
+            content: '';
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(168, 85, 160, 0.8);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30%;
+            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
         }
 
-        .carousel-nav:hover {
-            background: rgba(168, 85, 160, 1);
+        .gallery-caption {
+            padding: 1.5rem;
         }
 
-        .carousel-prev {
-            left: 10px;
+        .gallery-caption h3 {
+            color: #d946ef;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
         }
 
-        .carousel-next {
-            right: 10px;
+        .gallery-caption p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            line-height: 1.6;
         }
 
-        .carousel-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 1rem;
-        }
-
-        .carousel-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .carousel-indicator.active {
-            background: white;
+        .gallery-date {
+            color: #a855a0;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
         }
 
         /* Members Page Styles */
@@ -718,104 +682,244 @@ border-radius: 50px;
         <section class="section">
             <div class="container">
                 <h1>Gallery</h1>
-                
-                <!-- Past Events Carousel -->
-                <div class="carousel-container">
-                    <h3 class="carousel-title">Past Year Events Highlights</h3>
-                    <div class="carousel" id="pastEventsCarousel">
-                        <div class="carousel-track" id="pastEventsTrack">
-                            <div class="carousel-slide">
-                                <div class="carousel-image">🏆</div>
-                                <div class="carousel-content">
-                                    <h3>Inter-College Championship 2025</h3>
-                                    <p>Our team celebrating victory at the regional inter-college quiz competition. A proud moment for CIT! The event featured teams from 15 colleges across Tamil Nadu, and our team emerged victorious after intense rounds of technical, general knowledge, and rapid-fire questions.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="carousel-image">📚</div>
-                                <div class="carousel-content">
-                                    <h3>Literature & Arts Quiz Finals</h3>
-                                    <p>The grand finale of our literature and arts quiz competition held in July 2025. Participants showcased their knowledge of world literature, classical arts, and contemporary cultural movements. The event was graced by renowned authors and artists from the region.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="carousel-image">🎊</div>
-                                <div class="carousel-content">
-                                    <h3>Freshers' Welcome Event</h3>
-                                    <p>A memorable orientation program for new students joining our quiz family. Over 80 enthusiastic freshers participated in fun quiz activities, ice-breaker sessions, and got introduced to the rich culture of quizzing at CIT. Many of them are now active members!</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="carousel-image">🌟</div>
-                                <div class="carousel-content">
-                                    <h3>Annual Awards Ceremony</h3>
-                                    <p>Recognition ceremony for outstanding performers and dedicated club members throughout the academic year. Awards were presented for Best Quizzer, Most Improved Member, Outstanding Contributor, and Team Spirit. The event celebrated our collective achievements.</p>
-                                </div>
-                            </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item" onclick="openEventModal('championship')">
+                        <div class="gallery-image">🏆</div>
+                        <div class="gallery-caption">
+                            <h3>Inter-College Championship 2025</h3>
+                            <p>Our team celebrating victory at the regional inter-college quiz competition. A proud moment for CIT!</p>
+                            <div class="gallery-date">March 15, 2025</div>
                         </div>
-                        <button class="carousel-nav carousel-prev" onclick="previousSlide('pastEvents')">❮</button>
-                        <button class="carousel-nav carousel-next" onclick="nextSlide('pastEvents')">❯</button>
                     </div>
-                    <div class="carousel-indicators" id="pastEventsIndicators">
-                        <span class="carousel-indicator active" onclick="currentSlide('pastEvents', 1)"></span>
-                        <span class="carousel-indicator" onclick="currentSlide('pastEvents', 2)"></span>
-                        <span class="carousel-indicator" onclick="currentSlide('pastEvents', 3)"></span>
-                        <span class="carousel-indicator" onclick="currentSlide('pastEvents', 4)"></span>
-                    </div>
-                </div>
-
-                <!-- Club Recent Activities  -->
-                <div class="carousel-container">
-                    <h3 class="carousel-title">Club Recent Activities</h3>
-                    <div class="carousel" id="activitiesCarousel">
-                        <div class="carousel-track" id="activitiesTrack">
-                            <div class="carousel-slide">
-                                <div class="carousel-image">👥</div>
-                                <div class="carousel-content">
-                                    <h3>Enlighten- 2K25 (Inauguration)</h3>
-                                    <p>The Quiz Club Inauguration launched a vibrant platform for curiosity and competition.
-Mr. Praveen Jayaraj’s keynote highlighted the value of quizzing in today’s world.
-Students from diverse departments participated with great enthusiasm.
-The event sparked campus-wide interest in exploring the world of quizzing.
-</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="carousel-image">💡</div>
-                                <div class="carousel-content">
-                                    <h3>Quiz Master Training Workshop</h3>
-                                    <p>Specialized workshops conducted to train members in the art of quiz mastering. Participants learn question framing, event management, audience engagement techniques, and effective communication skills essential for conducting successful quiz programs.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="carousel-image">🎤</div>
-                                <div class="carousel-content">
-                                    <h3>Guest Speaker Sessions</h3>
-                                    <p>Distinguished personalities from academia, industry, and quiz communities share their experiences and insights. These sessions provide valuable exposure to different quizzing styles and broaden our understanding of knowledge domains.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-slide">
-                                <div class="carousel-image">🎯</div>
-                                <div class="carousel-content">
-                                    <h3>Intensive Preparation Sessions</h3>
-                                    <p>Focused preparation sessions before major competitions. Team members collaborate intensively, share knowledge, practice mock quizzes, and develop strategies. These sessions have been instrumental in our competitive success.</p>
-                                </div>
-                            </div>
+                    <div class="gallery-item" onclick="openEventModal('literature')">
+                        <div class="gallery-image">📚</div>
+                        <div class="gallery-caption">
+                            <h3>Literature & Arts Quiz Finals</h3>
+                            <p>The grand finale of our literature and arts quiz competition with renowned guests.</p>
+                            <div class="gallery-date">July 22, 2025</div>
                         </div>
-                        <button class="carousel-nav carousel-prev" onclick="previousSlide('activities')">❮</button>
-                        <button class="carousel-nav carousel-next" onclick="nextSlide('activities')">❯</button>
                     </div>
-                    <div class="carousel-indicators" id="activitiesIndicators">
-                        <span class="carousel-indicator active" onclick="currentSlide('activities', 1)"></span>
-                        <span class="carousel-indicator" onclick="currentSlide('activities', 2)"></span>
-                        <span class="carousel-indicator" onclick="currentSlide('activities', 3)"></span>
-                        <span class="carousel-indicator" onclick="currentSlide('activities', 4)"></span>
+                    <div class="gallery-item" onclick="openEventModal('freshers')">
+                        <div class="gallery-image">🎊</div>
+                        <div class="gallery-caption">
+                            <h3>Freshers' Welcome Event</h3>
+                            <p>A memorable orientation program for new students joining our quiz family.</p>
+                            <div class="gallery-date">August 10, 2025</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openEventModal('awards')">
+                        <div class="gallery-image">🌟</div>
+                        <div class="gallery-caption">
+                            <h3>Annual Awards Ceremony</h3>
+                            <p>Recognition ceremony for outstanding performers and dedicated club members.</p>
+                            <div class="gallery-date">May 18, 2025</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openEventModal('inauguration')">
+                        <div class="gallery-image">👥</div>
+                        <div class="gallery-caption">
+                            <h3>Enlighten 2K25 (Inauguration)</h3>
+                            <p>The Quiz Club Inauguration launched a vibrant platform for curiosity and competition.</p>
+                            <div class="gallery-date">January 20, 2025</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openEventModal('workshop')">
+                        <div class="gallery-image">💡</div>
+                        <div class="gallery-caption">
+                            <h3>Quiz Master Training Workshop</h3>
+                            <p>Specialized workshops to train members in the art of quiz mastering.</p>
+                            <div class="gallery-date">February 14, 2025</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openEventModal('speaker')">
+                        <div class="gallery-image">🎤</div>
+                        <div class="gallery-caption">
+                            <h3>Guest Speaker Sessions</h3>
+                            <p>Distinguished personalities sharing their experiences and insights.</p>
+                            <div class="gallery-date">April 8, 2025</div>
+                        </div>
+                    </div>
+                    <div class="gallery-item" onclick="openEventModal('practice')">
+                        <div class="gallery-image">🎯</div>
+                        <div class="gallery-caption">
+                            <h3>Intensive Preparation Sessions</h3>
+                            <p>Focused preparation sessions before major competitions with team collaboration.</p>
+                            <div class="gallery-date">June 5, 2025</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
 
+    <!-- Event Detail Modals -->
+    <div id="championshipModal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Inter-College Championship 2025</h2>
+                <p class="modal-date">March 15, 2025</p>
+            </div>
+            <p class="modal-description">
+                A historic victory for CIT Quiz Club! Our team emerged triumphant at the regional inter-college quiz competition, competing against 15 colleges across Tamil Nadu. The competition featured intense rounds of technical questions, general knowledge, and rapid-fire segments. Our preparation, teamwork, and dedication paid off as we claimed the championship trophy, marking a significant milestone in our club's journey.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">🏆</div>
+                <div class="modal-photo">🥇</div>
+                <div class="modal-photo">👥</div>
+                <div class="modal-photo">🎉</div>
+                <div class="modal-photo">📸</div>
+                <div class="modal-photo">🎊</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="literatureModal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Literature & Arts Quiz Finals</h2>
+                <p class="modal-date">July 22, 2025</p>
+            </div>
+            <p class="modal-description">
+                The grand finale of our literature and arts quiz competition showcased the depth of knowledge in world literature, classical arts, and contemporary cultural movements. Renowned authors and artists from the region graced the event, making it a memorable celebration of literary excellence and artistic appreciation.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">📚</div>
+                <div class="modal-photo">🎭</div>
+                <div class="modal-photo">✍️</div>
+                <div class="modal-photo">🎨</div>
+                <div class="modal-photo">📖</div>
+                <div class="modal-photo">🏛️</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="freshersModal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Freshers' Welcome Event</h2>
+                <p class="modal-date">August 10, 2025</p>
+            </div>
+            <p class="modal-description">
+                A warm welcome to our newest quiz enthusiasts! Over 80 enthusiastic freshers participated in fun quiz activities, ice-breaker sessions, and got introduced to the rich culture of quizzing at CIT. The event was filled with laughter, learning, and new friendships. Many of these bright minds are now active contributing members of our club family.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">🎊</div>
+                <div class="modal-photo">👨‍🎓</div>
+                <div class="modal-photo">🤝</div>
+                <div class="modal-photo">🎈</div>
+                <div class="modal-photo">📋</div>
+                <div class="modal-photo">😊</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="awardsModal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Annual Awards Ceremony</h2>
+                <p class="modal-date">May 18, 2025</p>
+            </div>
+            <p class="modal-description">
+                A prestigious evening celebrating excellence and dedication within our club. Awards were presented for Best Quizzer, Most Improved Member, Outstanding Contributor, and Team Spirit. The ceremony honored our collective achievements and individual milestones, recognizing the hard work and passion that drives our club forward.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">🌟</div>
+                <div class="modal-photo">🏅</div>
+                <div class="modal-photo">🎖️</div>
+                <div class="modal-photo">👏</div>
+                <div class="modal-photo">🎁</div>
+                <div class="modal-photo">🥳</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="inaugurationModal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Enlighten 2K25 (Inauguration)</h2>
+                <p class="modal-date">January 20, 2025</p>
+            </div>
+            <p class="modal-description">
+                The official inauguration of our Quiz Club for the academic year 2025! Mr. Praveen Jayaraj delivered an inspiring keynote highlighting the importance of quizzing in developing critical thinking and general awareness. Students from diverse departments came together, marking the beginning of an exciting journey filled with learning, competition, and camaraderie.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">👥</div>
+                <div class="modal-photo">🎤</div>
+                <div class="modal-photo">🚀</div>
+                <div class="modal-photo">📅</div>
+                <div class="modal-photo">💼</div>
+                <div class="modal-photo">🌱</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="workshopModal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Quiz Master Training Workshop</h2>
+                <p class="modal-date">February 14, 2025</p>
+            </div>
+            <p class="modal-description">
+                An intensive training program designed to develop the next generation of quiz masters. Participants learned essential skills including question framing, event management, audience engagement techniques, and effective communication. The workshop covered both theoretical aspects and practical hands-on experience in conducting quiz sessions.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">💡</div>
+                <div class="modal-photo">📝</div>
+                <div class="modal-photo">🗣️</div>
+                <div class="modal-photo">👨‍🏫</div>
+                <div class="modal-photo">💭</div>
+                <div class="modal-photo">🔧</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="speakerModal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Guest Speaker Sessions</h2>
+                <p class="modal-date">April 8, 2025</p>
+            </div>
+            <p class="modal-description">
+                Enlightening sessions featuring distinguished personalities from academia, industry, and quiz communities. These inspiring speakers shared their vast experiences, unique quizzing styles, and valuable insights. The sessions provided our members with exposure to different perspectives and approaches to knowledge acquisition and competitive quizzing.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">🎤</div>
+                <div class="modal-photo">👔</div>
+                <div class="modal-photo">🧠</div>
+                <div class="modal-photo">💬</div>
+                <div class="modal-photo">🎯</div>
+                <div class="modal-photo">✨</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="practiceModal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Intensive Preparation Sessions</h2>
+                <p class="modal-date">June 5, 2025</p>
+            </div>
+            <p class="modal-description">
+                Rigorous preparation sessions conducted before major competitions. Team members engaged in collaborative learning, knowledge sharing, mock quiz rounds, and strategic planning. These intensive sessions fostered team bonding while sharpening competitive skills, and have been instrumental in our consistent success across various competitions.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">🎯</div>
+                <div class="modal-photo">📊</div>
+                <div class="modal-photo">⚡</div>
+                <div class="modal-photo">🤔</div>
+                <div class="modal-photo">📈</div>
+                <div class="modal-photo">🔥</div>
+            </div>
+        </div>
+    </div>
     <!-- MEMBERS PAGE -->
     <div id="members" class="page">
         <section class="section">
@@ -904,6 +1008,20 @@ The event sparked campus-wide interest in exploring the world of quizzing.
                            <div class="member-department">Department</div>
                     </div>
 
+                    <div class="member-card">
+                        <div class="member-photo">SW</div>
+                        <div class="member-name">Sashwath V</div>
+                        <div class="member-position">Designer</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">SS</div>
+                        <div class="member-name">Subha Shree D</div>
+                        <div class="member-position">Designer</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
                     <!-- Social Media Managers -->
                     <div class="member-card">
                         <div class="member-photo">
@@ -958,6 +1076,23 @@ The event sparked campus-wide interest in exploring the world of quizzing.
                         <div class="member-position">Executive Director</div>
                             <div class="member-department">Department</div>
                     </div>
+
+                     <div class="member-card">
+                        <div class="member-photo">JJ</div>
+                        <div class="member-name">Jessica Jones M</div>
+                        <div class="member-position">Executive Director</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">
+                            
+                        </div>
+                        <div class="member-name">Jayavani P</div>
+                        <div class="member-position">Executive Director</div>
+                            <div class="member-department">Department</div>
+                    </div>
+
 
                     <!-- Creative Directors -->
                     <div class="member-card">
@@ -1017,6 +1152,13 @@ The event sparked campus-wide interest in exploring the world of quizzing.
                            <div class="member-department">Department</div>
                     </div>
 
+                      <div class="member-card">
+                 
+                        <div class="member-name">Visvesh Rayan K</div>
+                        <div class="member-position">Internal Affairs Team</div>
+                          <div class="member-department">Department</div>
+                    </div>
+
                     <div class="member-card">
                       <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Gowtham%20K.jpg?raw=true" class="member-image" alt="Internal Affairs">
                         <div class="member-name">Gowtham K</div>
@@ -1053,6 +1195,13 @@ The event sparked campus-wide interest in exploring the world of quizzing.
                            <div class="member-department">Department</div>
                     </div>
 
+                    <div class="member-card">
+                        <div class="member-photo">RD</div>
+                        <div class="member-name">Rathina Dharshini E</div>
+                        <div class="member-position">Outreach Ambassador</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
                     <!-- External Affairs Team -->
                     <div class="member-card">
                         <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Prabakaran.PNG?raw=true" class="member-image" alt="External Affairs">
@@ -1064,6 +1213,20 @@ The event sparked campus-wide interest in exploring the world of quizzing.
                     <div class="member-card">
                         <div class="member-photo">KA</div>
                         <div class="member-name">Kavin KR</div>
+                        <div class="member-position">External Affairs Team</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">HP</div>
+                        <div class="member-name">Hariprasath K</div>
+                        <div class="member-position">External Affairs Team</div>
+                           <div class="member-department">Department</div>
+                    </div>
+
+                    <div class="member-card">
+                        <div class="member-photo">GK</div>
+                        <div class="member-name">Gowtham K</div>
                         <div class="member-position">External Affairs Team</div>
                            <div class="member-department">Department</div>
                     </div>
@@ -1160,49 +1323,40 @@ The event sparked campus-wide interest in exploring the world of quizzing.
             window.scrollTo(0, 0);
         }
 
-        // Carousel functionality
-        let currentSlideIndex = {
-            pastEvents: 0,
-            activities: 0
-        };
-
-        function nextSlide(carouselType) {
-            const track = document.getElementById(`${carouselType}Track`);
-            const slides = track.children;
-            const totalSlides = slides.length;
+       function openEventModal(eventType) {
+            // Close any open modals first
+            closeEventModal();
             
-            currentSlideIndex[carouselType] = (currentSlideIndex[carouselType] + 1) % totalSlides;
-            updateCarousel(carouselType);
+            // Open the specific modal
+            const modal = document.getElementById(eventType + 'Modal');
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
         }
 
-        function previousSlide(carouselType) {
-            const track = document.getElementById(`${carouselType}Track`);
-            const slides = track.children;
-            const totalSlides = slides.length;
-            
-            currentSlideIndex[carouselType] = (currentSlideIndex[carouselType] - 1 + totalSlides) % totalSlides;
-            updateCarousel(carouselType);
-        }
-
-        function currentSlide(carouselType, slideNumber) {
-            currentSlideIndex[carouselType] = slideNumber - 1;
-            updateCarousel(carouselType);
-        }
-
-        function updateCarousel(carouselType) {
-            const track = document.getElementById(`${carouselType}Track`);
-            const indicators = document.getElementById(`${carouselType}Indicators`).children;
-            
-            // Update track position
-            const translateX = -currentSlideIndex[carouselType] * 100;
-            track.style.transform = `translateX(${translateX}%)`;
-            
-            // Update indicators
-            Array.from(indicators).forEach((indicator, index) => {
-                indicator.classList.toggle('active', index === currentSlideIndex[carouselType]);
+        function closeEventModal() {
+            // Close all modals
+            const modals = document.querySelectorAll('.event-modal');
+            modals.forEach(modal => {
+                modal.classList.remove('active');
             });
+            document.body.style.overflow = 'auto'; // Restore scrolling
         }
 
+        // Close modal when clicking outside the content
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('event-modal')) {
+                closeEventModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeEventModal();
+            }
+        });
         // Auto-advance carousels
         setInterval(() => {
             nextSlide('pastEvents');
@@ -1238,6 +1392,7 @@ The event sparked campus-wide interest in exploring the world of quizzing.
     </script>
 </body>
 </html>
+
 
 
 
