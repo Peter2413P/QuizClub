@@ -504,27 +504,52 @@ border-radius: 50px;
 
 
         /* Contact Page Styles */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* slightly more compact */
+    gap: 2rem;
+    margin-top: 2rem;
+}
 
-        .contact-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            color: white;
-            text-align: center;
-        }
+.contact-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
 
-        .contact-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+.contact-card:hover {
+    transform: translateY(-5px); /* subtle lift on hover */
+}
 
+.contact-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-icon img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%; /* makes icons circular */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.contact-icon img:hover {
+    transform: scale(1.1); /* slight zoom on hover */
+}
+
+#con {
+    font-size: 1rem;
+    font-weight: 500;
+}
         /* About Page Styles */
         .about-content {
             background: rgba(255, 255, 255, 0.1);
@@ -1365,53 +1390,73 @@ border-radius: 50px;
         </section>
     </div>
 
-    <!-- CONTACT PAGE -->
-    <div id="contact" class="page">
-        <section class="section">
-            <div class="container">
-                <h1>Contact Us</h1>
-                
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <div class="contact-icon"><a href="https://www.instagram.com/citquizclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="  target="_blank">
-                   <img id="insta" src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/instagram.jpg?raw=true"></span>
-                    <span id="con">Instagram</span>
-                    </a>
-                    </div>    
-                </div>
-                   <div class="contact-card">
-                        <div class="contact-icon"><a href="https://www.linkedin.com/company/quiz-club-qc/"  target="_blank">
-                 <img id="linked" src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/linkedin.png?raw=true">
-                    <span id="con">Linkedin</span>
-                    </a>
-                    </div>    
-                </div>
-                
-                    <div class="contact-card">
-                        <div class="contact-icon">📱</div>
-                        <h3>Phone</h3>
-                        <p>+91 98765 43210</p>
-                        <p>Direct contact for urgent matters</p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">📍</div>
-                        <h3>Location</h3>
-                        <p>Student Activity Center</p>
-                        <p>Coimbatore Institute of Technology</p>
-                        <p>Coimbatore, Tamil Nadu</p>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">🕒</div>
-                        <h3>Meeting Hours</h3>
-                        <p>Every Friday: 4:00 PM - 6:00 PM</p>
-                        <p>Room: Activity Hall B</p>
+ <!-- CONTACT PAGE -->
+<div id="contact" class="page">
+    <section class="section">
+        <div class="container">
+            <h1>Contact Us</h1>
+
+            <div class="contact-grid">
+
+                <!-- Instagram -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <a href="https://www.instagram.com/citquizclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                            <img id="insta" src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/instagram.jpg?raw=true">
+                            <span id="con">Instagram</span>
+                        </a>
                     </div>
                 </div>
+
+                <!-- LinkedIn -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <a href="https://www.linkedin.com/company/quiz-club-qc/" target="_blank">
+                            <img id="linked" src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/linkedin.png?raw=true">
+                            <span id="con">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- WhatsApp Group -->
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <a href="https://chat.whatsapp.com/your-group-invite-link" target="_blank">
+                            <img id="whatsapp" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:45px; height:45px; border-radius:50%;">
+                            <span id="con">WhatsApp Group</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <p>+91 98765 43210</p>
+                    <p>Direct contact for urgent matters</p>
+                </div>
+
+                <!-- Location -->
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>Student Activity Center</p>
+                    <p>Coimbatore Institute of Technology</p>
+                    <p>Coimbatore, Tamil Nadu</p>
+                </div>
+
+                <!-- Meeting Hours -->
+                <div class="contact-card">
+                    <div class="contact-icon">🕒</div>
+                    <h3>Meeting Hours</h3>
+                    <p>Every Friday: 4:00 PM - 6:00 PM</p>
+                    <p>Room: Activity Hall B</p>
+                </div>
+
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+</div>
 
     <!-- Go to Top Button -->
     <button class="goto-top" id="gotoTop" onclick="scrollToTop()">↑</button>
@@ -1512,6 +1557,7 @@ border-radius: 50px;
     </script>
 </body>
 </html>
+
 
 
 
