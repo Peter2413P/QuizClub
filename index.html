@@ -244,7 +244,20 @@ border-radius: 50px;
             text-align: center;
         }
 
-         /* Gallery Grid Styles */
+      .year-section {
+            margin-bottom: 4rem;
+        }
+
+        .year-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #d946ef;
+            border-bottom: 2px solid rgba(168, 85, 160, 0.5);
+            padding-bottom: 1rem;
+        }
+
+        /* Gallery Grid Styles */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -422,6 +435,10 @@ border-radius: 50px;
                 font-size: 2rem;
             }
 
+            .year-title {
+                font-size: 2rem;
+            }
+
             .modal-content {
                 padding: 1.5rem;
                 margin: 1rem;
@@ -435,6 +452,7 @@ border-radius: 50px;
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             }
         }
+        
        /* Members Page Styles */
         .members-grid {
             display: grid;
@@ -830,179 +848,224 @@ border-radius: 50px;
     </div>
 
        <!-- GALLERY PAGE -->
-    <div id="gallery" class="page">
-        <section class="section">
-            <div class="container">
-                <h1>Gallery</h1>
-                <div class="gallery-grid">
-                    <div class="gallery-item" onclick="openEventModal('championship')">
-                        <div class="gallery-image">🏆</div>
-                        <div class="gallery-caption">
-                            <h3>Inter-College Championship 2025</h3>
-                            <p>Our team celebrating victory at the regional inter-college quiz competition. A proud moment for CIT!</p>
-                            <div class="gallery-date">March 15, 2025</div>
-                        </div>
+     <div class="container" class="page">
+        <h1>Gallery</h1>
+
+        <!-- 2024 Events Section -->
+        <div class="year-section">
+            <h2 class="year-title">2024 Events</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openEventModal('lumiere2024')">
+                    <div class="gallery-image">💡</div>
+                    <div class="gallery-caption">
+                        <h3>Inauguration 2024 (Lumiere)</h3>
+                        <p>The inaugural event that lit up the quiz club's journey in 2024 with knowledge and enthusiasm.</p>
+                        <div class="gallery-date">January 2024</div>
                     </div>
-                    <div class="gallery-item" onclick="openEventModal('literature')">
-                        <div class="gallery-image">📚</div>
-                        <div class="gallery-caption">
-                            <h3>Literature & Arts Quiz Finals</h3>
-                            <p>The grand finale of our literature and arts quiz competition with renowned guests.</p>
-                            <div class="gallery-date">July 22, 2025</div>
-                        </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('shankar2024')">
+                    <div class="gallery-image">🏛️</div>
+                    <div class="gallery-caption">
+                        <h3>Shankar IAS Academy Event</h3>
+                        <p>A prestigious collaboration with Shankar IAS Academy focusing on current affairs and competitive knowledge.</p>
+                        <div class="gallery-date">March 2024</div>
                     </div>
-                    <div class="gallery-item" onclick="openEventModal('freshers')">
-                        <div class="gallery-image">🎊</div>
-                        <div class="gallery-caption">
-                            <h3>Freshers' Welcome Event</h3>
-                            <p>A memorable orientation program for new students joining our quiz family.</p>
-                            <div class="gallery-date">August 10, 2025</div>
-                        </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('kodambakkam2024')">
+                    <div class="gallery-image">🎬</div>
+                    <div class="gallery-caption">
+                        <h3>Kodambakkam Express (Kollywood Quiz)</h3>
+                        <p>A thrilling journey through Tamil cinema with questions spanning classic to contemporary Kollywood.</p>
+                        <div class="gallery-date">May 2024</div>
                     </div>
-                    <div class="gallery-item" onclick="openEventModal('awards')">
-                        <div class="gallery-image">🌟</div>
-                        <div class="gallery-caption">
-                            <h3>Annual Awards Ceremony</h3>
-                            <p>Recognition ceremony for outstanding performers and dedicated club members.</p>
-                            <div class="gallery-date">May 18, 2025</div>
-                        </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('kalam2024')">
+                    <div class="gallery-image">🤝</div>
+                    <div class="gallery-caption">
+                        <h3>KKC Collab Event (Kalam Thiruvizha 2024)</h3>
+                        <p>A collaborative celebration honoring Dr. A.P.J. Abdul Kalam's legacy through knowledge and innovation.</p>
+                        <div class="gallery-date">July 2024</div>
                     </div>
-                    <div class="gallery-item" onclick="openEventModal('inauguration')">
-                        <div class="gallery-image">👥</div>
-                        <div class="gallery-caption">
-                            <h3>Enlighten 2K25 (Inauguration)</h3>
-                            <p>The Quiz Club Inauguration launched a vibrant platform for curiosity and competition.</p>
-                            <div class="gallery-date">January 20, 2025</div>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openEventModal('workshop')">
-                        <div class="gallery-image">💡</div>
-                        <div class="gallery-caption">
-                            <h3>Quiz Master Training Workshop</h3>
-                            <p>Specialized workshops to train members in the art of quiz mastering.</p>
-                            <div class="gallery-date">February 14, 2025</div>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openEventModal('speaker')">
-                        <div class="gallery-image">🎤</div>
-                        <div class="gallery-caption">
-                            <h3>Guest Speaker Sessions</h3>
-                            <p>Distinguished personalities sharing their experiences and insights.</p>
-                            <div class="gallery-date">April 8, 2025</div>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openEventModal('practice')">
-                        <div class="gallery-image">🎯</div>
-                        <div class="gallery-caption">
-                            <h3>Intensive Preparation Sessions</h3>
-                            <p>Focused preparation sessions before major competitions with team collaboration.</p>
-                            <div class="gallery-date">June 5, 2025</div>
-                        </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('yuva2024')">
+                    <div class="gallery-image">👥</div>
+                    <div class="gallery-caption">
+                        <h3>Intuit with Yuva (YI-Young Indians)</h3>
+                        <p>An engaging session with Young Indians focusing on entrepreneurship and leadership insights.</p>
+                        <div class="gallery-date">September 2024</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+
+        <!-- 2025 Events Section -->
+        <div class="year-section">
+            <h2 class="year-title">2025 Events</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openEventModal('enlighten2025')">
+                    <div class="gallery-image">🌟</div>
+                    <div class="gallery-caption">
+                        <h3>Inauguration (Enlighten) 2025</h3>
+                        <p>The official launch of Quiz Club 2025, enlightening minds and igniting curiosity for the new year.</p>
+                        <div class="gallery-date">January 20, 2025</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('minerva2025')">
+                    <div class="gallery-image">🦉</div>
+                    <div class="gallery-caption">
+                        <h3>Minerva 2025 (In association with Multiverse Quizzing)</h3>
+                        <p>A grand quiz competition in association with Multiverse Quizzing, celebrating wisdom and knowledge.</p>
+                        <div class="gallery-date">February 2025</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('brahma2025')">
+                    <div class="gallery-image">🕉️</div>
+                    <div class="gallery-caption">
+                        <h3>Brahma 2025</h3>
+                        <p>An enlightening quiz competition exploring diverse realms of knowledge and intellectual pursuits.</p>
+                        <div class="gallery-date">March 2025</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('popquiz2025')">
+                    <div class="gallery-image">🎉</div>
+                    <div class="gallery-caption">
+                        <h3>Pop Quiz Party 2025</h3>
+                        <p>A fun-filled informal quiz session bringing together quiz enthusiasts in a relaxed, party atmosphere.</p>
+                        <div class="gallery-date">April 2025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Event Detail Modals -->
-    <div id="championshipModal" class="event-modal">
+    <!-- 2024 Event Modals -->
+    <div id="lumiere2024Modal" class="event-modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeEventModal()">&times;</button>
             <div class="modal-header">
-                <h2 class="modal-title">Inter-College Championship 2025</h2>
-                <p class="modal-date">March 15, 2025</p>
+                <h2 class="modal-title">Inauguration 2024 (Lumiere)</h2>
+                <p class="modal-date">January 2024</p>
             </div>
             <p class="modal-description">
-                A historic victory for CIT Quiz Club! Our team emerged triumphant at the regional inter-college quiz competition, competing against 15 colleges across Tamil Nadu. The competition featured intense rounds of technical questions, general knowledge, and rapid-fire segments. Our preparation, teamwork, and dedication paid off as we claimed the championship trophy, marking a significant milestone in our club's journey.
+                The spark that ignited our quiz club's journey in 2024! Lumiere, meaning "light" in French, perfectly captured the essence of our inaugural event. The ceremony marked the beginning of an exciting year filled with intellectual challenges, knowledge sharing, and community building. Members gathered with enthusiasm and anticipation for the adventures ahead.
             </p>
             <div class="modal-photos">
-                <div class="modal-photo">🏆</div>
-                <div class="modal-photo">🥇</div>
+                <div class="modal-photo">💡</div>
+                <div class="modal-photo">🎊</div>
                 <div class="modal-photo">👥</div>
-                <div class="modal-photo">🎉</div>
-                <div class="modal-photo">📸</div>
-                <div class="modal-photo">🎊</div>
-            </div>
-        </div>
-    </div>
-
-    <div id="literatureModal" class="event-modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeEventModal()">&times;</button>
-            <div class="modal-header">
-                <h2 class="modal-title">Literature & Arts Quiz Finals</h2>
-                <p class="modal-date">July 22, 2025</p>
-            </div>
-            <p class="modal-description">
-                The grand finale of our literature and arts quiz competition showcased the depth of knowledge in world literature, classical arts, and contemporary cultural movements. Renowned authors and artists from the region graced the event, making it a memorable celebration of literary excellence and artistic appreciation.
-            </p>
-            <div class="modal-photos">
-                <div class="modal-photo">📚</div>
-                <div class="modal-photo">🎭</div>
-                <div class="modal-photo">✍️</div>
-                <div class="modal-photo">🎨</div>
-                <div class="modal-photo">📖</div>
-                <div class="modal-photo">🏛️</div>
-            </div>
-        </div>
-    </div>
-
-    <div id="freshersModal" class="event-modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeEventModal()">&times;</button>
-            <div class="modal-header">
-                <h2 class="modal-title">Freshers' Welcome Event</h2>
-                <p class="modal-date">August 10, 2025</p>
-            </div>
-            <p class="modal-description">
-                A warm welcome to our newest quiz enthusiasts! Over 80 enthusiastic freshers participated in fun quiz activities, ice-breaker sessions, and got introduced to the rich culture of quizzing at CIT. The event was filled with laughter, learning, and new friendships. Many of these bright minds are now active contributing members of our club family.
-            </p>
-            <div class="modal-photos">
-                <div class="modal-photo">🎊</div>
-                <div class="modal-photo">👨‍🎓</div>
-                <div class="modal-photo">🤝</div>
-                <div class="modal-photo">🎈</div>
-                <div class="modal-photo">📋</div>
-                <div class="modal-photo">😊</div>
-            </div>
-        </div>
-    </div>
-
-    <div id="awardsModal" class="event-modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeEventModal()">&times;</button>
-            <div class="modal-header">
-                <h2 class="modal-title">Annual Awards Ceremony</h2>
-                <p class="modal-date">May 18, 2025</p>
-            </div>
-            <p class="modal-description">
-                A prestigious evening celebrating excellence and dedication within our club. Awards were presented for Best Quizzer, Most Improved Member, Outstanding Contributor, and Team Spirit. The ceremony honored our collective achievements and individual milestones, recognizing the hard work and passion that drives our club forward.
-            </p>
-            <div class="modal-photos">
                 <div class="modal-photo">🌟</div>
-                <div class="modal-photo">🏅</div>
-                <div class="modal-photo">🎖️</div>
-                <div class="modal-photo">👏</div>
-                <div class="modal-photo">🎁</div>
-                <div class="modal-photo">🥳</div>
+                <div class="modal-photo">📚</div>
+                <div class="modal-photo">🚀</div>
             </div>
         </div>
     </div>
 
-    <div id="inaugurationModal" class="event-modal">
+    <div id="shankar2024Modal" class="event-modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeEventModal()">&times;</button>
             <div class="modal-header">
-                <h2 class="modal-title">Enlighten 2K25 (Inauguration)</h2>
+                <h2 class="modal-title">Shankar IAS Academy Event</h2>
+                <p class="modal-date">March 2024</p>
+            </div>
+            <p class="modal-description">
+                A prestigious collaboration with the renowned Shankar IAS Academy, this event focused on current affairs, governance, and competitive exam preparation. Students gained valuable insights into civil services preparation while engaging with complex questions on Indian polity, economics, and contemporary issues. The session provided excellent exposure to high-level competitive quizzing.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">🏛️</div>
+                <div class="modal-photo">📰</div>
+                <div class="modal-photo">⚖️</div>
+                <div class="modal-photo">🌍</div>
+                <div class="modal-photo">📊</div>
+                <div class="modal-photo">🎯</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="kodambakkam2024Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Kodambakkam Express (Kollywood Quiz)</h2>
+                <p class="modal-date">May 2024</p>
+            </div>
+            <p class="modal-description">
+                All aboard the Kodambakkam Express! This exciting journey through Tamil cinema tested participants' knowledge of Kollywood from its golden age to contemporary blockbusters. Questions covered legendary actors, acclaimed directors, memorable dialogues, and iconic music. The event celebrated the rich heritage of Tamil cinema while providing entertainment and cultural education.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">🎬</div>
+                <div class="modal-photo">🎭</div>
+                <div class="modal-photo">🎵</div>
+                <div class="modal-photo">📽️</div>
+                <div class="modal-photo">🏆</div>
+                <div class="modal-photo">🌟</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="kalam2024Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">KKC Collab Event (Kalam Thiruvizha 2024)</h2>
+                <p class="modal-date">July 2024</p>
+            </div>
+            <p class="modal-description">
+                A collaborative celebration honoring the legacy of Dr. A.P.J. Abdul Kalam, India's beloved People's President. The event featured questions on space science, missile technology, education, and Dr. Kalam's inspiring life journey. Participants explored themes of innovation, scientific temper, and youth empowerment, embodying the spirit of the Missile Man of India.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">🤝</div>
+                <div class="modal-photo">🚀</div>
+                <div class="modal-photo">🔬</div>
+                <div class="modal-photo">📖</div>
+                <div class="modal-photo">🌟</div>
+                <div class="modal-photo">💭</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="yuva2024Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Intuit with Yuva (YI-Young Indians)</h2>
+                <p class="modal-date">September 2024</p>
+            </div>
+            <p class="modal-description">
+                An insightful collaboration with Young Indians (YI), the youth wing of CII, focusing on entrepreneurship, leadership, and innovation. The interactive session combined quizzing with discussions on startups, business strategy, and social entrepreneurship. Young minds engaged with real-world scenarios while developing their intuitive thinking and problem-solving abilities.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">👥</div>
+                <div class="modal-photo">💡</div>
+                <div class="modal-photo">📈</div>
+                <div class="modal-photo">🏢</div>
+                <div class="modal-photo">🎯</div>
+                <div class="modal-photo">🌱</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2025 Event Modals -->
+    <div id="enlighten2025Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Inauguration (Enlighten) 2025</h2>
                 <p class="modal-date">January 20, 2025</p>
             </div>
             <p class="modal-description">
-                The official inauguration of our Quiz Club for the academic year 2025! Mr. Praveen Jayaraj delivered an inspiring keynote highlighting the importance of quizzing in developing critical thinking and general awareness. Students from diverse departments came together, marking the beginning of an exciting journey filled with learning, competition, and camaraderie.
+                The official launch of Quiz Club activities for 2025! Mr. Praveen Jayaraj delivered an inspiring keynote highlighting the importance of quizzing in developing critical thinking and general awareness. Students from diverse departments came together, marking the beginning of an exciting journey filled with learning, competition, and camaraderie.
             </p>
             <div class="modal-photos">
-                <div class="modal-photo">👥</div>
+                <div class="modal-photo">🌟</div>
                 <div class="modal-photo">🎤</div>
-                <div class="modal-photo">🚀</div>
+                <div class="modal-photo">👥</div>
                 <div class="modal-photo">📅</div>
                 <div class="modal-photo">💼</div>
                 <div class="modal-photo">🌱</div>
@@ -1010,69 +1073,68 @@ border-radius: 50px;
         </div>
     </div>
 
-    <div id="workshopModal" class="event-modal">
+    <div id="minerva2025Modal" class="event-modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeEventModal()">&times;</button>
             <div class="modal-header">
-                <h2 class="modal-title">Quiz Master Training Workshop</h2>
-                <p class="modal-date">February 14, 2025</p>
+                <h2 class="modal-title">Minerva 2025 (In association with Multiverse Quizzing)</h2>
+                <p class="modal-date">February 2025</p>
             </div>
             <p class="modal-description">
-                An intensive training program designed to develop the next generation of quiz masters. Participants learned essential skills including question framing, event management, audience engagement techniques, and effective communication. The workshop covered both theoretical aspects and practical hands-on experience in conducting quiz sessions.
+                Named after the Roman goddess of wisdom, Minerva 2025 was a grand quiz competition organized in association with Multiverse Quizzing. The event featured diverse rounds covering science, literature, arts, and current affairs. Participants experienced professional-level quizzing standards while competing for prestigious titles and recognition.
             </p>
             <div class="modal-photos">
-                <div class="modal-photo">💡</div>
-                <div class="modal-photo">📝</div>
-                <div class="modal-photo">🗣️</div>
-                <div class="modal-photo">👨‍🏫</div>
-                <div class="modal-photo">💭</div>
-                <div class="modal-photo">🔧</div>
-            </div>
-        </div>
-    </div>
-
-    <div id="speakerModal" class="event-modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeEventModal()">&times;</button>
-            <div class="modal-header">
-                <h2 class="modal-title">Guest Speaker Sessions</h2>
-                <p class="modal-date">April 8, 2025</p>
-            </div>
-            <p class="modal-description">
-                Enlightening sessions featuring distinguished personalities from academia, industry, and quiz communities. These inspiring speakers shared their vast experiences, unique quizzing styles, and valuable insights. The sessions provided our members with exposure to different perspectives and approaches to knowledge acquisition and competitive quizzing.
-            </p>
-            <div class="modal-photos">
-                <div class="modal-photo">🎤</div>
-                <div class="modal-photo">👔</div>
-                <div class="modal-photo">🧠</div>
-                <div class="modal-photo">💬</div>
-                <div class="modal-photo">🎯</div>
+                <div class="modal-photo">🦉</div>
+                <div class="modal-photo">🌌</div>
+                <div class="modal-photo">📚</div>
+                <div class="modal-photo">⚖️</div>
+                <div class="modal-photo">🏆</div>
                 <div class="modal-photo">✨</div>
             </div>
         </div>
     </div>
 
-    <div id="practiceModal" class="event-modal">
+    <div id="brahma2025Modal" class="event-modal">
         <div class="modal-content">
             <button class="modal-close" onclick="closeEventModal()">&times;</button>
             <div class="modal-header">
-                <h2 class="modal-title">Intensive Preparation Sessions</h2>
-                <p class="modal-date">June 5, 2025</p>
+                <h2 class="modal-title">Brahma 2025</h2>
+                <p class="modal-date">March 2025</p>
             </div>
             <p class="modal-description">
-                Rigorous preparation sessions conducted before major competitions. Team members engaged in collaborative learning, knowledge sharing, mock quiz rounds, and strategic planning. These intensive sessions fostered team bonding while sharpening competitive skills, and have been instrumental in our consistent success across various competitions.
+                An enlightening quiz competition exploring the vast universe of knowledge. Brahma 2025 challenged participants with questions spanning philosophy, science, arts, and culture. The event emphasized the pursuit of ultimate knowledge and understanding, encouraging participants to think beyond conventional boundaries and explore diverse intellectual realms.
             </p>
             <div class="modal-photos">
-                <div class="modal-photo">🎯</div>
-                <div class="modal-photo">📊</div>
-                <div class="modal-photo">⚡</div>
-                <div class="modal-photo">🤔</div>
-                <div class="modal-photo">📈</div>
-                <div class="modal-photo">🔥</div>
+                <div class="modal-photo">🕉️</div>
+                <div class="modal-photo">📖</div>
+                <div class="modal-photo">🌸</div>
+                <div class="modal-photo">🔮</div>
+                <div class="modal-photo">🎭</div>
+                <div class="modal-photo">⭐</div>
             </div>
         </div>
     </div>
 
+    <div id="popquiz2025Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Pop Quiz Party 2025</h2>
+                <p class="modal-date">April 2025</p>
+            </div>
+            <p class="modal-description">
+                A vibrant and informal quiz party that brought together quiz enthusiasts in a relaxed, celebratory atmosphere. Featuring rapid-fire rounds, team challenges, and surprise question categories, the event combined learning with entertainment. Music, snacks, and a party vibe made this a memorable social gathering for all quiz lovers.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo">🎉</div>
+                <div class="modal-photo">🎈</div>
+                <div class="modal-photo">🍰</div>
+                <div class="modal-photo">🎵</div>
+                <div class="modal-photo">😄</div>
+                <div class="modal-photo">🥳</div>
+            </div>
+        </div>
+    </div>
 
     <!-- MEMBERS PAGE -->
     <div id="members" class="page">
@@ -1569,6 +1631,7 @@ border-radius: 50px;
     </script>
 </body>
 </html>
+
 
 
 
