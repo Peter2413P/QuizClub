@@ -60,6 +60,9 @@ Welcome to the official repository of the **Quiz Club**! This site is a hub for 
 | Kiran saai ram.jpg    | ![](https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/Kiran%20saai%20ram.jpg?raw=true) |
 | kavin kr.png          | ![](https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/kavin%20kr.png?raw=true) |
 | shagul.jpg            | ![](https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/shagul.jpg?raw=true) |
+| JVF.jpg      | ![](https://github.com/Peter2413P/QuizClub/blob/39d22fdb39930c3aeb60fb368ff787af5eb69448/JVF.jpg?raw=true) |
+| JJF.jpg      | ![](https://github.com/Peter2413P/QuizClub/blob/39d22fdb39930c3aeb60fb368ff787af5eb69448/JJF.jpg?raw=true) |
+| RDF.jpg      | ![](https://github.com/Peter2413P/QuizClub/blob/39d22fdb39930c3aeb60fb368ff787af5eb69448/RDF.jpg?raw=true) |
 
 ---
 
