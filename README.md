@@ -112,7 +112,11 @@ Welcome to the official repository of the **Quiz Club**! This site is a hub for 
 | ke6.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/ke6.jpg?raw=true) |
 | ke7.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/ke7.jpg?raw=true) |
 | bl.png | ![](https://github.com/Peter2413P/QuizClub/blob/81e62f18835da05631c5f73419c2155600aa9c93/bl.png?raw=true) |
-
+| 2k25inaugl.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/2k25inaugl.jpg?raw=true) |
+| Luml.jpg       | ![](https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/Luml.jpg?raw=true)       |
+| minl.jpg       | ![](https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/minl.jpg?raw=true)       |
+| brahmal.jpg    | ![](https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/brahmal.jpg?raw=true)    |
+| Intuit.jpg     | ![](https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/Intuit.jpg?raw=true)     |
 
 ---
 
