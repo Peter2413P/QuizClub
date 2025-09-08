@@ -850,7 +850,6 @@ border-radius: 50px;
        <!-- GALLERY PAGE -->
      <div class="container" class="page">
         <h1>Gallery</h1>
-
         <!-- 2024 Events Section -->
         <div class="year-section">
             <h2 class="year-title">2024 Events</h2>
@@ -863,7 +862,6 @@ border-radius: 50px;
                         <div class="gallery-date">January 2024</div>
                     </div>
                 </div>
-
                 <div class="gallery-item" onclick="openEventModal('shankar2024')">
                     <div class="gallery-image">🏛️</div>
                     <div class="gallery-caption">
@@ -872,7 +870,6 @@ border-radius: 50px;
                         <div class="gallery-date">March 2024</div>
                     </div>
                 </div>
-
                 <div class="gallery-item" onclick="openEventModal('kodambakkam2024')">
                     <div class="gallery-image">🎬</div>
                     <div class="gallery-caption">
@@ -1554,22 +1551,22 @@ border-radius: 50px;
 
     <script>
         // Navigation functionality
-        function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Update navigation links
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => link.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
+       function showPage(pageId, event) {
+    // Hide all pages
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+    
+    // Show selected page
+    document.getElementById(pageId).classList.add('active');
+    
+    // Update navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => link.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+}
 
         function openEventModal(eventType) {
             // Close any open modals first
@@ -1631,6 +1628,7 @@ border-radius: 50px;
     </script>
 </body>
 </html>
+
 
 
 
