@@ -6,29 +6,58 @@
     <title>Quiz Club CIT - Coimbatore Institute of Technology</title>
  <link rel="icon" type="image/png" href="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/logoic.jpg?raw=true">
     <style>
+        :root {
+            --primary: #8A2BE2;
+            --secondary: #FF6B6B;
+            --accent: #00C9A7;
+            --dark: #1A1A2E;
+            --light: #F8F9FF;
+            --gradient: linear-gradient(135deg, #8A2BE2 0%, #FF6B6B 100%);
+            --glass: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+            color: var(--light);
             min-height: 100vh;
+            background-attachment: fixed;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: white;
         }
 
         /* Navigation */
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
             padding: 1rem 0;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
+            border-bottom: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(26, 26, 46, 0.95);
         }
 
         .nav-container {
@@ -43,10 +72,22 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #a855a0;
+            gap: 12px;
+            font-size: 1.7rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: var(--gradient);
+-webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradient 8s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .logo-icon {
@@ -64,21 +105,39 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: var(--light);
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: var(--transition);
             cursor: pointer;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
         }
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: #a855a0;
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         /* Pages */
@@ -145,19 +204,21 @@ border-radius: 50px;
           
          
         }
-     #insta{width:30px;
-        height: 30px;
-        border-radius: 30%;}
-        .hero h1 {
-            border-radius:
-            font-size: 4rem;
-            margin-bottom: 1rem;
+     #insta {
+            width: 30px;
+            height: 30px;
+            border-radius: 30%;
         }
-#linked{width:30px;
-    height: 30px;}
+        
+        #linked {
+            width: 30px;
+            height: 30px;
+        }
+        
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 1rem;
+            border-radius: 10px;
         }
         .hero p {
             font-size: 1.3rem;
@@ -166,22 +227,45 @@ border-radius: 50px;
         }
 
         .cta-button {
-            background: linear-gradient(45deg, #a855a0, #d946ef);
+            background: var(--gradient);
             color: white;
-            padding: 1rem 2rem;
+            padding: 1rem 2.5rem;
             border: none;
             border-radius: 50px;
             font-size: 1.1rem;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: var(--transition);
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(168, 85, 160, 0.4);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .features-grid {
@@ -192,17 +276,40 @@ border-radius: 50px;
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             text-align: center;
             color: white;
-            transition: transform 0.3s ease;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            z-index: -1;
+            transition: var(--transition);
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-card:hover::before {
+            opacity: 0.1;
         }
 
         .feature-icon {
@@ -475,13 +582,33 @@ border-radius: 50px;
         }
 
         .member-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             text-align: center;
             color: white;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .member-card:hover::after {
+            opacity: 1;
         }
 
         .member-card:hover {
@@ -530,61 +657,304 @@ border-radius: 50px;
 
         .member-department {
             font-size: 0.9rem;
-            opacity: 0.8;
         }
-
-
-        /* Contact Page Styles */
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* slightly more compact */
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.contact-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 2rem;
-    color: white;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.contact-card:hover {
-    transform: translateY(-5px); /* subtle lift on hover */
-}
-
-.contact-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-.contact-icon a {
-  text-decoration: none;     /* removes underline */
-  color: inherit;            /* uses parent text color (white, in your case) */
-  font-weight: 500;          /* optional: makes it look like styled text */
-}
-.contact-icon img {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%; /* makes icons circular */
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.contact-icon img:hover {
-    transform: scale(1.1); /* slight zoom on hover */
-}
+        
+        .contact-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .contact-icon-inner {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 107, 107, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-icon-inner {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(255, 107, 107, 0.2));
+        }
+        
+        .contact-icon-inner img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+            max-width: 100%;
+            max-height: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+            object-position: center;
+            display: block;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+        }
+        
+        .contact-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 30px;
+        }
+        
+        .contact-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .contact-wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-wave {
+            transform: scaleX(1);
+        }
+        
+        /* Contact Form Styles */
+        .contact-form-card {
+            grid-column: 1 / -1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 0;
+            font-size: 1rem;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .form-group label {
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            color: var(--text-light);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group input:not(:placeholder-shown),
+        .form-group textarea:not(:placeholder-shown) {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-group input:focus + label,
+        .form-group textarea:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: -0.5rem;
+            left: 0;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .focus-border {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 0.3s ease;
+        }
+        
+        .form-group input:focus ~ .focus-border,
+        .form-group textarea:focus ~ .focus-border {
+            width: 100%;
+        }
+        
+        .submit-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+        }
+        
+        .submit-btn svg {
+            transition: transform 0.3s ease;
+        }
+        
+        .submit-btn:hover svg {
+            transform: translateX(5px);
+        }
+        
+        /* Contact Info Styles */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .contact-icon-inner {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden; /* Ensure images don't overflow */
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 107, 107, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .info-content h4 {
+            color: var(--text-light);
+            margin: 0 0 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .info-content p {
+            color: var(--text-light);
+            margin: 0 0 0.25rem;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .info-content small {
+            color: var(--text-light);
+            opacity: 0.8;
+            font-size: 0.85rem;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
 
 #con {
     font-size: 1rem;
     font-weight: 500;
 }
+
+
         /* About Page Styles */
         .about-content {
             background: rgba(255, 255, 255, 0.1);
@@ -1469,52 +1839,126 @@ border-radius: 50px;
         </section>
     </div>
 
- <!-- CONTACT PAGE -->
+<!-- CONTACT PAGE -->
 <div id="contact" class="page">
     <section class="section">
         <div class="container">
-            <h1>Contact Us</h1>
+            <div class="section-header">
+                <h1 class="section-title">Get In Touch</h1>
+                <p class="section-subtitle">We'd love to hear from you! Reach out to us through any of these channels.</p>
+            </div>
 
             <div class="contact-grid">
-
                 <!-- Instagram -->
                 <div class="contact-card">
-                    <div class="contact-icon">
-                        <a href="https://www.instagram.com/citquizclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
-                         <div>   <img id="insta" src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/instagram.jpg?raw=true"  style="width:45px; height:45px; border-radius:50%;"></div>
-                            <span id="con">Instagram</span>
-                        </a>
+                    <div class="contact-icon-wrapper">
+                        <div class="contact-icon-inner">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/instagram.jpg?raw=true" alt="Instagram">
+                        </div>
                     </div>
+                    <h3>Instagram</h3>
+                    <p>Follow us for updates and highlights</p>
+                    <a href="https://www.instagram.com/citquizclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="contact-btn" target="_blank">Follow Us</a>
+                    <div class="contact-wave"></div>
                 </div>
 
                 <!-- LinkedIn -->
                 <div class="contact-card">
-                    <div class="contact-icon">
-                        <a href="https://www.linkedin.com/company/quiz-club-qc/" target="_blank">
-                           <div> <img id="linked" src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/linkedin.png?raw=true"  style="width:45px; height:45px; border-radius:50%;"></div>
-                            <span id="con">LinkedIn</span>
-                        </a>
+                    <div class="contact-icon-wrapper">
+                        <div class="contact-icon-inner">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/linkedin.png?raw=true" alt="LinkedIn">
+                        </div>
                     </div>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with us professionally</p>
+                    <a href="https://www.linkedin.com/company/quiz-club-qc/" class="contact-btn" target="_blank">Connect</a>
+                    <div class="contact-wave"></div>
                 </div>
 
                 <!-- WhatsApp Group -->
                 <div class="contact-card">
-                    <div class="contact-icon">
-                        <a href="https://chat.whatsapp.com/your-group-invite-link" target="_blank">
-                           <div> <img id="whatsapp" src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" style="width:45px; height:45px; border-radius:50%;"></div>
-                            <span id="con">WhatsApp Group</span>
-                        </a>
+                    <div class="contact-icon-wrapper">
+                        <div class="contact-icon-inner">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+                        </div>
                     </div>
+                    <h3>WhatsApp Group</h3>
+                    <p>Join our community chat</p>
+                    <a href="https://chat.whatsapp.com/your-group-invite-link" class="contact-btn" target="_blank">Join Now</a>
+                    <div class="contact-wave"></div>
                 </div>
 
-                <!-- Phone -->
-                <div class="contact-card">
-                    <div class="contact-icon">📱</div>
-                    <h3>Phone</h3>
-                    <p>+91 98765 43210</p>
-                    <p>Direct contact for urgent matters</p>
+                <!-- Contact Form -->
+                <div class="contact-card contact-form-card">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email Address</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="3" required></textarea>
+                            <label for="message">Your Message</label>
+                            <span class="focus-border"></span>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"></line>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                        </button>
+                    </form>
+                    <div class="contact-wave"></div>
                 </div>
-                
+            </div>
+
+            <!-- Additional Contact Info -->
+            <div class="contact-info">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <h4>Call Us</h4>
+                        <p>+91 98765 43210</p>
+                        <small>Mon-Fri, 9:00 AM - 5:00 PM</small>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <h4>Email Us</h4>
+                        <p>quizclub@cit.edu.in</p>
+                        <small>We'll respond within 24 hours</small>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="info-content">
+                        <h4>Visit Us</h4>
+                        <p>Coimbatore Institute of Technology</p>
+                        <small>Coimbatore, Tamil Nadu 641014</small>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1542,22 +1986,87 @@ border-radius: 50px;
 
     <script>
         // Navigation functionality
-       function showPage(pageId, event) {
-    // Hide all pages
-    const pages = document.querySelectorAll('.page');
-    pages.forEach(page => page.classList.remove('active'));
-    
-    // Show selected page
-    document.getElementById(pageId).classList.add('active');
-    
-    // Update navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => link.classList.remove('active'));
-    event.target.classList.add('active');
-    
-    // Scroll to top
-    window.scrollTo(0, 0);
-}
+        function showPage(pageId, event) {
+            // Prevent default if event exists (for anchor clicks)
+            if (event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            } else {
+                // If page not found, default to home
+                document.getElementById('home').classList.add('active');
+                pageId = 'home';
+            }
+            
+            // Update navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                // Check if this link points to the current page
+                const linkPage = link.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+                if (linkPage === pageId) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Update URL without reloading the page
+            try {
+                if (history.pushState) {
+                    history.pushState(null, null, `#${pageId}`);
+                } else {
+                    window.location.hash = `#${pageId}`;
+                }
+            } catch (e) {
+                console.warn('Error updating URL:', e);
+            }
+            
+            // Scroll to top with smooth behavior
+            try {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            } catch (e) {
+                window.scrollTo(0, 0);
+            }
+        }
+        
+        // Handle initial page load with hash
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set home as default active page
+            let pageId = 'home';
+            
+            // Check for hash in URL
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                if (document.getElementById(hash)) {
+                    pageId = hash;
+                }
+            }
+            
+            // Show the appropriate page
+            showPage(pageId);
+            
+            // Add click event listeners to all nav links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const pageId = this.getAttribute('onclick')?.match(/'([^']+)'/)?.[1];
+                    if (pageId) {
+                        showPage(pageId, e);
+                    }
+                });
+            });
+        });
 
         function openEventModal(eventType) {
             // Close any open modals first
@@ -1619,7 +2128,6 @@ border-radius: 50px;
     </script>
 </body>
 </html>
-
 
 
 
