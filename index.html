@@ -46,7 +46,6 @@
             padding: 0;
             z-index: 9999;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            animation: slideDown 0.5s ease-out;
             font-size: 0.9rem;
             border-bottom: 2px solid #ffd700;
             transition: all 0.3s ease;
@@ -125,8 +124,13 @@
         }
 
         @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(-100%); opacity: 0; }
         }
         
         @keyframes marquee {
@@ -462,16 +466,127 @@ border-radius: 50px;
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4);
         }
-
         .cta-button:hover::before {
             left: 100%;
         }
 
-        .features-grid {
+        .events-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            padding: 0 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+                padding: 0;
+                gap: 1.5rem;
+            }
+            
+            .event-card {
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
+                padding: 1.5rem;
+                min-height: auto;
+            }
+            
+            .compact-event-card {
+                margin: 0 0 1.5rem;
+                width: 100%;
+                padding: 1rem 1rem !important;
+            }
+            
+            .events-section {
+                padding: 1.5rem 1rem;
+                margin: 1.5rem 0;
+                border-radius: 15px;
+            }
+            
+            .events-section h2 {
+                font-size: 1.75rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .event-details {
+                font-size: 0.9rem;
+                line-height: 1.6;
+            }
+            
+            .event-icon {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .event-card h3 {
+                font-size: 1.15rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .event-card p {
+                font-size: 0.9rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
+            
+            .register-btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.95rem;
+                margin: 1rem 0;
+            }
+            
+            .event-contacts p {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                word-break: break-word;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .events-section {
+                padding: 1rem 0.75rem;
+                margin: 1rem 0;
+            }
+            
+            .events-section h2 {
+                font-size: 1.5rem !important;
+            }
+            
+            .event-card {
+                padding: 1.25rem;
+            }
+            
+            .compact-event-card {
+                padding: 0.75rem 0.75rem !important;
+            }
+            
+            .compact-event-card > div {
+                flex-direction: column;
+                align-items: flex-start !important;
+            }
+            
+            .compact-event-card a {
+                width: 100%;
+                text-align: center;
+                margin-top: 0.75rem;
+            }
+            
+            #events .container {
+                padding: 0 0.5rem;
+            }
+        }
+        
+        /* Additional mobile optimizations */
+        @media (max-width: 640px) {
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            #events h1 {
+                font-size: 2rem !important;
+            }
         }
 
         .feature-card {
@@ -522,23 +637,24 @@ border-radius: 50px;
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 2rem;
-            margin: 2rem 0;
+            margin: 2rem auto;
             color: white;
+            max-width: 100%;
         }
 
         .events-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
-            margin: 1rem 0;
-            padding: 0.5rem;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            padding: 0;
             align-items: stretch;
         }
 
         .event-card {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 1.25rem;
+            border-radius: 15px;
+            padding: 1.5rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -546,8 +662,8 @@ border-radius: 50px;
             overflow: hidden;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            min-height: 240px;
-            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+            min-height: 280px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             height: 100%;
             box-sizing: border-box;
             will-change: transform, box-shadow;
@@ -619,11 +735,29 @@ border-radius: 50px;
         .register-btn:hover {
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
+        
+        .event-contacts {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .event-contacts p {
+            font-size: 0.9rem;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
 
         .event-icon {
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
+            font-size: 2rem;
+            margin-bottom: 1rem;
             text-align: center;
+            display: block;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(138, 43, 226, 0.3);
         }
         .gallery-grid {
             margin-bottom: 2rem;
@@ -767,34 +901,20 @@ border-radius: 50px;
     margin-top: 2rem;
 }
 
-.event-card {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 1.5rem;
-    transition: all 0.3s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: visible;
-}
-
 .event-card h3 {
-    font-size: 1.1rem;
-    margin: 0.5rem 0 0.5rem;
+    font-size: 1.25rem;
+    margin: 0.5rem 0 1rem;
     color: #fff;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.6;
 }
 
 .event-card p {
     color: #e0e0e0;
-    margin: 0 0 0.75rem;
-    font-size: 0.85rem;
-    line-height: 1.5;
-    opacity: 0.9;
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
 }
 
 /* Gallery Grid Styles */
@@ -908,13 +1028,13 @@ border-radius: 50px;
     background: rgba(0, 0, 0, 0.9);
     z-index: 1000;
     overflow-y: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
 }
 
 .event-modal.active {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
 }
 
 .modal-content {
@@ -928,6 +1048,27 @@ border-radius: 50px;
     overflow-y: auto;
     border: 1px solid rgba(255, 255, 255, 0.2);
     position: relative;
+    margin: auto;
+}
+
+@media (max-width: 768px) {
+    .event-modal {
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        padding: 1.5rem;
+        max-height: 95vh;
+        border-radius: 15px;
+    }
+    
+    .modal-title {
+        font-size: 1.8rem;
+    }
+    
+    .modal-description {
+        font-size: 1rem;
+    }
 }
 
 .modal-close {
@@ -1537,13 +1678,6 @@ border-radius: 50px;
             box-shadow: 0 10px 20px rgba(138, 43, 226, 0.2);
         }
         
-        .event-card h3 {
-            font-size: 1.1rem;
-            margin: 0.5rem 0 0.5rem;
-            color: #fff;
-            font-weight: 600;
-            line-height: 1.2;
-        }
         
         .info-content h4 {
             color: #fff;
@@ -1951,9 +2085,10 @@ border-radius: 50px;
                 <div class="compact-event-card" style="background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.95));
                                                    border: 1px solid rgba(255, 215, 0, 0.3);
                                                    padding: 12px 20px;
-                                                   margin-bottom: 25px;
+                                                   margin: 0 auto 25px;
                                                    border-radius: 8px;
-                                                   box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                                                   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                                                   max-width: 95%;">
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
                         <div style="flex: 1; min-width: 0;">
                             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
@@ -1984,12 +2119,12 @@ border-radius: 50px;
                     </div>
                 </div>
 
-                <h1 class="text-4xl font-bold text-center mb-12">
+                <h1 class="text-4xl font-bold text-center mb-8 sm:mb-12" style="padding: 0 1rem;">
                     <span class="neo-text">Our Events</span>
                 </h1>
                 
                 <!-- Collaborative Events Section -->
-                <div class="events-section" style="margin-top: 3rem;">
+                <div class="events-section" style="margin-top: 2rem;">
                     <h2 class="text-3xl font-bold mb-8 text-center">
                         <span class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">Collaborative Events</span>
                     </h2>
@@ -2019,7 +2154,7 @@ border-radius: 50px;
 
 
                 <!-- Club-Only Events Section -->
-                <div class="events-section" style="margin-top: 3rem;">
+                <div class="events-section" style="margin-top: 2rem;">
                     <h2 class="text-3xl font-bold mb-8 text-center">
                         <span class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">Our Exclusive Events</span>
                     </h2>
@@ -2031,9 +2166,9 @@ border-radius: 50px;
                 
                             <div class="event-details">
                                 <p><span class="emoji">💰</span> <strong>Prize Pool:</strong> ₹7,000</p>
-                                <p><span class="emoji">📅</span> 8th October 2025</p>
-                                <p><span class="emoji">⏰</span> 9:00 AM - 2:00 PM</p>
-                                <p><span class="emoji">👥</span> Team of 2 (Classes 6-12)</p>
+                                <p><span class="emoji">📅</span> 8th Oct 2025</p>
+                                <p><span class="emoji">⏰</span> 9AM - 2PM</p>
+                                <p><span class="emoji">👥</span> Team of 2 (6-12)</p>
                             </div>
                             <a href="https://forms.gle/zN3CgHZxtSnLNUBKA" target="_blank" class="register-btn">
                                 Register Now
@@ -2110,7 +2245,9 @@ border-radius: 50px;
                 </div>
 
                 <div class="gallery-item" onclick="openEventModal('kalam2024')">
-                    <div class="gallery-image">🤝</div>
+                    <div class="gallery-image">
+                        <img src="https://github.com/Peter2413P/QuizClub/blob/50ea6d064dfe6a9e3d20742af79a78c0d5222b3a/final/kalam.png?raw=true" alt="kalam">
+                    </div>
                     <div class="gallery-caption">
                         <h3>KKC Collab Event (Kalam Thiruvizha 2024)</h3>
                         <p>A collaborative celebration honoring Dr. A.P.J. Abdul Kalam's legacy through knowledge and innovation.</p>
@@ -2386,7 +2523,28 @@ border-radius: 50px;
 </h1>
                     <p class="section-subtitle" style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin: 0 auto;">Meet the brilliant minds and passionate individuals who make our Quiz Club thrive. Our diverse team works together to create engaging and educational experiences for all members.</p>
                     <div class="divider" style="width: 100px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); margin: 1.5rem auto; border-radius: 2px;"></div>
-                </div>               
+                </div>
+                
+                    <!-- Staff Advisors Section -->
+                    <div class="role-section">
+                        <h3 class="role-title">Staff Advisors</h3>
+                        <div class="members-grid">
+                            <div class="member-card">
+                              <img src="https://github.com/Peter2413P/QuizClub/blob/50ea6d064dfe6a9e3d20742af79a78c0d5222b3a/final/karthiksir.jpg?raw=true" class="member-image" alt="karthiksir">
+                                <div class="member-name">Mr. Karthik K</div>
+                                <div class="member-position">Staff Advisor</div>
+                                <div class="member-department">Department of Mechanical Engineering</div>
+                            </div>
+                            
+                            <div class="member-card">
+                               <img src="https://github.com/Peter2413P/QuizClub/blob/50ea6d064dfe6a9e3d20742af79a78c0d5222b3a/final/santhamam.jpg?raw=true" class="member-image" alt="santhamam">
+                                <div class="member-name">Dr. Santha Devi A</div>
+                                <div class="member-position">Staff Advisor</div>
+                                <div class="member-department">Department of Humanities</div>
+                            </div>
+                        </div>
+                    </div>
+               
                     <!-- Secretaries Section -->
                     <div class="role-section">
                         <h3 class="role-title">Secretaries</h3>
@@ -3077,6 +3235,8 @@ border-radius: 50px;
         }
 
         // Navigation functionality
+        let bannerInterval;
+        
         function closeBanner() {
     const banner = document.getElementById('announcementBanner');
     banner.style.display = 'none';
@@ -3084,6 +3244,34 @@ border-radius: 50px;
     localStorage.setItem('bannerClosed', 'true');
     // Remove the extra padding when banner is closed
     document.body.style.paddingTop = '0';
+    // Clear the banner interval
+    if (bannerInterval) {
+        clearInterval(bannerInterval);
+    }
+}
+
+function showBannerWithAnimation() {
+    const banner = document.getElementById('announcementBanner');
+    const currentPage = new URLSearchParams(window.location.search).get('page') || 'home';
+    
+    // Don't show on events page or if manually closed
+    if (currentPage === 'events' || localStorage.getItem('bannerClosed')) {
+        return;
+    }
+    
+    // Show banner
+    banner.style.display = 'block';
+    banner.style.animation = 'slideDown 0.5s ease-out';
+    document.body.style.paddingTop = '50px';
+    
+    // Hide banner after animation completes (assuming 20s for marquee)
+    setTimeout(() => {
+        banner.style.animation = 'slideUp 0.5s ease-out';
+        setTimeout(() => {
+            banner.style.display = 'none';
+            document.body.style.paddingTop = '0';
+        }, 500);
+    }, 20000); // Show for 20 seconds
 }
 
 function showPage(pageId, event) {
@@ -3149,9 +3337,14 @@ function showPage(pageId, event) {
             
             // Show banner on all pages except events, and only if not closed before
             if (currentPage !== 'events' && !localStorage.getItem('bannerClosed') && banner) {
-                banner.style.display = 'block';
-                // Add body padding to prevent content from being hidden under the fixed banner
-                document.body.style.paddingTop = '50px';
+                // Initial show
+                showBannerWithAnimation();
+                
+                // Set interval to show banner every 15 seconds after it disappears
+                // Total cycle: 20s visible + 15s hidden = 35s
+                bannerInterval = setInterval(() => {
+                    showBannerWithAnimation();
+                }, 35000); // 35 seconds (20s display + 15s wait)
             }
             
             // Check for page parameter in URL
@@ -3205,7 +3398,8 @@ function showPage(pageId, event) {
         const openEventModal = (eventType) => {
             const modal = document.getElementById(`${eventType}Modal`);
             if (modal) {
-                modal.style.display = 'block';
+                modal.style.display = 'flex';
+                modal.classList.add('active');
                 document.body.style.overflow = 'hidden';
                 // Focus management for accessibility
                 modal.setAttribute('aria-hidden', 'false');
@@ -3217,6 +3411,7 @@ function showPage(pageId, event) {
         const closeEventModal = () => {
             document.querySelectorAll('.event-modal').forEach(modal => {
                 modal.style.display = 'none';
+                modal.classList.remove('active');
                 modal.setAttribute('aria-hidden', 'true');
             });
             document.body.style.overflow = 'auto';
