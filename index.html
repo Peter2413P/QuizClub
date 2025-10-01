@@ -3676,38 +3676,86 @@ function showPage(pageId, event) {
                 event.stopPropagation();
             }
 
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                page.style.display = 'none';
-            });
+            // Show page transition loading (only if not initial load)
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen && event) { // Only show if triggered by user action
+                loadingScreen.style.display = 'flex';
+                loadingScreen.classList.remove('hidden');
+                
+                // Wait for loading animation, then show page
+                setTimeout(() => {
+                    // Hide all pages
+                    const pages = document.querySelectorAll('.page');
+                    pages.forEach(page => {
+                        page.style.display = 'none';
+                    });
 
-            // Show the selected page
-            const activePage = document.getElementById(pageId);
-            if (activePage) {
-                activePage.style.display = 'block';
-            }
+                    // Show the selected page
+                    const activePage = document.getElementById(pageId);
+                    if (activePage) {
+                        activePage.style.display = 'block';
+                    }
 
-            // Update active nav link
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(`'${pageId}'`)) {
-                    link.classList.add('active');
-                }
-            });
+                    // Update active nav link
+                    const navLinks = document.querySelectorAll('.nav-link');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(`'${pageId}'`)) {
+                            link.classList.add('active');
+                        }
+                    });
 
-            // Update URL without page reload
-            updateUrl(pageId);
-            
-            // Scroll to top with smooth behavior
-            try {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
+                    // Update URL without page reload
+                    updateUrl(pageId);
+                    
+                    // Scroll to top
+                    try {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    } catch (e) {
+                        window.scrollTo(0, 0);
+                    }
+                    
+                    // Hide loading screen
+                    loadingScreen.classList.add('hidden');
+                }, 500); // Show loading for 500ms before switching page
+            } else {
+                // No loading animation for initial load or back/forward navigation
+                // Hide all pages
+                const pages = document.querySelectorAll('.page');
+                pages.forEach(page => {
+                    page.style.display = 'none';
                 });
-            } catch (e) {
-                window.scrollTo(0, 0);
+
+                // Show the selected page
+                const activePage = document.getElementById(pageId);
+                if (activePage) {
+                    activePage.style.display = 'block';
+                }
+
+                // Update active nav link
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(`'${pageId}'`)) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Update URL without page reload
+                updateUrl(pageId);
+                
+                // Scroll to top
+                try {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } catch (e) {
+                    window.scrollTo(0, 0);
+                }
             }
         }
         
@@ -3903,14 +3951,14 @@ function showPage(pageId, event) {
         // Loading Screen Handler
         window.addEventListener('load', function() {
             const loadingScreen = document.getElementById('loadingScreen');
-            // Add a small delay for smooth transition
+            // Immediately start fade out when page loads
             setTimeout(() => {
                 loadingScreen.classList.add('hidden');
                 // Remove from DOM after animation completes
                 setTimeout(() => {
                     loadingScreen.style.display = 'none';
-                }, 500);
-            }, 500);
+                }, 600);
+            }, 300); // Reduced from 500ms to 300ms
         });
     </script>
 </body>
