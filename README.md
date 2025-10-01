@@ -141,6 +141,9 @@ Welcome to the official repository of the **Quiz Club**! This site is a hub for 
 | sp4.png | ![](https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp4.png?raw=true) |
 | sp5.png | ![](https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp5.png?raw=true) |
 | sp6.png | ![](https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp6.png?raw=true) |
+| ke0.jpg  | ![](https://github.com/Peter2413P/QuizClub/blob/94e200e71fdc9073aecd5e8c3089d70b9e752de7/final/ke0.jpg?raw=true) |
+| sia0.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/94e200e71fdc9073aecd5e8c3089d70b9e752de7/final/sia0.jpg?raw=true) |
+| sq5.jpg  | ![](https://github.com/Peter2413P/QuizClub/blob/94e200e71fdc9073aecd5e8c3089d70b9e752de7/final/sq5.jpg?raw=true) |
 
 
 ---
