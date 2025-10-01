@@ -135,6 +135,12 @@ Welcome to the official repository of the **Quiz Club**! This site is a hub for 
 | karthiksir.jpg     | ![](https://github.com/Peter2413P/QuizClub/blob/50ea6d064dfe6a9e3d20742af79a78c0d5222b3a/final/karthiksir.jpg?raw=true) |
 | kalam.png          | ![](https://github.com/Peter2413P/QuizClub/blob/50ea6d064dfe6a9e3d20742af79a78c0d5222b3a/final/kalam.png?raw=true) |
 | santhamam.jpg      | ![](https://github.com/Peter2413P/QuizClub/blob/50ea6d064dfe6a9e3d20742af79a78c0d5222b3a/final/santhamam.jpg?raw=true) |
+| sp1.png | ![](https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp1.png?raw=true) |
+| sp2.png | ![](https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp2.png?raw=true) |
+| sp3.png | ![](https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp3.png?raw=true) |
+| sp4.png | ![](https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp4.png?raw=true) |
+| sp5.png | ![](https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp5.png?raw=true) |
+| sp6.png | ![](https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp6.png?raw=true) |
 
 
 ---
