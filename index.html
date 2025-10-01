@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,9 +140,29 @@
         }
         
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5); }
+            50% { transform: scale(1.08); box-shadow: 0 6px 25px rgba(255, 215, 0, 0.8); }
+            100% { transform: scale(1); box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5); }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3), 0 0 50px rgba(255, 215, 0, 0.2); }
+            50% { box-shadow: 0 8px 35px rgba(255, 215, 0, 0.5), 0 0 80px rgba(255, 215, 0, 0.4); }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .featured-quiz-card {
+            animation: glow 3s infinite;
+            background-size: 200% 200%;
         }
         
         /* Ensure navbar stays above banner */
@@ -654,7 +675,7 @@ border-radius: 50px;
         .event-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
-            padding: 1.5rem;
+            padding: 1.25rem;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -662,9 +683,9 @@ border-radius: 50px;
             overflow: hidden;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            min-height: 280px;
+            min-height: auto;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            height: 100%;
+            height: auto;
             box-sizing: border-box;
             will-change: transform, box-shadow;
         }
@@ -749,8 +770,8 @@ border-radius: 50px;
         }
 
         .event-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
             text-align: center;
             display: block;
         }
@@ -758,6 +779,18 @@ border-radius: 50px;
         .event-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(138, 43, 226, 0.3);
+        }
+        
+        .event-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        
+        .event-card p {
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-bottom: 0;
         }
         .gallery-grid {
             margin-bottom: 2rem;
@@ -2101,6 +2134,14 @@ border-radius: 50px;
                                 <span>⏰ 9:00 AM - 2:00 PM</span>
                                 <span>👥 Team of 2 (Classes 6-12)</span>
                             </div>
+                            <!-- Compact Countdown Timer -->
+                            <div id="bannerCountdown" style="display: flex; gap: 8px; margin-top: 8px; font-size: 0.8rem; color: #ffd700; font-weight: bold;">
+                                <span>⏳</span>
+                                <span id="bannerDays">00</span>d
+                                <span id="bannerHours">00</span>h
+                                <span id="bannerMinutes">00</span>m
+                                <span id="bannerSeconds">00</span>s
+                            </div>
                         </div>
                         <a href="https://forms.gle/zN3CgHZxtSnLNUBKA" 
                            target="_blank" 
@@ -2130,24 +2171,24 @@ border-radius: 50px;
                     </h2>
                     <div class="events-grid">
                         <div class="event-card">
-                            <div class="event-icon">🤝</div>
-                            <h3>Inter-College Quiz Festival</h3>
-                            <p>Annual mega event bringing together quiz enthusiasts from colleges across Tamil Nadu. Features multiple rounds, diverse categories, and exciting prizes. A platform for networking and knowledge exchange.</p>
+                            <div class="event-icon">🏛️</div>
+                            <h3>Shankar IAS Academy Event</h3>
+                            <p>A prestigious collaboration with Shankar IAS Academy focusing on current affairs, governance, and competitive exam preparation. Students gain valuable insights into civil services preparation while engaging with complex questions on Indian polity, economics, and contemporary issues.</p>
                         </div>
                         <div class="event-card">
-                            <div class="event-icon">🌐</div>
-                            <h3>Regional Quiz Championship</h3>
-                            <p>Collaborative event with other engineering colleges in the region. Teams compete in technical, general knowledge, and specialized rounds. Promotes healthy inter-institutional competition.</p>
+                            <div class="event-icon">🚀</div>
+                            <h3>KKC Collab Event (Kalam Thiruvizha)</h3>
+                            <p>A collaborative celebration honoring the legacy of Dr. A.P.J. Abdul Kalam, India's beloved People's President. The event features questions on space science, missile technology, education, and Dr. Kalam's inspiring life journey.</p>
                         </div>
                         <div class="event-card">
-                            <div class="event-icon">🎪</div>
-                            <h3>Cultural Quiz Carnival</h3>
-                            <p>Joint event with cultural clubs focusing on arts, literature, cinema, and music. Celebrates diverse cultural knowledge and artistic appreciation among students.</p>
+                            <div class="event-icon">💡</div>
+                            <h3>Intuit with Yuva (YI-Young Indians)</h3>
+                            <p>An insightful collaboration with Young Indians (YI), the youth wing of CII, focusing on entrepreneurship, leadership, and innovation. The interactive session combines quizzing with discussions on startups, business strategy, and social entrepreneurship.</p>
                         </div>
                         <div class="event-card">
-                            <div class="event-icon">🔬</div>
-                            <h3>Science & Technology Symposium</h3>
-                            <p>Collaborative technical quiz event with engineering societies. Covers cutting-edge technology, scientific innovations, and engineering marvels. Encourages technical excellence.</p>
+                            <div class="event-icon">🏛️</div>
+                            <h3>Minerva (In association with Multiverse Quizzing)</h3>
+                            <p>Named after the Roman goddess of wisdom, Minerva is a grand quiz competition organized in association with Multiverse Quizzing. The event features diverse rounds covering science, literature, arts, and current affairs with professional-level quizzing standards.</p>
                         </div>
                     </div>
                 </div>
@@ -2160,47 +2201,83 @@ border-radius: 50px;
                     </h2>
                     <div class="events-grid">
                         <!-- Special Announcement Card -->
-                        <div class="event-card">
-                           
-                            <div class="event-icon">QUIZ WIZARDS 2025🏆</div>
-                
-                            <div class="event-details">
-                                <p><span class="emoji">💰</span> <strong>Prize Pool:</strong> ₹7,000</p>
-                                <p><span class="emoji">📅</span> 8th Oct 2025</p>
-                                <p><span class="emoji">⏰</span> 9AM - 2PM</p>
-                                <p><span class="emoji">👥</span> Team of 2 (6-12)</p>
+                        <div class="event-card featured-quiz-card" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1)); border: 2px solid rgba(255, 215, 0, 0.5); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3); position: relative; overflow: visible;">
+                            <!-- Glowing Badge -->
+                            <div style="position: absolute; top: -15px; right: -15px; background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000; padding: 8px 15px; border-radius: 25px; font-size: 0.75rem; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5); animation: pulse 2s infinite; z-index: 10;">
+                                Registrations open now
                             </div>
-                            <a href="https://forms.gle/zN3CgHZxtSnLNUBKA" target="_blank" class="register-btn">
-                                Register Now
+                            
+                            <div class="event-icon" style="font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(45deg, #ffd700, #ff8c00, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 3s infinite linear; font-weight: bold; text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);">
+                                QUIZ WIZARDS 2025
+                            </div>
+                
+                            <div class="event-details" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.5rem; margin: 1rem 0;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span class="emoji" style="font-size: 1.2rem;">💰</span>
+                                    <span><strong>Prize Pool:</strong> ₹7,000</span>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span class="emoji" style="font-size: 1.2rem;">📅</span>
+                                    <span>8th Oct 2025</span>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span class="emoji" style="font-size: 1.2rem;">⏰</span>
+                                    <span>9AM - 2PM</span>
+                                </div>
+                                
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span class="emoji" style="font-size: 1.2rem;">👥</span>
+                                    <span>Team of 2 (6-12)</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Countdown Timer -->
+                            <div id="eventCountdown" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 140, 0, 0.15)); border-radius: 10px; padding: 1rem; margin: 1rem 0; text-align: center; border: 1px solid rgba(255, 215, 0, 0.3);">
+                                <div style="font-size: 0.9rem; color: #ffd700; margin-bottom: 0.5rem; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">⏳ Event Starts In:</div>
+                                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; font-weight: bold;">
+                                    <div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1)); padding: 0.6rem; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                                        <div id="days" style="font-size: 1.6rem; color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">00</div>
+                                        <div style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.8); font-weight: 500;">Days</div>
+                                    </div>
+                                    <div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1)); padding: 0.6rem; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                                        <div id="hours" style="font-size: 1.6rem; color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">00</div>
+                                        <div style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.8); font-weight: 500;">Hours</div>
+                                    </div>
+                                    <div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1)); padding: 0.6rem; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                                        <div id="minutes" style="font-size: 1.6rem; color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">00</div>
+                                        <div style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.8); font-weight: 500;">Minutes</div>
+                                    </div>
+                                    <div style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1)); padding: 0.6rem; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                                        <div id="seconds" style="font-size: 1.6rem; color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">00</div>
+                                        <div style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.8); font-weight: 500;">Seconds</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <a href="https://forms.gle/zN3CgHZxtSnLNUBKA" target="_blank" class="register-btn" style="background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000; font-weight: bold; font-size: 1rem; padding: 0.75rem 2rem; border-radius: 30px; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 25px rgba(255, 215, 0, 0.6)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(255, 215, 0, 0.4)';">
+                                🚀 Register Now
                             </a>
-                            <div class="event-contacts">
+                            
+                            <div class="event-contacts" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; text-align: center;">
                                 <p><strong>Contact:</strong> Suriya (8610634356) | Priyadharshini (6361746669)</p>
                             </div>
                         </div>
                         <div class="event-card">
-                            <div class="event-icon">🎯</div>
-                            <h3>CIT Quiz Championship</h3>
-                            <p>Our flagship annual event exclusively for CIT students. Multiple categories including technical, general knowledge, sports, and entertainment. Showcases the best quizzing talent within our institute.</p>
+                            <div class="event-icon">🎬</div>
+                            <h3>Kodambakkam Express (Kollywood Quiz)</h3>
+                            <p>All aboard the Kodambakkam Express! This exciting journey through Tamil cinema tests participants' knowledge of Kollywood from its golden age to contemporary blockbusters. Questions cover legendary actors, acclaimed directors, memorable dialogues, and iconic music.</p>
                         </div>
                         <div class="event-card">
-                            <div class="event-icon">🌟</div>
-                            <h3>Freshers' Quiz Battle</h3>
-                            <p>Special orientation event for new students. Fun, engaging quiz activities designed to welcome freshers and introduce them to the exciting world of competitive quizzing.</p>
+                            <div class="event-icon">🕉️</div>
+                            <h3>Brahma</h3>
+                            <p>An enlightening quiz competition exploring the vast universe of knowledge. Brahma challenges participants with questions spanning philosophy, science, arts, and culture, encouraging them to think beyond conventional boundaries and explore diverse intellectual realms.</p>
                         </div>
                         <div class="event-card">
-                            <div class="event-icon">🧠</div>
-                            <h3>Brain Teaser Sessions</h3>
-                            <p>Weekly internal quiz sessions for club members. Rotating themes cover everything from history and geography to science and current affairs. Perfect for skill development and practice.</p>
-                        </div>
-                        <div class="event-card">
-                            <div class="event-icon">📚</div>
-                            <h3>Theme-Based Quiz Series</h3>
-                            <p>Monthly themed quiz events focusing on specific subjects like literature, movies, sports, or science. Allows members to showcase expertise in their favorite knowledge domains.</p>
-                        </div>
-                        <div class="event-card">
-                            <div class="event-icon">🎊</div>
-                            <h3>Quiz Master Training Program</h3>
-                            <p>Intensive workshops for members interested in conducting quizzes. Covers question preparation, event management, audience engagement, and presentation skills development.</p>
+                            <div class="event-icon">🎉</div>
+                            <h3>Pop Quiz Party</h3>
+                            <p>A vibrant and informal quiz party bringing together quiz enthusiasts in a relaxed, celebratory atmosphere. Featuring rapid-fire rounds, team challenges, and surprise question categories, the event combines learning with entertainment in a fun party vibe.</p>
                         </div>
                     </div>
                 </div>
@@ -2228,7 +2305,13 @@ border-radius: 50px;
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openEventModal('shankar2024')">
-                    <div class="gallery-image">🏛️</div>
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                        <div style="position: absolute; width: 200%; height: 200%; background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.1) 50%, transparent 70%); animation: shine 3s infinite linear;"></div>
+                        <div style="text-align: center; z-index: 1; padding: 1rem;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏛️</div>
+                            <div style="font-size: 1.5rem; font-weight: bold; background: linear-gradient(45deg, #ffd700, #ff8c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 20px rgba(255, 215, 0, 0.3); line-height: 1.3;">Shankar IAS<br/>Academy</div>
+                        </div>
+                    </div>
                     <div class="gallery-caption">
                         <h3>Shankar IAS Academy Event</h3>
                         <p>A prestigious collaboration with Shankar IAS Academy focusing on current affairs and competitive knowledge.</p>
@@ -2236,7 +2319,13 @@ border-radius: 50px;
                     </div>
                 </div>
                 <div class="gallery-item" onclick="openEventModal('kodambakkam2024')">
-                    <div class="gallery-image">🎬</div>
+                    <div class="gallery-image" style="background: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #FF6347 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                        <div style="position: absolute; width: 200%; height: 200%; background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%); animation: shine 3s infinite linear;"></div>
+                        <div style="text-align: center; z-index: 1; padding: 1rem;">
+                            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎬</div>
+                            <div style="font-size: 1.4rem; font-weight: bold; color: #FFD700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.5); line-height: 1.3;">Kodambakkam<br/>Express</div>
+                        </div>
+                    </div>
                     <div class="gallery-caption">
                         <h3>Kodambakkam Express (Kollywood Quiz)</h3>
                         <p>A thrilling journey through Tamil cinema with questions spanning classic to contemporary Kollywood.</p>
@@ -2725,13 +2814,6 @@ border-radius: 50px;
                             </div>
 
                             <div class="member-card">
-                                <div class="member-photo">NT</div>
-                                <div class="member-name">Navina T</div>
-                                <div class="member-position">Executive Director</div>
-                                
-                            </div>
-
-                            <div class="member-card">
                                 <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/Dhanyasakthi.jpg?raw=true" class="member-image" alt="Dhanyasakthi S">
                                 <div class="member-name">Dhanyasakthi S</div>
                                 <div class="member-position">Executive Director</div>
@@ -2966,21 +3048,24 @@ border-radius: 50px;
                     <div class="contact-wave"></div>
                 </div>
 
-                <!-- WhatsApp Group -->
+                <!-- Call Us -->
                 <div class="contact-card" style="background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(12px); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; border: 1px solid rgba(138, 43, 226, 0.2);">
                     <div class="contact-icon-wrapper" style="width: 80px; height: 80px; margin: 0 auto 1.5rem; position: relative;">
                         <div class="contact-icon-inner" style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 107, 107, 0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 40px; height: 40px; object-fit: contain;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #25D366;">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
                         </div>
                     </div>
-                    <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">WhatsApp Group</h3>
-                    <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem;">Join our community chat</p>
-                    <a href="https://chat.whatsapp.com/your-group-invite-link" class="contact-btn" target="_blank" style="display: inline-block; padding: 0.6rem 1.5rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);">Join Now</a>
+                    <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">Call Us</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 0.5rem; font-size: 0.95rem;">📞 8610634356</p>
+                    <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem; font-size: 0.95rem;">📞 6361746669</p>
+                    <a href="tel:8610634356" class="contact-btn" target="_blank" style="display: inline-block; padding: 0.6rem 1.5rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);">Call Now</a>
                     <div class="contact-wave"></div>
                 </div>
 
                 <!-- Email Us -->
-                <div class="contact-card" style="background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(12px); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; border: 1px solid rgba(138, 43, 226, 0.2); cursor: pointer;" onclick="window.location.href='mailto:quizclub@cit.edu';">
+                <div class="contact-card" style="background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(12px); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; border: 1px solid rgba(138, 43, 226, 0.2); cursor: pointer;" onclick="window.location.href='mailto:quizclubqccit@gmail.com';">
                     <div class="contact-icon-wrapper" style="width: 80px; height: 80px; margin: 0 auto 1.5rem; position: relative;">
                         <div class="contact-icon-inner" style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 107, 107, 0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
                             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #8a2be2;">
@@ -2990,7 +3075,8 @@ border-radius: 50px;
                         </div>
                     </div>
                     <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">Email Us</h3>
-                    <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem;">Send us an email for inquiries</p>
+                    <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 0.5rem; font-size: 0.95rem;">quizclubqccit@gmail.com</p>
+                    <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; font-size: 0.9rem;">Send us an email for inquiries</p>
                     <div class="contact-btn" style="display: inline-block; padding: 0.6rem 1.5rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);">Send Email</div>
                     <div class="contact-wave"></div>
                 </div>
@@ -3450,10 +3536,66 @@ function showPage(pageId, event) {
             }
         });
 
+        // Countdown Timer Function
+        function updateCountdown() {
+            // Set the event date - October 8, 2025, 9:00 AM
+            const eventDate = new Date('2025-10-08T09:00:00').getTime();
+            
+            // Update countdown every second
+            const countdownInterval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+                
+                // Calculate time units
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Update main countdown (event card)
+                const daysEl = document.getElementById('days');
+                const hoursEl = document.getElementById('hours');
+                const minutesEl = document.getElementById('minutes');
+                const secondsEl = document.getElementById('seconds');
+                
+                if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+                if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+                if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+                if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+                
+                // Update banner countdown (compact version)
+                const bannerDays = document.getElementById('bannerDays');
+                const bannerHours = document.getElementById('bannerHours');
+                const bannerMinutes = document.getElementById('bannerMinutes');
+                const bannerSeconds = document.getElementById('bannerSeconds');
+                
+                if (bannerDays) bannerDays.textContent = days.toString().padStart(2, '0');
+                if (bannerHours) bannerHours.textContent = hours.toString().padStart(2, '0');
+                if (bannerMinutes) bannerMinutes.textContent = minutes.toString().padStart(2, '0');
+                if (bannerSeconds) bannerSeconds.textContent = seconds.toString().padStart(2, '0');
+                
+                // If countdown is finished
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    if (daysEl) daysEl.textContent = '00';
+                    if (hoursEl) hoursEl.textContent = '00';
+                    if (minutesEl) minutesEl.textContent = '00';
+                    if (secondsEl) secondsEl.textContent = '00';
+                    if (bannerDays) bannerDays.textContent = '00';
+                    if (bannerHours) bannerHours.textContent = '00';
+                    if (bannerMinutes) bannerMinutes.textContent = '00';
+                    if (bannerSeconds) bannerSeconds.textContent = '00';
+                }
+            }, 1000);
+        }
+
         // Initialize page
         document.addEventListener('DOMContentLoaded', () => {
             // Set home as active page
             showPage('home');
+            
+            // Start countdown timer
+            updateCountdown();
         });
     </script>
 </body>
