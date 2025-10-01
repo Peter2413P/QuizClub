@@ -132,6 +132,9 @@ Welcome to the official repository of the **Quiz Club**! This site is a hub for 
 | surender.jpg       | ![](https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/surender.jpg?raw=true) |
 | suvetha.jpg        | ![](https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/suvetha.jpg?raw=true) |
 | vedha.jpg          | ![](https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/vedha.jpg?raw=true) |
+| karthiksir.jpg     | ![](https://github.com/Peter2413P/QuizClub/blob/50ea6d064dfe6a9e3d20742af79a78c0d5222b3a/final/karthiksir.jpg?raw=true) |
+| kalam.png          | ![](https://github.com/Peter2413P/QuizClub/blob/50ea6d064dfe6a9e3d20742af79a78c0d5222b3a/final/kalam.png?raw=true) |
+| santhamam.jpg      | ![](https://github.com/Peter2413P/QuizClub/blob/50ea6d064dfe6a9e3d20742af79a78c0d5222b3a/final/santhamam.jpg?raw=true) |
 
 
 ---
