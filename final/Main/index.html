@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Club - CIT</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'text-gradient': 'text-gradient 5s ease infinite',
+                        'text-shimmer': 'shimmer 2s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        'text-gradient': {
+                            '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
+                            '50%': { 'background-size': '200% 200%', 'background-position': 'right center' },
+                        },
+                        'shimmer': {
+                            '0%': { 'background-position': '-1000px 0' },
+                            '100%': { 'background-position': '1000px 0' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="icon" type="image/png"
+        href="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/logoic.jpg?raw=true">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img id="lg"
+                    src="https://github.com/Peter2413P/QuizClub/blob/0fe3431a55c526b0ef914850313ec60cba88b8ee/whitef.jpg?raw=true"
+                    alt="Quiz Club Logo" class="logo">
+                <span>Quiz Club CIT</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/" onclick="showPage('home', event)" class="nav-link active">Home</a></li>
+                <li><a href="/about" onclick="showPage('about', event)" class="nav-link">About</a></li>
+                <li><a href="/events" onclick="showPage('events', event)" class="nav-link">Events</a></li>
+                <li><a href="/gallery" onclick="showPage('gallery', event)" class="nav-link">Gallery</a></li>
+                <li><a href="/members" onclick="showPage('members', event)" class="nav-link">Members</a></li>
+                <li><a href="/achievements" onclick="showPage('achievements', event)" class="nav-link">Achievements</a>
+                </li>
+                <li><a href="/contact" onclick="showPage('contact', event)" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Notification Banner -->
+    <div id="announcementBanner" class="announcement-banner" style="display: none;">
+        <div class="banner-content" onclick="showPage('events', event);" style="cursor: pointer;">
+            <div class="banner-marquee">
+                <span class="banner-badge">🔥 HOT</span>
+                <strong>🏆 Trend Trivia - 2025 - Registration Open!</strong>
+                <span>• ₹3,000 Prize Pool • 11th Dec </span>
+                <span class="banner-cta">Click for Details →</span>
+            </div>
+            <span class="banner-close" onclick="event.stopPropagation(); closeBanner()" title="Close">×</span>
+        </div>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="container">
+                <div class="cit-logo"><img class="cit-logo"
+                        src="https://github.com/Peter2413P/QuizClub/blob/7360a91443843977e6ae5717b969c177312ee300/citlogo.png?raw=true"
+                        alt="Quiz Club Logo" class="logo"></div>
+                <h1 class="text-5xl font-bold mb-8">
+                    <span class="neo-text">Quiz Club CIT</span>
+                </h1>
+                <p>Coimbatore Institute of Technology's Premier Quiz Club</p>
+                <p>Igniting minds through knowledge, fostering curiosity, and building champions</p>
+                <a href="/about" onclick="showPage('about', event)" class="cta-button">Join Our Journey</a>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h3>Championship Winners</h3>
+                        <p>Multiple inter-college competition victories and state-level recognitions</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎓</div>
+                        <h3>Knowledge Excellence</h3>
+                        <p>Comprehensive training programs covering diverse academic and general knowledge domains</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤝</div>
+                        <h3>Team Spirit</h3>
+                        <p>Building lifelong friendships and collaborative learning experiences</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <section class="section">
+            <div class="container">
+                <h1 class="text-5xl font-bold mb-8">
+                    <span class="neo-text">About Quiz Club CIT</span>
+                </h1>
+
+                <div class="about-content">
+                    <h3
+                        class="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent animate-text-gradient">
+                        <span class="inline-block hover:scale-105 transition-transform duration-300">Our Mission</span>
+                    </h3>
+                    <p>The Quiz Club at Coimbatore Institute of Technology stands as a beacon of intellectual curiosity
+                        and academic excellence. We are dedicated to fostering a culture of learning that transcends
+                        traditional classroom boundaries, encouraging students to explore diverse fields of knowledge
+                        and develop critical thinking skills that will serve them throughout their careers.</p>
+
+                    <h3
+                        class="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent animate-text-gradient">
+                        <span class="inline-block hover:scale-105 transition-transform duration-300">What We Do</span>
+                    </h3>
+                    <p>Our club organizes a comprehensive range of activities designed to challenge and inspire our
+                        members. From weekly practice sessions that cover everything from current affairs to classical
+                        literature, to intensive workshops on quiz mastering techniques, we provide a platform for
+                        continuous learning and growth. We regularly participate in inter-college competitions, host our
+                        own quiz events, and maintain strong connections with the broader quizzing community.</p>
+
+                    <h3
+                        class="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent animate-text-gradient">
+                        <span class="inline-block hover:scale-105 transition-transform duration-300">Our Values</span>
+                    </h3>
+                    <p>We believe in the power of collaborative learning, where every member contributes to the
+                        collective knowledge pool. Our approach emphasizes not just winning competitions, but building
+                        well-rounded individuals who appreciate the joy of learning. We celebrate diversity of thought,
+                        encourage healthy competition, and maintain the highest standards of sportsmanship in all our
+                        endeavors.</p>
+
+                    <h3
+                        class="text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent animate-text-gradient">
+                        <span class="inline-block hover:scale-105 transition-transform duration-300">Join Us</span>
+                    </h3>
+                    <p>Whether you're a seasoned quizzer or someone just beginning to explore the world of knowledge
+                        competitions, our club welcomes all enthusiastic learners. We provide mentorship, training, and
+                        numerous opportunities to showcase your skills while building lasting friendships with
+                        like-minded individuals.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- EVENTS PAGE -->
+    <div id="events" class="page">
+        <section class="section">
+            <div class="container">
+                <!-- Enhanced Compact Announcement -->
+                <div class="compact-event-card" style="background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.95));
+                                                   border: 1px solid rgba(255, 215, 0, 0.3);
+                                                   padding: 12px 20px;
+                                                   margin: 0 auto 25px;
+                                                   border-radius: 8px;
+                                                   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                                                   max-width: 95%;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                                <span style="color: #ffd700; font-weight: bold; font-size: 1.1rem;">🏆 Trend Trivia -
+                                    2025</span>
+                                <span
+                                    style="background: rgba(255, 215, 0, 0.2); color: #ffd700; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; white-space: nowrap;">FEATURED</span>
+                            </div>
+                            <div
+                                style="display: flex; flex-wrap: wrap; gap: 8px 15px; font-size: 0.85rem; color: #e0e0e0;">
+                                <span>💰 <strong>₹3,000</strong> Prize Pool</span>
+                                <span>📅 11th December 2025</span>
+                                <span>⏰ 4:45 - 6:15 PM</span>
+                                <span>Venue : IT 211</span>
+                            </div>
+                            <!-- Compact Countdown Timer -->
+                            <div id="bannerCountdown"
+                                style="display: flex; gap: 8px; margin-top: 8px; font-size: 0.8rem; color: #ffd700; font-weight: bold;">
+                                <span>⏳</span>
+                                <span id="bannerDays">00</span>d
+                                <span id="bannerHours">00</span>h
+                                <span id="bannerMinutes">00</span>m
+                                <span id="bannerSeconds">00</span>s
+                            </div>
+                        </div>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcBG7427kn5x-kg-YaOYpC-CDawmGkASep6P6cQ9vFbsWA5A/viewform"
+                            target="_blank" style="background: linear-gradient(135deg, #ffd700, #ff8c00);
+                                  color: #000;
+                                  padding: 8px 18px;
+                                  border-radius: 25px;
+                                  text-decoration: none;
+                                  font-weight: bold;
+                                  font-size: 0.9rem;
+                                  white-space: nowrap;
+                                  transition: all 0.2s ease;
+                                  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);">
+                            🚀 Register Now
+                        </a>
+                    </div>
+                </div>
+
+                <h1 class="text-4xl font-bold text-center mb-8 sm:mb-12" style="padding: 0 1rem;">
+                    <span class="neo-text">Our Events</span>
+                </h1>
+
+                <!-- Collaborative Events Section -->
+                <div class="events-section" style="margin-top: 2rem;">
+                    <h2 class="text-3xl font-bold mb-8 text-center">
+                        <span
+                            class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">Collaborative
+                            Events</span>
+                    </h2>
+                    <div class="events-grid">
+                        <div class="event-card">
+                            <div class="event-icon">🏛️</div>
+                            <h3>Shankar IAS Academy Event</h3>
+                            <p>A prestigious collaboration with Shankar IAS Academy focusing on current affairs,
+                                governance, and competitive exam preparation. Students gain valuable insights into civil
+                                services preparation while engaging with complex questions on Indian polity, economics,
+                                and contemporary issues.</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">🚀</div>
+                            <h3>KKC Collab Event (Kalam Thiruvizha)</h3>
+                            <p>A collaborative celebration honoring the legacy of Dr. A.P.J. Abdul Kalam, India's
+                                beloved People's President. The event features questions on space science, missile
+                                technology, education, and Dr. Kalam's inspiring life journey.</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">💡</div>
+                            <h3>Intuit with Yuva (YI-Young Indians)</h3>
+                            <p>An insightful collaboration with Young Indians (YI), the youth wing of CII, focusing on
+                                entrepreneurship, leadership, and innovation. The interactive session combines quizzing
+                                with discussions on startups, business strategy, and social entrepreneurship.</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">🏛️</div>
+                            <h3>Minerva (In association with Multiverse Quizzing)</h3>
+                            <p>Named after the Roman goddess of wisdom, Minerva is a grand quiz competition organized in
+                                association with Multiverse Quizzing. The event features diverse rounds covering
+                                science, literature, arts, and current affairs with professional-level quizzing
+                                standards.</p>
+                        </div>
+                         <div class="event-card">
+                            <div class="event-icon">🏛️</div>
+                            <h3>Infact Quiz 2025</h3>
+                            <p>The Quiz Club of CIT collaborated with Infact to organize an inter-school quiz on 13th November 2025, as part of Infact’s mission to promote learning beyond classrooms and in celebration of Coimbatore Vizha. This partnership provided a meaningful platform to celebrate curiosity and intellectual spirit. The quiz was hosted by Mr. Praveen (Multiverse Quizzing) and Mr. Hariharan (Qurious Minds), renowned for their professional and engaging quiz formats.</p>
+                        </div>
+                    </div>
+                </div>
+               
+
+
+                <!-- Club-Only Events Section -->
+                <div class="events-section" style="margin-top: 2rem;">
+                    <h2 class="text-3xl font-bold mb-8 text-center">
+                        <span
+                            class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">Our
+                            Exclusive Events</span>
+                    </h2>
+                    <div class="events-grid">
+                        <!-- Special Announcement Card -->
+                        <div class="event-card featured-quiz-card"
+                            style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1)); border: 2px solid rgba(255, 215, 0, 0.5); box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3); position: relative; overflow: visible;">
+                            <!-- Glowing Badge -->
+                            <div
+                                style="position: absolute; top: -15px; right: -15px; background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000; padding: 8px 15px; border-radius: 25px; font-size: 0.75rem; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5); animation: pulse 2s infinite; z-index: 10;">
+                                Registrations open now
+                            </div>
+
+                            <div class="event-icon"
+                                style="font-size: 2.5rem; margin-bottom: 1rem; background: linear-gradient(45deg, #ffd700, #ff8c00, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 3s infinite linear; font-weight: bold; text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);">
+                                Trend Trivia - 2025
+                            </div>
+
+                            <div class="event-details"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.5rem; margin: 1rem 0;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span class="emoji" style="font-size: 1.2rem;">💰</span>
+                                    <span><strong>Prize Pool:</strong> ₹3,000</span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span class="emoji" style="font-size: 1.2rem;">📅</span>
+                                    <span>11th Dec 2025</span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span class="emoji" style="font-size: 1.2rem;">⏰</span>
+                                    <span>4:45 - 6:15 PM</span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span class="emoji" style="font-size: 1.2rem;">📍</span>
+                                    <span>IT 211</span>
+                                </div>
+
+                            </div>
+
+                            <!-- Countdown Timer -->
+                            <div id="eventCountdown"
+                                style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 140, 0, 0.15)); border-radius: 10px; padding: 1rem; margin: 1rem 0; text-align: center; border: 1px solid rgba(255, 215, 0, 0.3);">
+                                <div
+                                    style="font-size: 0.9rem; color: #ffd700; margin-bottom: 0.5rem; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">
+                                    ⏳ Event Starts In:</div>
+                                <div
+                                    style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; font-weight: bold;">
+                                    <div
+                                        style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1)); padding: 0.6rem; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                                        <div id="days"
+                                            style="font-size: 1.6rem; color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">
+                                            00</div>
+                                        <div
+                                            style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.8); font-weight: 500;">
+                                            Days</div>
+                                    </div>
+                                    <div
+                                        style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1)); padding: 0.6rem; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                                        <div id="hours"
+                                            style="font-size: 1.6rem; color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">
+                                            00</div>
+                                        <div
+                                            style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.8); font-weight: 500;">
+                                            Hours</div>
+                                    </div>
+                                    <div
+                                        style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1)); padding: 0.6rem; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                                        <div id="minutes"
+                                            style="font-size: 1.6rem; color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">
+                                            00</div>
+                                        <div
+                                            style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.8); font-weight: 500;">
+                                            Minutes</div>
+                                    </div>
+                                    <div
+                                        style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1)); padding: 0.6rem; border-radius: 10px; border: 1px solid rgba(255, 215, 0, 0.3);">
+                                        <div id="seconds"
+                                            style="font-size: 1.6rem; color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);">
+                                            00</div>
+                                        <div
+                                            style="font-size: 0.75rem; color: rgba(255, 255, 255, 0.8); font-weight: 500;">
+                                            Seconds</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfcBG7427kn5x-kg-YaOYpC-CDawmGkASep6P6cQ9vFbsWA5A/viewform"
+                                target="_blank" class="register-btn"
+                                style="background: linear-gradient(135deg, #ffd700, #ff8c00); color: #000; font-weight: bold; font-size: 1rem; padding: 0.75rem 2rem; border-radius: 30px; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;"
+                                onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 25px rgba(255, 215, 0, 0.6)';"
+                                onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 15px rgba(255, 215, 0, 0.4)';">
+                                🚀 Register Now
+                            </a>
+
+                            <div class="event-contacts"
+                                style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; text-align: center;">
+                                <p><strong>Contact:</strong> Suriya (8610634356) | Priyadharshini (6361746669)</p>
+                            </div>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">⚽</div>
+                            <h3>Sportzmania</h3>
+                            <p>A sports-themed quiz by the Quiz Club, held on Sept 10 at 5 PM in IT 212. 44 students
+                                from various departments participated. Hosted by Gowtham K and Visvesh Rayan K, the
+                                event was lively, competitive, and well-received. It promoted sports awareness and team
+                                spirit among students.</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">🎬</div>
+                            <h3>Kodambakkam Express (Kollywood Quiz)</h3>
+                            <p>All aboard the Kodambakkam Express! This exciting journey through Tamil cinema tests
+                                participants' knowledge of Kollywood from its golden age to contemporary blockbusters.
+                                Questions cover legendary actors, acclaimed directors, memorable dialogues, and iconic
+                                music.</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">🕉️</div>
+                            <h3>Brahma</h3>
+                            <p>An enlightening quiz competition exploring the vast universe of knowledge. Brahma
+                                challenges participants with questions spanning philosophy, science, arts, and culture,
+                                encouraging them to think beyond conventional boundaries and explore diverse
+                                intellectual realms.</p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">🎉</div>
+                            <h3>Pop Quiz Party</h3>
+                            <p>A vibrant and informal quiz party bringing together quiz enthusiasts in a relaxed,
+                                celebratory atmosphere. Featuring rapid-fire rounds, team challenges, and surprise
+                                question categories, the event combines learning with entertainment in a fun party vibe.
+                            </p>
+                        </div>
+                        <div class="event-card">
+                            <div class="event-icon">🏛️</div>
+                            <h3>Quiz Wizards</h3>
+                            <p>The Quiz Club of CIT successfully organized “Quiz Wizards,” an inter-school general quiz competition. Conducted by Joint Secretaries Alagusundaram and Kritheeka, the event saw enthusiastic participation from multiple schools. Students actively competed in an exciting single-round session, showcasing quick thinking and knowledge. The event concluded successfully, and we thank all participating schools for their support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- GALLERY PAGE -->
+    <div id="gallery" class="page">
+        <h1 class="text-5xl font-bold mb-8">
+            <span class="neo-text">Gallery</span>
+        </h1>
+        <!-- 2024 Events Section -->
+        <div class="year-section">
+            <h2 class="text-3xl font-bold mb-4">
+                <span
+                    class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">2024
+                    Events</span>
+            </h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openEventModal('lumiere2024')">
+                    <div class="gallery-image"><img
+                            src="https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/Luml.jpg?raw=true"
+                            alt="Luml" class="gallery-image"></div>
+                    <div class="gallery-caption">
+                        <h3>Inauguration 2024 (Lumiere)</h3>
+                        <p>The inaugural event that lit up the quiz club's journey in 2024 with knowledge and
+                            enthusiasm.</p>
+                        <div class="gallery-date">January 2024</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openEventModal('shankar2024')">
+                    <div class="gallery-image">
+                        <img src="https://github.com/Peter2413P/QuizClub/blob/94e200e71fdc9073aecd5e8c3089d70b9e752de7/final/sia0.jpg?raw=true"
+                            alt="Shankar IAS Academy" class="gallery-image" loading="lazy">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Shankar IAS Academy Event</h3>
+                        <p>A prestigious collaboration with Shankar IAS Academy focusing on current affairs and
+                            competitive knowledge.</p>
+                        <div class="gallery-date">March 2024</div>
+                    </div>
+                </div>
+                <div class="gallery-item" onclick="openEventModal('kodambakkam2024')">
+                    <div class="gallery-image">
+                        <img src="https://github.com/Peter2413P/QuizClub/blob/94e200e71fdc9073aecd5e8c3089d70b9e752de7/final/ke0.jpg?raw=true"
+                            alt="Kodambakkam Express" class="gallery-image" loading="lazy">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Kodambakkam Express (Kollywood Quiz)</h3>
+                        <p>A thrilling journey through Tamil cinema with questions spanning classic to contemporary
+                            Kollywood.</p>
+                        <div class="gallery-date">May 2024</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('kalam2024')">
+                    <div class="gallery-image">
+                        <img src="https://github.com/Peter2413P/QuizClub/blob/50ea6d064dfe6a9e3d20742af79a78c0d5222b3a/final/kalam.png?raw=true"
+                            alt="kalam">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>KKC Collab Event (Kalam Thiruvizha 2024)</h3>
+                        <p>A collaborative celebration honoring Dr. A.P.J. Abdul Kalam's legacy through knowledge and
+                            innovation.</p>
+                        <div class="gallery-date">July 2024</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('yuva2024')">
+                    <div class="gallery-image"> <img
+                            src="https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/Intuit.jpg?raw=true"
+                            alt="Intuit" class="gallery-image"></div>
+                    <div class="gallery-caption">
+                        <h3>Intuit with Yuva (YI-Young Indians)</h3>
+                        <p>An engaging session with Young Indians focusing on entrepreneurship and leadership insights.
+                        </p>
+                        <div class="gallery-date">September 2024</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2025 Events Section -->
+        <div class="year-section">
+            <h2 class="text-3xl font-bold mb-4">
+                <span
+                    class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 bg-clip-text text-transparent">2025
+                    Events</span>
+            </h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openEventModal('enlighten2025')">
+                    <div class="gallery-image">
+                        <img src="https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/2k25inaugl.jpg?raw=true"
+                            alt="Inauguration event 2025 at CIT" class="gallery-image" loading="lazy">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Inauguration (Enlighten) 2025</h3>
+                        <p>The official launch of Quiz Club activities for 2025! Mr. Praveen Jayaraj delivered an
+                            inspiring keynote highlighting the importance of quizzing in developing critical thinking
+                            and general awareness. </p>
+                        <div class="gallery-date">January 20, 2025</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('minerva2025')">
+                    <div class="gallery-image">
+                        <img src="https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/minl.jpg?raw=true"
+                            alt="Minerva 2025 quiz competition" class="gallery-image" loading="lazy">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Minerva 2025 (In association with Multiverse Quizzing)</h3>
+                        <p>A grand quiz competition in association with Multiverse Quizzing, celebrating wisdom and
+                            knowledge.</p>
+                        <div class="gallery-date">February 2025</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('brahma2025')">
+                    <div class="gallery-image">
+                        <img src="https://github.com/Peter2413P/QuizClub/blob/81e62f18835da05631c5f73419c2155600aa9c93/bl.png?raw=true"
+                            alt="Brahma 2025 quiz event" class="gallery-image" loading="lazy">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Brahma 2025</h3>
+                        <p>An enlightening quiz competition exploring the vast universe of knowledge. Brahma 2025
+                            challenged participants with questions spanning philosophy, science, arts, and culture.</p>
+                        <div class="gallery-date">March 2025</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('popquiz2025')">
+                    <div class="gallery-image"> <img
+                            src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/IMG-20250802-WA0041.jpg?raw=true"
+                            alt="Pop Quiz Party" class="gallery-image"></div>
+                    <div class="gallery-caption">
+                        <h3>Pop Quiz Party 2025</h3>
+                        <p>A fun-filled informal quiz session bringing together quiz enthusiasts in a relaxed, party
+                            atmosphere.</p>
+                        <div class="gallery-date">April 2025</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('sportzmania2025')">
+                    <div class="gallery-image">
+                        <img src="https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp1.png?raw=true"
+                            alt="sp1" class="gallery-image" loading="lazy">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Sportzmania 2025</h3>
+                        <p>A sports-themed quiz promoting sports awareness and team spirit among students from various
+                            departments.</p>
+                        <div class="gallery-date">September 10, 2025</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('quizwizards2025')">
+                    <div class="gallery-image">
+                        <img src="https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/QuizWizards-2025/QW4.jpg?raw=true"
+                            alt="Quiz Wizards 2025" class="gallery-image" loading="lazy">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>Quiz Wizards 2025</h3>
+                        <p>The Quiz Club of CIT successfully organized “Quiz Wizards,” an inter-school general quiz competition. Conducted by Joint Secretaries Alagusundaram and Kritheeka, the event saw enthusiastic participation from multiple schools. </p>
+                        <div class="gallery-date">October 2025</div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openEventModal('infactquiz2025')">
+                    <div class="gallery-image">
+                        <img src="https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/InfactQuiz-2025/IQ1.jpg?raw=true"
+                            alt="InfactQuiz 2025" class="gallery-image" loading="lazy">
+                    </div>
+                    <div class="gallery-caption">
+                        <h3>InfactQuiz 2025</h3>
+                        <p>The Quiz Club of CIT collaborated with Infact to organize an inter-school quiz on 13th November 2025, as part of Infact’s mission to promote learning beyond classrooms and in celebration of Coimbatore Vizha.</p>
+                        <div class="gallery-date">November 2025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2024 Event Modals -->
+    <div id="lumiere2024Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Inauguration 2024 (Lumiere)</h2>
+                <p class="modal-date">January 2024</p>
+            </div>
+            <p class="modal-description">
+                The spark that ignited our quiz club's journey in 2024! Lumiere, meaning "light" in French, perfectly
+                captured the essence of our inaugural event. The ceremony marked the beginning of an exciting year
+                filled with intellectual challenges, knowledge sharing, and community building. 
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo"> <img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/s2.jpg?raw=true"
+                        alt="s2"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/s3.jpg?raw=true"
+                        alt="s3"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/s4.jpg?raw=true"
+                        alt="s4"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/s5.jpg?raw=true"
+                        alt="s5"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/s6.jpg?raw=true"
+                        alt="s6"></div>
+                <div class="modal-photo"> <img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/s1.jpg?raw=true"
+                        alt="s1"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="shankar2024Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Shankar IAS Academy Event</h2>
+                <p class="modal-date">March 2024</p>
+            </div>
+            <p class="modal-description">
+                A prestigious collaboration with the renowned Shankar IAS Academy, this event focused on current
+                affairs, governance, and competitive exam preparation. Students gained valuable insights into civil
+                services preparation while engaging with complex questions on Indian polity, economics, and contemporary
+                issues. The session provided excellent exposure to high-level competitive quizzing.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/i1.jpg?raw=true"
+                        alt="i1"></div>
+                <div class="modal-photo"> <img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/i2.jpg?raw=true"
+                        alt="i2"></div>
+                <div class="modal-photo"> <img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/i3.jpg?raw=true"
+                        alt="i3"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/i4.jpg?raw=true"
+                        alt="i4"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="kodambakkam2024Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Kodambakkam Express (Kollywood Quiz)</h2>
+                <p class="modal-date">May 2024</p>
+            </div>
+            <p class="modal-description">
+                All aboard the Kodambakkam Express! This exciting journey through Tamil cinema tested participants'
+                knowledge of Kollywood from its golden age to contemporary blockbusters. Questions covered legendary
+                actors, acclaimed directors, memorable dialogues, and iconic music. The event celebrated the rich
+                heritage of Tamil cinema while providing entertainment and cultural education.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/ke1.jpg?raw=true"
+                        alt="ke1"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/ke2.jpg?raw=true"
+                        alt="ke2"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/ke4.jpg?raw=true"
+                        alt="ke4"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/ke5.jpg?raw=true"
+                        alt="ke5"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/ke6.jpg?raw=true"
+                        alt="ke6"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/ke7.jpg?raw=true"
+                        alt="ke7"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="kalam2024Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">KKC Collab Event (Kalam Thiruvizha 2024)</h2>
+                <p class="modal-date">July 2024</p>
+            </div>
+            <p class="modal-description">
+                A collaborative celebration honoring the legacy of Dr. A.P.J. Abdul Kalam, India's beloved People's
+                President. The event featured questions on space science, missile technology, education, and Dr. Kalam's
+                inspiring life journey. Participants explored themes of innovation, scientific temper, and youth
+                empowerment, embodying the spirit of the Missile Man of India.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/kkc1.jpg?raw=true"
+                        alt="kkc1"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/kkc2.jpg?raw=true"
+                        alt="kkc2"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/kkc3.jpg?raw=true"
+                        alt="kkc3"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/kkc4.jpg?raw=true"
+                        alt="kkc4"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/kkc5.jpg?raw=true"
+                        alt="kkc5"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="yuva2024Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Intuit with Yuva (YI-Young Indians)</h2>
+                <p class="modal-date">September 2024</p>
+            </div>
+            <p class="modal-description">
+                An insightful collaboration with Young Indians (YI), the youth wing of CII, focusing on
+                entrepreneurship, leadership, and innovation. The interactive session combined quizzing with discussions
+                on startups, business strategy, and social entrepreneurship. Young minds engaged with real-world
+                scenarios while developing their intuitive thinking and problem-solving abilities.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/Intuit.jpg?raw=true"
+                        alt="Intuit"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/iy3.jpg?raw=true"
+                        alt="iy3"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/iy7.jpg?raw=true"
+                        alt="iy7"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/iy6.jpg?raw=true"
+                        alt="iy6"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/iy4.jpg?raw=true"
+                        alt="iy4"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/iy2.jpg?raw=true"
+                        alt="iy2"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/iy1.jpg?raw=true"
+                        alt="iy1"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2025 Event Modals -->
+    <div id="enlighten2025Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Inauguration (Enlighten) 2025</h2>
+                <p class="modal-date">January 20, 2025</p>
+            </div>
+            <p class="modal-description">
+                The official launch of Quiz Club activities for 2025! Mr. Praveen Jayaraj delivered an inspiring keynote
+                highlighting the importance of quizzing in developing critical thinking and general awareness. Students
+                from diverse departments came together, marking the beginning of an exciting journey filled with
+                learning, competition, and camaraderie.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/2k25inaugl.jpg?raw=true"
+                        alt="2k25inaugl"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/IMG_1395.jpg?raw=true"
+                        alt="IMG_1395"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/IMG_1392.jpg?raw=true"
+                        alt="IMG_1392"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/IMG_1503.jpg?raw=true"
+                        alt="IMG_1503"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/IMG_1513.jpg?raw=true"
+                        alt="IMG_1513"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/IMG_1514.jpg?raw=true"
+                        alt="IMG_1514"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="minerva2025Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Minerva 2025 (In association with Multiverse Quizzing)</h2>
+                <p class="modal-date">February 2025</p>
+            </div>
+            <p class="modal-description">
+                Named after the Roman goddess of wisdom, Minerva 2025 was a grand quiz competition organized in
+                association with Multiverse Quizzing. The event featured diverse rounds covering science, literature,
+                arts, and current affairs. Participants experienced professional-level quizzing standards while
+                competing for prestigious titles and recognition.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/minl.jpg?raw=true"
+                        alt="minl"></div>
+                <div class="modal-photo"> <img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/m1.jpg?raw=true"
+                        alt="m1"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/m2.jpg?raw=true"
+                        alt="m2"></div>
+                <div class="modal-photo"> <img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/m3.jpg?raw=true"
+                        alt="m3"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/m5.jpg?raw=true"
+                        alt="m5"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="brahma2025Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Brahma 2025</h2>
+                <p class="modal-date">March 2025</p>
+            </div>
+            <p class="modal-description">
+                An enlightening quiz competition exploring the vast universe of knowledge. Brahma 2025 challenged
+                participants with questions spanning philosophy, science, arts, and culture. The event emphasized the
+                pursuit of ultimate knowledge and understanding, encouraging participants to think beyond conventional
+                boundaries and explore diverse intellectual realms.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/00da2c3cf831dfb4608758eff80078586ea3e158/brahmal.jpg?raw=true"
+                        alt="brahmal"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/b1.jpg?raw=true"
+                        alt="b1"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/b4.jpg?raw=true"
+                        alt="b4"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/b5.jpg?raw=true"
+                        alt="b5"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/b3.jpg?raw=true"
+                        alt="b3"> </div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/b6.jpg?raw=true"
+                        alt="b6"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="popquiz2025Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Pop Quiz Party 2025</h2>
+                <p class="modal-date">April 2025</p>
+            </div>
+            <p class="modal-description">
+                A vibrant and informal quiz party that brought together quiz enthusiasts in a relaxed, celebratory
+                atmosphere. Featuring rapid-fire rounds, team challenges, and surprise question categories, the event
+                combined learning with entertainment. Music, snacks, and a party vibe made this a memorable social
+                gathering for all quiz lovers.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/IMG-20250802-WA0041.jpg?raw=true"
+                        alt="IMG-20250802-WA0041"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/WhatsApp%20Image%202025-09-07%20at%2011.18.35_83589b43.jpg?raw=true"
+                        alt="WhatsApp Image 2025-09-07 at 11.18.35"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/WhatsApp%20Image%202025-09-07%20at%2011.18.36_912fe86b.jpg?raw=true"
+                        alt="WhatsApp Image 2025-09-07 at 11.18.36"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/WhatsApp%20Image%202025-09-07%20at%2011.18.36_b3ae5883.jpg?raw=true"
+                        alt="WhatsApp Image 2025-09-07 at 11.18.36"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/9d3f14571b1e0124871fed4f5af7161731821ac1/WhatsApp%20Image%202025-09-07%20at%2011.18.37_a978d424.jpg?raw=true"
+                        alt="WhatsApp Image 2025-09-07 at 11.18.37"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sportzmania2025Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Sportzmania 2025</h2>
+                <p class="modal-date">September 10, 2025</p>
+            </div>
+            <p class="modal-description">
+                Sportzmania, a sports-themed quiz by the Quiz Club, was held on September 10 at 5 PM in IT 212. The
+                event saw enthusiastic participation from 44 students from various departments. Hosted by Gowtham K and
+                Visvesh Rayan K, the quiz was lively, competitive, and well-received by all participants. The event
+                successfully promoted sports awareness and fostered team spirit among students, celebrating the world of
+                sports through an engaging quiz format.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp1.png?raw=true"
+                        alt="sp1"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp2.png?raw=true"
+                        alt="sp2"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp3.png?raw=true"
+                        alt="sp3"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp4.png?raw=true"
+                        alt="sp4"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/f1b117e36074237e93a0a2f4b8c8ce2e7e9ad18c/final/sp5.png?raw=true"
+                        alt="sp5"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/94e200e71fdc9073aecd5e8c3089d70b9e752de7/final/sq5.jpg?raw=true"
+                        alt="sq5"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="quizwizards2025Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">Quiz Wizards 2025</h2>
+                <p class="modal-date">October 2025</p>
+            </div>
+            <p class="modal-description">
+                The Quiz Club of CIT successfully organized “Quiz Wizards,” an inter-school general quiz competition. Conducted by Joint Secretaries Alagusundaram and Kritheeka, the event saw enthusiastic participation from multiple schools. Students actively competed in an exciting single-round session, showcasing quick thinking and knowledge. The event concluded successfully, and we thank all participating schools for their support.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/QuizWizards-2025/QW1.jpg?raw=true"
+                        alt="QW1"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/QuizWizards-2025/QW2.jpg?raw=true"
+                        alt="QW2"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/QuizWizards-2025/QW3.jpg?raw=true"
+                        alt="QW3"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/QuizWizards-2025/QW4.jpg?raw=true"
+                        alt="QW4"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/QuizWizards-2025/QW5.jpg?raw=true"
+                        alt="QW5"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="infactquiz2025Modal" class="event-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeEventModal()">&times;</button>
+            <div class="modal-header">
+                <h2 class="modal-title">InfactQuiz 2025</h2>
+                <p class="modal-date">November 2025</p>
+            </div>
+            <p class="modal-description">
+                The Quiz Club of CIT collaborated with Infact to organize an inter-school quiz on 13th November 2025, as part of Infact’s mission to promote learning beyond classrooms and in celebration of Coimbatore Vizha. This partnership provided a meaningful platform to celebrate curiosity and intellectual spirit. The quiz was hosted by Mr. Praveen (Multiverse Quizzing) and Mr. Hariharan (Qurious Minds), renowned for their professional and engaging quiz formats.
+            </p>
+            <div class="modal-photos">
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/InfactQuiz-2025/IQ1.jpg?raw=true"
+                        alt="IQ1"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/InfactQuiz-2025/IQ2.jpg?raw=true"
+                        alt="IQ2"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/InfactQuiz-2025/IQ3.jpg?raw=true"
+                        alt="IQ3"></div>
+                <div class="modal-photo"><img
+                        src="https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/InfactQuiz-2025/IQ4.jpg?raw=true"
+                        alt="IQ4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEMBERS PAGE -->
+    <div id="members" class="page">
+        <section class="section">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin-bottom: 4rem;">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                        <span class="neo-text">Our Team 2025-26</span>
+                    </h1>
+                    <p class="section-subtitle"
+                        style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); max-width: 800px; margin: 0 auto;">
+                        Meet the brilliant minds and passionate individuals who make our Quiz Club thrive. Our diverse
+                        team works together to create engaging and educational experiences for all members.</p>
+                    <div class="divider"
+                        style="width: 100px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--secondary)); margin: 1.5rem auto; border-radius: 2px;">
+                    </div>
+                </div>
+
+                <!-- Staff Advisors Section -->
+                <div class="role-section">
+                    <h3 class="role-title">Staff Advisors</h3>
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/50ea6d064dfe6a9e3d20742af79a78c0d5222b3a/final/karthiksir.jpg?raw=true"
+                                class="member-image" alt="karthiksir">
+                            <div class="member-name">Mr. Karthik K</div>
+                            <div class="member-position">Staff Advisor</div>
+                            <div class="member-department">Department of Mechanical Engineering</div>
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/50ea6d064dfe6a9e3d20742af79a78c0d5222b3a/final/santhamam.jpg?raw=true"
+                                class="member-image" alt="santhamam">
+                            <div class="member-name">Dr. Santha Devi A</div>
+                            <div class="member-position">Staff Advisor</div>
+                            <div class="member-department">Department of Humanities</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secretaries Section -->
+                <div class="role-section">
+                    <h3 class="role-title">Secretaries</h3>
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Suriya%20Prasanna.webp?raw=true"
+                                class="member-image" alt="Secretary">
+                            <div class="member-name">Suriya Prasanna KS</div>
+                            <div class="member-position">Secretary</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/priyadharshini1.jpg?raw=true"
+                                class="member-image" alt="Priyadharshini">
+                            <div class="member-name">Priyadharshini R</div>
+                            <div class="member-position">Secretary</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Joint Secretaries Section -->
+                <div class="role-section">
+                    <h3 class="role-title">Joint Secretaries</h3>
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/alagu.jpg?raw=true"
+                                class="member-image" alt="Alagusundaram">
+                            <div class="member-name">Alagusundaram C</div>
+                            <div class="member-position">Joint Secretary</div>
+
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/kritheeka.jpg?raw=true"
+                                class="member-image" alt="Kritheeka">
+                            <div class="member-name">Kritheeka K</div>
+                            <div class="member-position">Joint Secretary</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treasurers Section -->
+                <div class="role-section">
+                    <h3 class="role-title">Treasurers</h3>
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/sanjay%20r.jpg?raw=true"
+                                class="member-image" alt="Sanjay R">
+                            <div class="member-name">Sanjay R</div>
+                            <div class="member-position">Treasurer</div>
+
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/surender.jpg?raw=true"
+                                class="member-image" alt="Surendar N">
+                            <div class="member-name">Surendar N</div>
+                            <div class="member-position">Treasurer</div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Joint Treasurers Section -->
+                <div class="role-section">
+                    <h3 class="role-title">Joint Treasurers</h3>
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Santosh%20Krishna.jpg?raw=true"
+                                class="member-image" alt="Santosh Krishna">
+                            <div class="member-name">Santosh Krishna G</div>
+                            <div class="member-position">Joint Treasurer</div>
+
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/vedha.jpg?raw=true"
+                                class="member-image" alt="Vedhavarna KM">
+                            <div class="member-name">Vedhavarna KM</div>
+                            <div class="member-position">Joint Treasurer</div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Design Team Section -->
+                <div class="role-section">
+                    <h3 class="role-title">Design Team</h3>
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/sujee.jpg?raw=true"
+                                class="member-image" alt="Sujeethra R">
+                            <div class="member-name">Sujeethra R</div>
+                            <div class="member-position">Designer</div>
+
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/aruthra.jpg?raw=true"
+                                class="member-image" alt="Aruthra Nivasine S">
+                            <div class="member-name">Aruthra Nivasine S</div>
+                            <div class="member-position">Designer</div>
+
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/Yeshwanth.png?raw=true"
+                                class="member-image" alt="Yeshwanth V">
+                            <div class="member-name">Yeshwanth V</div>
+                            <div class="member-position">Designer</div>
+
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/megha.jpg?raw=true"
+                                class="member-image" alt="Meghaa Sree S">
+                            <div class="member-name">Meghaa Sree S</div>
+                            <div class="member-position">Designer</div>
+
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/sash.jpg?raw=true"
+                                class="member-image" alt="Sashwath V">
+                            <div class="member-name">Sashwath V</div>
+                            <div class="member-position">Designer</div>
+
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/subhasree.jpg?raw=true"
+                                class="member-image" alt="Subha Shree D">
+                            <div class="member-name">Subha Shree D</div>
+                            <div class="member-position">Designer</div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Social Media Team Section -->
+                <div class="role-section">
+                    <h3 class="role-title">Social Media Team</h3>
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/Harish%20raja1.png?raw=true"
+                                class="member-image" alt="Harish Raja R">
+                            <div class="member-name">Harish Raja R</div>
+                            <div class="member-position">Social Media Manager</div>
+
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/Sruthi%20Sakthi1.png?raw=true"
+                                class="member-image" alt="Sruthi Sakthi M">
+                            <div class="member-name">Sruthi Sakthi M</div>
+                            <div class="member-position">Social Media Manager</div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Executive Directors Section -->
+                <div class="role-section">
+                    <h3 class="role-title">Executive Directors</h3>
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Harish.jpg?raw=true"
+                                class="member-image" alt="Harish V">
+                            <div class="member-name">Harish V</div>
+                            <div class="member-position">Executive Director</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/Kiran%20saai%20ram.jpg?raw=true"
+                                class="member-image" alt="Kiran Saai Ram MS">
+                            <div class="member-name">Kiran Saai Ram MS</div>
+                            <div class="member-position">Executive Director</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/Dhanyasakthi.jpg?raw=true"
+                                class="member-image" alt="Dhanyasakthi S">
+                            <div class="member-name">Dhanyasakthi S</div>
+                            <div class="member-position">Executive Director</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/Sanjai%20R.jpg?raw=true"
+                                class="member-image" alt="Sanjai R">
+                            <div class="member-name">Sanjai R</div>
+                            <div class="member-position">Executive Director</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/39d22fdb39930c3aeb60fb368ff787af5eb69448/JJF.jpg?raw=true"
+                                class="member-image" alt="Jessica Jones M">
+                            <div class="member-name">Jessica Jones M</div>
+                            <div class="member-position">Executive Director</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/39d22fdb39930c3aeb60fb368ff787af5eb69448/JVF.jpg?raw=true"
+                                class="member-image" alt="Jayavani P">
+                            <div class="member-name">Jayavani P</div>
+                            <div class="member-position">Executive Director</div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!-- Creative Directors Section -->
+                <div class="role-section">
+                    <h3 class="role-title">Creative Directors</h3>
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/dhina.jpg?raw=true"
+                                class="member-image" alt="Dhinakaran B">
+                            <div class="member-name">Dhinakaran B</div>
+                            <div class="member-position">Creative Director</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/akshaya.jpg?raw=true"
+                                class="member-image" alt="Akshaya NV">
+                            <div class="member-name">Akshaya NV</div>
+                            <div class="member-position">Creative Director</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/Sheresh%20Raja1.jpg?raw=true"
+                                class="member-image" alt="Sheresh Raja R">
+                            <div class="member-name">Sheresh Raja R</div>
+                            <div class="member-position">Creative Director</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/dhru.jpg?raw=true"
+                                class="member-image" alt="Dhruvathara K">
+                            <div class="member-name">Dhruvathara K</div>
+                            <div class="member-position">Creative Director</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/Devaki1.jpg?raw=true"
+                                class="member-image" alt="Devaki P">
+                            <div class="member-name">Devaki P</div>
+                            <div class="member-position">Creative Director</div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Internal Affairs Team Section -->
+                <div class="role-section">
+                    <h3 class="role-title">Internal Affairs Team</h3>
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/suvetha.jpg?raw=true"
+                                class="member-image" alt="Suvetha SP">
+                            <div class="member-name">Suvetha SP</div>
+                            <div class="member-position">Internal Affairs Team</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/bala1.jpg?raw=true"
+                                class="member-image" alt="Balamurugan G">
+                            <div class="member-name">Balamurugan G</div>
+                            <div class="member-position">Internal Affairs Team</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/karthiga.jpg?raw=true"
+                                class="member-image" alt="Karthikha TS">
+                            <div class="member-name">Karthikha TS</div>
+                            <div class="member-position">Internal Affairs Team</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/Visvesh%20Rayan.jpg?raw=true"
+                                class="member-image" alt="Visvesh Rayan K">
+                            <div class="member-name">Visvesh Rayan K</div>
+                            <div class="member-position">Internal Affairs Team</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Gowtham%20K.jpg?raw=true"
+                                class="member-image" alt="Gowtham K">
+                            <div class="member-name">Gowtham K</div>
+                            <div class="member-position">Internal Affairs Team</div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Outreach Ambassadors Section -->
+                <div class="role-section">
+                    <h3 class="role-title">Outreach Ambassadors</h3>
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Kavin%20karthik.jpg?raw=true"
+                                class="member-image" alt="Kavin Karthik N">
+                            <div class="member-name">Kavin Karthik N</div>
+                            <div class="member-position">Outreach Ambassador</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/d24afff2278e7663cd79c3dcc8c40aafc156d043/Dhinesh1.jpg?raw=true"
+                                class="member-image" alt="Dhinesh T">
+                            <div class="member-name">Dhinesh T</div>
+                            <div class="member-position">Outreach Ambassador</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Deepthi%20SK.jpg?raw=true"
+                                class="member-image" alt="Deepthi SK">
+                            <div class="member-name">Deepthi SK</div>
+                            <div class="member-position">Outreach Ambassador</div>
+
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/nandhana.jpg?raw=true"
+                                class="member-image" alt="Nandana R">
+                            <div class="member-name">Nandana R</div>
+                            <div class="member-position">Outreach Ambassador</div>
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/39d22fdb39930c3aeb60fb368ff787af5eb69448/RDF.jpg?raw=true"
+                                class="member-image" alt="Rathina Dharshini E">
+                            <div class="member-name">Rathina Dharshini E</div>
+                            <div class="member-position">Outreach Ambassador</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- External Affairs Section -->
+                <div class="role-section">
+                    <h3 class="role-title">External Affairs Team</h3>
+                    <div class="members-grid">
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/69a13df2bf509c170ad13d0d9996d8941dd0a922/Prabakaran.PNG?raw=true"
+                                class="member-image" alt="Prabakaran VR">
+                            <div class="member-name">Prabakaran VR</div>
+                            <div class="member-position">External Affairs</div>
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/kavin%20kr.png?raw=true"
+                                class="member-image" alt="Kavin KR">
+                            <div class="member-name">Kavin KR</div>
+                            <div class="member-position">External Affairs</div>
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/20d740d229d938041540a312e9fe7622b1761340/final/hari.jpg?raw=true"
+                                class="member-image" alt="Hariprasath K">
+                            <div class="member-name">Hariprasath K</div>
+                            <div class="member-position">External Affairs</div>
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/gowthamanna.jpg?raw=true"
+                                class="member-image" alt="Gowtham K">
+                            <div class="member-name">Gowtham K</div>
+                            <div class="member-position">External Affairs</div>
+                        </div>
+
+                        <div class="member-card">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/shagul.jpg?raw=true"
+                                class="member-image" alt="Shagul Hameeth">
+                            <div class="member-name">Shagul Hameeth</div>
+                            <div class="member-position">External Affairs</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- ACHIEVEMENTS PAGE -->
+    <div id="achievements" class="page">
+        <section class="section">
+            <div class="container">
+                <h1 class="text-4xl font-bold text-center mb-8 sm:mb-12" style="padding: 0 1rem;">
+                    <span class="neo-text">Achievements</span>
+                </h1>
+                <p class="section-subtitle">Celebrating the success and milestones of our quiz club members</p>
+
+                <div class="achievements-grid">
+                    <!-- Lumiere 2023 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/lum2023.jpg?raw=true"
+                                alt="Lumiere 2023" loading="lazy">
+                        </div>
+                        <div class="achievement-content">
+                            <h3>Lumiere 2023</h3>
+                            <p>Rohit JS securing the first place at the Entertainment and Media Quiz at the Lumiere
+                                event conducted at Hindusthan College Of Arts and Science</p>
+                            <div class="achievement-date">2023</div>
+                        </div>
+                    </div>
+
+                    <!-- Quiztrac 2024 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/quiztrac.jpg?raw=true"
+                                alt="Quiztrac 2024" loading="lazy">
+                        </div>
+                        <div class="achievement-content">
+                            <h3>Quiztrac 2024</h3>
+                            <p>Jagan Nathan S taking part in the Quiztrac event held at PSG College Of Arts and
+                                Science</p>
+                            <div class="achievement-date">2024</div>
+                        </div>
+                    </div>
+
+                    <!-- Srujana 2024 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/srujana_2024.jpg?raw=true"
+                                alt="Srujana 2024" loading="lazy">
+                        </div>
+                        <div class="achievement-content">
+                            <h3>Srujana 2024</h3>
+                            <p>Rohit JS and KS.Suriya Prasanna securing the 2nd place in the event "Strategy Surge"
+                                at the annual flagship event conducted by Jansons School Of Business</p>
+                            <div class="achievement-date">2024</div>
+                        </div>
+                    </div>
+
+                    <!-- Yugam 2024 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/tlc_quiz.jpg?raw=true"
+                                alt="Yugam 2024" loading="lazy">
+                        </div>
+                        <div class="achievement-content">
+                            <h3>Yugam 2024</h3>
+                            <p>Kavin Karthik N securing first place in the TLC Quiz conducted in the Yugam 2024
+                                event by Kumaraguru College Of Technology</p>
+                            <div class="achievement-date">2024</div>
+                        </div>
+                    </div>
+
+                    <!-- Cascall 2024 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/Cascall_2024.jpg?raw=true"
+                                alt="Cascall 2024" loading="lazy">
+                        </div>
+                        <div class="achievement-content">
+                            <h3>Cascall 2024</h3>
+                            <p>KS.Suriya Prasanna and Rohit JS securing 2nd place in the Cascall Quiz event
+                                conducted by PSG College of Arts and Science</p>
+                            <div class="achievement-date">2024</div>
+                        </div>
+                    </div>
+
+                    <!-- Brainstrain 2024 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/brainstrain_2024.jpg?raw=true"
+                                alt="Brainstrain 2024" loading="lazy">
+                        </div>
+                        <div class="achievement-content">
+                            <h3>Brainstrain 2024</h3>
+                            <p>Alagusundaram C, Kavin Karthik N, Kritheeka K and Subashree participating in the
+                                "Brainstrain" Event conducted by Literary and Debating Society of Government College
+                                Of Technology, Coimbatore</p>
+                            <div class="achievement-date">2024</div>
+                        </div>
+                    </div>
+
+                    <!-- Shankar IAS Event 2024 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <div class="image-grid">
+                                <img src="https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/shankar1.jpg?raw=true"
+                                    alt="Shankar IAS 1" loading="lazy">
+                                <img src="https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/shankar2.jpg?raw=true"
+                                    alt="Shankar IAS 2" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="achievement-content">
+                            <h3>Shankar IAS Event 2024</h3>
+                            <p>Kritheeka K and Jayarani securing appreciation certificates for the general awareness
+                                event conducted by Shankar IAS Academy</p>
+                            <div class="achievement-date">2024</div>
+                        </div>
+                    </div>
+
+                    <!-- Srujana 2025 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/srujana_2025.jpg?raw=true"
+                                alt="Srujana 2025" loading="lazy">
+                        </div>
+                        <div class="achievement-content">
+                            <h3>Srujana 2025</h3>
+                            <p>KS.Suriya Prasanna, Rohit JS and Kavin Karthik N securing 2nd place in the event
+                                "Brand Battles" conducted at Srujana 2025 at Jansons School Of Business</p>
+                            <div class="achievement-date">2025</div>
+                        </div>
+                    </div>
+
+                    <!-- Econspire 2025 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/econspire.jpg?raw=true"
+                                alt="Econspire 2025" loading="lazy">
+                        </div>
+                        <div class="achievement-content">
+                            <h3>Econspire 2025</h3>
+                            <p>Rohit JS and KS.Suriya Prasanna securing 3rd place in the economics and business quiz
+                                conducted at Econspire 2025 at PSG College Of Arts and Science</p>
+                            <div class="achievement-date">2025</div>
+                        </div>
+                    </div>
+
+                    <!-- Road Safety Awareness Quiz 2024 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <div class="image-grid">
+                                <img src="https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/rsp1.jpg?raw=true"
+                                    alt="Road Safety 1" loading="lazy">
+                                <img src="https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/rsp2.jpg?raw=true"
+                                    alt="Road Safety 2" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="achievement-content">
+                            <h3>Road Safety Awareness Quiz 2024</h3>
+                            <p>Sanjay R and Suvetha SP obtaining appreciation from Coimbatore City Commissioner
+                                (former) Mr. Balakrishnan for their contributions for the event</p>
+                            <div class="achievement-date">2024</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <section class="section">
+            <div class="container">
+                <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 glow-on-hover">
+                        <span class="neo-text">Get In Touch</span>
+                    </h1>
+                    <p class="section-subtitle"
+                        style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 1.5rem auto; padding: 1rem; background: rgba(26, 26, 46, 0.4); backdrop-filter: blur(10px); border-radius: 12px; box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2), -8px -8px 16px rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);">
+                        We'd love to hear from you! Reach out through any of these channels. 👋
+                    </p>
+                </div>
+
+                <div class="contact-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                    <!-- Instagram -->
+                    <div class="contact-card"
+                        style="background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(12px); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; border: 1px solid rgba(138, 43, 226, 0.2);">
+                        <div class="contact-icon-wrapper"
+                            style="width: 80px; height: 80px; margin: 0 auto 1.5rem; position: relative;">
+                            <div class="contact-icon-inner"
+                                style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 107, 107, 0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/instagram.jpg?raw=true"
+                                    alt="Instagram" style="width: 40px; height: 40px; object-fit: contain;">
+                            </div>
+                        </div>
+                        <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">Instagram</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem;">Follow us for updates and
+                            highlights</p>
+                        <a href="https://www.instagram.com/citquizclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                            class="contact-btn" target="_blank"
+                            style="display: inline-block; padding: 0.6rem 1.5rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);">Follow
+                            Us</a>
+                        <div class="contact-wave"></div>
+                    </div>
+
+                    <!-- LinkedIn -->
+                    <div class="contact-card"
+                        style="background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(12px); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; border: 1px solid rgba(138, 43, 226, 0.2);">
+                        <div class="contact-icon-wrapper"
+                            style="width: 80px; height: 80px; margin: 0 auto 1.5rem; position: relative;">
+                            <div class="contact-icon-inner"
+                                style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 107, 107, 0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                <img src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/linkedin.png?raw=true"
+                                    alt="LinkedIn" style="width: 40px; height: 40px; object-fit: contain;">
+                            </div>
+                        </div>
+                        <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">LinkedIn</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem;">Connect with us
+                            professionally</p>
+                        <a href="https://www.linkedin.com/company/quiz-club-qc/" class="contact-btn" target="_blank"
+                            style="display: inline-block; padding: 0.6rem 1.5rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);">Connect</a>
+                        <div class="contact-wave"></div>
+                    </div>
+
+                    <!-- Call Us -->
+                    <div class="contact-card"
+                        style="background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(12px); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; border: 1px solid rgba(138, 43, 226, 0.2);">
+                        <div class="contact-icon-wrapper"
+                            style="width: 80px; height: 80px; margin: 0 auto 1.5rem; position: relative;">
+                            <div class="contact-icon-inner"
+                                style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 107, 107, 0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="color: #25D366;">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">Call Us</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 0.5rem; font-size: 0.95rem;">📞
+                            8610634356</p>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem; font-size: 0.95rem;">📞
+                            6361746669</p>
+                        <a href="tel:8610634356" class="contact-btn" target="_blank"
+                            style="display: inline-block; padding: 0.6rem 1.5rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);">Call
+                            Now</a>
+                        <div class="contact-wave"></div>
+                    </div>
+
+                    <!-- Email Us -->
+                    <div class="contact-card"
+                        style="background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(12px); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; border: 1px solid rgba(138, 43, 226, 0.2); cursor: pointer;"
+                        onclick="window.location.href='mailto:quizclubqccit@gmail.com';">
+                        <div class="contact-icon-wrapper"
+                            style="width: 80px; height: 80px; margin: 0 auto 1.5rem; position: relative;">
+                            <div class="contact-icon-inner"
+                                style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 107, 107, 0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="color: #8a2be2;">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">Email Us</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 0.5rem; font-size: 0.95rem;">
+                            quizclubqccit@gmail.com</p>
+                        <p style="color: rgba(255, 255, 255, 0.6); margin-bottom: 1.5rem; font-size: 0.9rem;">Send us an
+                            email for inquiries</p>
+                        <div class="contact-btn"
+                            style="display: inline-block; padding: 0.6rem 1.5rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);">
+                            Send Email</div>
+                        <div class="contact-wave"></div>
+                    </div>
+
+                    <!-- Visit Us -->
+                    <div class="contact-card"
+                        style="background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(12px); border-radius: 16px; padding: 2rem; text-align: center; transition: all 0.3s ease; border: 1px solid rgba(138, 43, 226, 0.2); cursor: pointer;"
+                        onclick="window.open('https://www.google.com/maps/place/Coimbatore+Institute+of+Technology', '_blank');">
+                        <div class="contact-icon-wrapper"
+                            style="width: 80px; height: 80px; margin: 0 auto 1.5rem; position: relative;">
+                            <div class="contact-icon-inner"
+                                style="width: 100%; height: 100%; background: linear-gradient(135deg, rgba(138, 43, 226, 0.1), rgba(255, 107, 107, 0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="color: #ff6b6b;">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 style="color: white; margin-bottom: 1rem; font-size: 1.3rem;">Visit Us</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1.5rem;">Coimbatore Institute of
+                            Technology</p>
+                        <div class="contact-btn"
+                            style="display: inline-block; padding: 0.6rem 1.5rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; border-radius: 30px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);">
+                            View on Map</div>
+                        <div class="contact-wave"></div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-card contact-form-card"
+                        style="background: rgba(26, 26, 46, 0.7); backdrop-filter: blur(12px); border-radius: 16px; padding: 2rem; text-align: left; transition: all 0.3s ease; border: 1px solid rgba(138, 43, 226, 0.2); grid-column: 1 / -1; max-width: 800px; margin: 0 auto;">
+                        <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">Send us
+                            a Message</h3>
+                        <form id="contactForm" class="contact-form" style="display: grid; gap: 1.5rem;">
+                            <div class="form-group" style="position: relative; margin-bottom: 1.5rem;">
+                                <input type="text" id="name" name="name" required
+                                    style="width: 100%; padding: 1rem 0; font-size: 1rem; border: none; border-bottom: 2px solid rgba(255, 255, 255, 0.2); background: transparent; color: white; transition: all 0.3s ease;">
+                                <label for="name"
+                                    style="position: absolute; top: 1rem; left: 0; color: rgba(255, 255, 255, 0.7); pointer-events: none; transition: all 0.3s ease;">Your
+                                    Name</label>
+                                <span class="focus-border"
+                                    style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.3s ease;"></span>
+                            </div>
+                            <div class="form-group" style="position: relative; margin-bottom: 1.5rem;">
+                                <input type="email" id="email" name="email" required
+                                    style="width: 100%; padding: 1rem 0; font-size: 1rem; border: none; border-bottom: 2px solid rgba(255, 255, 255, 0.2); background: transparent; color: white; transition: all 0.3s ease;">
+                                <label for="email"
+                                    style="position: absolute; top: 1rem; left: 0; color: rgba(255, 255, 255, 0.7); pointer-events: none; transition: all 0.3s ease;">Email
+                                    Address</label>
+                                <span class="focus-border"
+                                    style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.3s ease;"></span>
+                            </div>
+                            <div class="form-group" style="position: relative; margin-bottom: 2rem;">
+                                <textarea id="message" name="message" rows="4" required
+                                    style="width: 100%; padding: 1rem 0; font-size: 1rem; border: none; border-bottom: 2px solid rgba(255, 255, 255, 0.2); background: transparent; color: white; resize: vertical; min-height: 100px; transition: all 0.3s ease;"></textarea>
+                                <label for="message"
+                                    style="position: absolute; top: 1rem; left: 0; color: rgba(255, 255, 255, 0.7); pointer-events: none; transition: all 0.3s ease;">Your
+                                    Message</label>
+                                <span class="focus-border"
+                                    style="position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.3s ease;"></span>
+                            </div>
+                            <a href="tel:+911234567890" class="call-btn"
+                                style="display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 2.5rem; background: linear-gradient(45deg, #25D366, #128C7E); color: white; border: none; border-radius: 30px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); margin-right: 1rem; text-decoration: none;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="margin-right: 8px;">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                                Call Us
+                            </a>
+                            <button type="submit" class="submit-btn"
+                                style="display: inline-flex; align-items: center; padding: 0.8rem 2.5rem; background: linear-gradient(45deg, var(--primary), var(--secondary)); color: white; border: none; border-radius: 30px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-icon" style="margin-left: 8px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="contact-wave"></div>
+                    </div>
+                </div>
+
+                <!-- Additional Contact Info -->
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Go to Top Button -->
+    <button class="goto-top" id="gotoTop" onclick="scrollToTop()">↑</button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.instagram.com/citquizclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    class="social-link" target="_blank">
+                    <span class="social-icon"><img id="insta"
+                            src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/instagram.jpg?raw=true"></span>
+                    <span>Instagram</span>
+                </a>
+                <a href="https://www.linkedin.com/company/quiz-club-qc/" class="social-link" target="_blank">
+                    <span class="social-icon"><img id="linked"
+                            src="https://github.com/Peter2413P/QuizClub/blob/dff354c9147ae30ac6f8564983360f5a0e12deaa/linkedin.png?raw=true"></span>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+            <p>&copy; 2025 Quiz Club CIT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js">
+    </script>
+</body>
+
+</html>

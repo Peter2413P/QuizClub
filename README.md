@@ -156,6 +156,16 @@ Welcome to the official repository of the **Quiz Club**! This site is a hub for 
 | srujana_2024.jpg      | ![](https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/srujana_2024.jpg?raw=true) |
 | srujana_2025.jpg      | ![](https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/srujana_2025.jpg?raw=true) |
 | tlc_quiz.jpg          | ![](https://github.com/Peter2413P/QuizClub/blob/10d2f8e27e8a63276daf31899ee119618f215d0b/final/tlc_quiz.jpg?raw=true) |
+| QW1.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/QuizWizards-2025/QW1.jpg?raw=true) |
+| QW2.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/QuizWizards-2025/QW2.jpg?raw=true) |
+| QW3.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/QuizWizards-2025/QW3.jpg?raw=true) |
+| QW4.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/QuizWizards-2025/QW4.jpg?raw=true) |
+| QW5.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/QuizWizards-2025/QW5.jpg?raw=true) |
+| IQ1.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/InfactQuiz-2025/IQ1.jpg?raw=true) |
+| IQ2.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/InfactQuiz-2025/IQ2.jpg?raw=true) |
+| IQ3.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/InfactQuiz-2025/IQ3.jpg?raw=true) |
+| IQ4.jpg | ![](https://github.com/Peter2413P/QuizClub/blob/2c3c073cb363ccf89ea8155081937af973d2a49b/final/Past%20Events/2025/InfactQuiz-2025/IQ4.jpg?raw=true) |
+
 
 
 ---
